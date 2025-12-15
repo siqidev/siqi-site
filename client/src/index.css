@@ -177,6 +177,12 @@
     animation: flicker 0.15s infinite;
     @apply pointer-events-none fixed inset-0 z-40 opacity-[0.02] bg-white mix-blend-overlay;
   }
+
+  @media (max-width: 768px) {
+    .crt-flicker {
+      display: none;
+    }
+  }
   
   .glitch-text {
     @apply relative inline-block;

@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <SEOMetadata />
-      
+
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="scanline"></div>
@@ -42,38 +42,38 @@ export default function Home() {
       </nav>
 
       <main className="flex-1 relative z-10 pt-16">
-        
+
         {/* Hero Section - Simplified & Clean */}
         <section id="hero" className="min-h-[90vh] flex items-center justify-center relative border-b border-primary/20 overflow-hidden">
           <div className="absolute inset-0 z-0 opacity-40">
             <img src="/images/avatar-ui-demo.gif" alt="Hero Background" className="w-full h-full object-cover scale-110 blur-sm" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/90 to-black"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black"></div>
           </div>
-          
+
           <div className="container relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">
-            
+
             <div className="mb-10 space-y-4">
               <h1 className="text-4xl md:text-6xl font-display font-bold tracking-tight text-white">
                 Creative Developer <span className="text-primary">&</span> Writer
               </h1>
               <div className="text-xl md:text-2xl font-mono text-primary/80 h-12">
-                <Typewriter 
-                  text="> Building the future, pixel by pixel._" 
-                  speed={40} 
+                <Typewriter
+                  text="> Building the future, pixel by pixel._"
+                  speed={40}
                   delay={500}
                 />
               </div>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6">
-              <Button 
+              <Button
                 onClick={() => scrollToSection("works")}
                 className="bg-primary text-black hover:bg-neon-magenta hover:text-white border-none rounded-full font-mono px-10 h-14 text-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,255,65,0.2)] hover:shadow-[0_0_30px_rgba(0,255,65,0.4)]"
               >
                 View Works <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 onClick={() => window.open("https://github.com", "_blank")}
                 className="border-primary/50 text-primary hover:bg-primary/10 rounded-full font-mono px-10 h-14 text-lg"
               >
@@ -105,9 +105,9 @@ export default function Home() {
               <div className="w-full">
                 <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
                   {/* Using img tag directly to ensure full visibility without cropping */}
-                  <img 
-                    src="/images/avatar-ui-demo.gif" 
-                    alt="Avatar UI Demo" 
+                  <img
+                    src="/images/avatar-ui-demo.gif"
+                    alt="Avatar UI Demo"
                     className="w-full h-auto block"
                   />
                 </div>
@@ -119,7 +119,7 @@ export default function Home() {
                   <h3 className="text-5xl font-display text-neon-magenta">Avatar UI</h3>
                   <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">v0.1.0</span>
                 </div>
-                
+
                 <p className="font-mono text-gray-300 leading-relaxed text-lg">
                   人とAIが共存する次世代インターフェース基盤。
                   Gemini・GPT・Claude対応。デスクトップで動くエージェントUI。
@@ -163,25 +163,25 @@ export default function Home() {
           <div className="absolute inset-0 z-0 opacity-20">
             <img src="/images/profile-bg.png" alt="Profile Background" className="w-full h-full object-cover" />
           </div>
-          
+
           <div className="container relative z-10">
             <div className="flex flex-col md:flex-row gap-16 items-center">
               <div className="w-full md:w-1/3 flex justify-center">
                 <div className="relative group w-48 h-48 md:w-64 md:h-64">
                   <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <img 
-                    src="/images/shikino-icon.png" 
-                    alt="Shikino Shito" 
+                  <img
+                    src="/images/shikino-icon.png"
+                    alt="Shikino Shito"
                     className="w-full h-full rounded-full border-2 border-primary/50 relative z-10 shadow-[0_0_30px_rgba(0,255,65,0.3)] object-cover"
                   />
                 </div>
               </div>
-              
+
               <div className="w-full md:w-2/3 space-y-8">
                 <h2 className="text-4xl md:text-5xl font-display text-white">
                   <span className="text-primary">02.</span> PROFILE_DATA
                 </h2>
-                
+
                 <div className="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
                   <p>
                     <span className="text-primary">{">"}</span> 作家兼個人開発者として活動するクリエイター。
@@ -258,8 +258,8 @@ export default function Home() {
                   link: "#"
                 }
               ].map((post, i) => (
-                <a 
-                  key={i} 
+                <a
+                  key={i}
                   href={post.link}
                   className="group block border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300 p-6 relative overflow-hidden"
                 >
@@ -292,7 +292,7 @@ export default function Home() {
               プロジェクトの依頼、コラボレーションの提案、または単なる挨拶まで。
               常に通信回線を開いています。
             </p>
-            
+
             <div className="flex justify-center gap-6">
               <a href="https://x.com/Sikino_Sito" target="_blank" rel="noopener noreferrer">
                 <Button variant="outline" className="w-16 h-16 rounded-full border-primary/50 text-primary hover:bg-primary hover:text-black transition-all duration-300">
