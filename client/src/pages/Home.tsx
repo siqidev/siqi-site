@@ -16,8 +16,8 @@ export default function Home() {
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <SEOMetadata />
 
-      {/* Background Elements */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      {/* Background Elements - Hidden on mobile for better UX */}
+      <div className="fixed inset-0 z-0 pointer-events-none hidden md:block">
         <div className="scanline"></div>
         <div className="crt-flicker"></div>
       </div>
