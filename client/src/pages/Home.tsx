@@ -18,8 +18,8 @@ export default function Home() {
 
       {/* Background Elements */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="scanline hidden md:block"></div>
-        <div className="crt-flicker hidden md:block"></div>
+        <div className="scanline"></div>
+        <div className="crt-flicker"></div>
       </div>
 
       {/* Navigation */}
