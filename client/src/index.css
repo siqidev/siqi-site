@@ -1,0 +1,202 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-mono: "JetBrains Mono", monospace;
+  --font-display: "VT323", monospace;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  
+  --color-neon-green: #00FF41;
+  --color-neon-amber: #FFB000;
+  --color-neon-magenta: #FF00FF;
+  --color-void-black: #050505;
+
+  --animate-glitch: glitch 1s linear infinite;
+  --animate-scanline: scanline 8s linear infinite;
+  --animate-flicker: flicker 0.15s infinite;
+  --animate-typewriter: typewriter 2s steps(40) 1s 1 normal both;
+  
+  @keyframes glitch {
+    2%, 64% { transform: translate(2px,0) skew(0deg); }
+    4%, 60% { transform: translate(-2px,0) skew(0deg); }
+    62% { transform: translate(0,0) skew(5deg); }
+  }
+  
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+
+  @keyframes flicker {
+    0% { opacity: 0.97; }
+    5% { opacity: 0.95; }
+    10% { opacity: 0.9; }
+    15% { opacity: 0.95; }
+    20% { opacity: 0.99; }
+    25% { opacity: 0.95; }
+    30% { opacity: 0.9; }
+    35% { opacity: 0.96; }
+    40% { opacity: 0.98; }
+    45% { opacity: 0.95; }
+    50% { opacity: 0.99; }
+    55% { opacity: 0.93; }
+    60% { opacity: 0.9; }
+    65% { opacity: 0.96; }
+    70% { opacity: 1; }
+    75% { opacity: 0.97; }
+    80% { opacity: 0.95; }
+    85% { opacity: 0.92; }
+    90% { opacity: 0.98; }
+    95% { opacity: 0.95; }
+    100% { opacity: 0.98; }
+  }
+
+  @keyframes typewriter {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+}
+
+:root {
+  /* Default to Dark Theme (Neo-Retro Terminal) */
+  --background: #050505;
+  --foreground: #00FF41;
+  
+  --card: #0A0A0A;
+  --card-foreground: #00FF41;
+  
+  --popover: #0A0A0A;
+  --popover-foreground: #00FF41;
+  
+  --primary: #00FF41;
+  --primary-foreground: #050505;
+  
+  --secondary: #111111;
+  --secondary-foreground: #FFB000;
+  
+  --muted: #1A1A1A;
+  --muted-foreground: #008F11;
+  
+  --accent: #FF00FF;
+  --accent-foreground: #FFFFFF;
+  
+  --destructive: #FF0000;
+  --destructive-foreground: #FFFFFF;
+  
+  --border: #00FF41;
+  --input: #111111;
+  --ring: #00FF41;
+  
+  --radius: 0px; /* Sharp edges for terminal look */
+}
+
+/* Force dark mode styles even if system is light */
+.dark {
+  --background: #050505;
+  --foreground: #00FF41;
+  /* ... same as root ... */
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-mono antialiased overflow-x-hidden;
+    background-image: 
+      linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+      linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    background-size: 100% 2px, 3px 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display uppercase tracking-widest;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 hover:bg-primary;
+    border: 1px solid var(--background);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  @media (min-width: 640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem; } }
+  @media (min-width: 1024px) { .container { padding-left: 2rem; padding-right: 2rem; max-width: 1280px; } }
+
+  .terminal-window {
+    @apply border border-primary bg-black/80 backdrop-blur-sm relative overflow-hidden shadow-[0_0_15px_rgba(0,255,65,0.3)];
+  }
+  
+  .terminal-header {
+    @apply bg-primary/20 border-b border-primary p-2 flex items-center justify-between;
+  }
+
+  .scanline {
+    @apply fixed top-0 left-0 w-full h-[100px] pointer-events-none z-50 opacity-10;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 255, 65, 0.5) 50%, transparent 100%);
+    animation: scanline 8s linear infinite;
+  }
+  
+  .crt-flicker {
+    animation: flicker 0.15s infinite;
+    @apply pointer-events-none fixed inset-0 z-40 opacity-[0.02] bg-white mix-blend-overlay;
+  }
+  
+  .glitch-text {
+    @apply relative inline-block;
+  }
+  
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    @apply absolute top-0 left-0 w-full h-full opacity-80;
+  }
+  
+  .glitch-text::before {
+    @apply text-neon-magenta -translate-x-[2px];
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+    animation: glitch 2s infinite linear alternate-reverse;
+  }
+  
+  .glitch-text::after {
+    @apply text-neon-amber translate-x-[2px];
+    clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+    animation: glitch 2.5s infinite linear alternate-reverse;
+  }
+}
