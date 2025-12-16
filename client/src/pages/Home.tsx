@@ -75,7 +75,7 @@ export default function Home() {
 
             {/* Main Typography Logo */}
             <div className="relative mb-8">
-              <h1 className="font-display font-extrabold text-[25vw] md:text-[18rem] leading-[0.8] tracking-tighter text-white mix-blend-difference select-none">
+              <h1 className="font-syne font-extrabold text-[25vw] md:text-[18rem] leading-[0.8] tracking-tighter text-white mix-blend-difference select-none">
                 SIQI
               </h1>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
