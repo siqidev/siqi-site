@@ -3,54 +3,28 @@ import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
+import { ArrowRight, Code, ExternalLink, Github, Terminal, X, Menu } from "lucide-react";
 import React from "react";
 
-function DataStreamContent() {
-  const streamText = React.useMemo(() => {
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ";
-    let result = "";
-    for (let i = 0; i < 100; i++) {
-      // Random chunks of data
-      const chunkLength = Math.floor(Math.random() * 8) + 4;
-      let chunk = "";
-      for (let j = 0; j < chunkLength; j++) {
-        chunk += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
 
-      // Add some meaningful keywords occasionally
-      if (Math.random() > 0.9) {
-        const keywords = ["SYSTEM", "DATA", "SIQI", "CONNECT", "UPLINK", "ERROR", "OK", "404", "200"];
-        chunk = keywords[Math.floor(Math.random() * keywords.length)];
-      }
-
-      result += chunk + " // ";
-    }
-    return result;
-  }, []);
-
-  return (
-    <span className="font-mono text-xs text-primary/40 mx-4 tracking-wider">
-      {streamText}
-    </span>
-  );
-}
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
+  const [loading, setLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
         const posts = await fetchRSS("https://note.com/sikino_sito/rss", "note");
-        setBlogPosts(posts);
+        setBlogPosts(posts.slice(0, 3));
       } catch (error) {
         console.error("Failed to load blog posts:", error);
       } finally {
-        setIsLoadingPosts(false);
+        setLoading(false);
       }
     };
+
     loadPosts();
   }, []);
 
@@ -58,24 +32,27 @@ export default function Home() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false);
     }
   };
 
   return (
-    <div className="min-h-screen flex flex-col relative overflow-hidden">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden">
       <SEOMetadata />
 
-      {/* Background Elements - Scanline only (no flicker for consistent look) */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      {/* CRT Effects */}
+      <div className="fixed inset-0 z-50 pointer-events-none">
         <div className="scanline"></div>
       </div>
 
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary/30 bg-black/80 backdrop-blur-md">
-        <div className="container flex items-center justify-between h-16">
+        <div className="container flex items-center justify-between h-16 px-4">
           <div className="flex items-center gap-2">
             <span className="font-display text-xl tracking-widest text-primary">&gt;_SIQI</span>
           </div>
+
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-sm font-mono">
             <button onClick={() => scrollToSection("hero")} className="hover:text-neon-magenta transition-colors text-primary/80">./HOME</button>
             <button onClick={() => scrollToSection("about")} className="hover:text-neon-magenta transition-colors text-primary/80">./PROFILE</button>
@@ -83,10 +60,30 @@ export default function Home() {
             <button onClick={() => scrollToSection("blog")} className="hover:text-neon-magenta transition-colors text-primary/80">./LOGS</button>
             <button onClick={() => scrollToSection("contact")} className="hover:text-neon-magenta transition-colors text-primary/80">./CONTACT</button>
           </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-primary hover:text-neon-magenta transition-colors"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+
           <Button variant="outline" size="sm" className="hidden md:flex border-primary text-primary hover:bg-primary hover:text-black font-mono rounded-none">
             SYS.STATUS: ONLINE
           </Button>
         </div>
+
+        {/* Mobile Menu Overlay */}
+        {isMenuOpen && (
+          <div className="fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex flex-col items-center justify-center gap-8 animate-in slide-in-from-top-5 fade-in duration-200">
+            <button onClick={() => scrollToSection("hero")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./HOME</button>
+            <button onClick={() => scrollToSection("about")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./PROFILE</button>
+            <button onClick={() => scrollToSection("works")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./WORKS</button>
+            <button onClick={() => scrollToSection("blog")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./LOGS</button>
+            <button onClick={() => scrollToSection("contact")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./CONTACT</button>
+          </div>
+        )}
       </nav>
 
       <main className="flex-1 relative z-10 pt-16">
@@ -127,13 +124,8 @@ export default function Home() {
 
           </div>
 
-          {/* Data Stream (Matrix-like Marquee) */}
-          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm border-t border-white/5 overflow-hidden py-2 select-none pointer-events-none z-30">
-            <div className="flex whitespace-nowrap animate-marquee">
-              <DataStreamContent />
-              <DataStreamContent />
-            </div>
-          </div>
+          {/* Fade Gradient Overlay */}
+          <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
         </section>
 
         {/* Works Section (Avatar UI) - MOVED TO TOP */}
@@ -286,16 +278,13 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {isLoadingPosts ? (
-                // Loading skeleton
+              {loading ? (
+                // Loading Skeletons
                 [...Array(3)].map((_, i) => (
-                  <div key={i} className="border border-primary/20 bg-primary/5 p-6 animate-pulse">
-                    <div className="flex items-center gap-2 mb-4">
-                      <div className="h-5 w-12 bg-primary/20 rounded"></div>
-                      <div className="h-4 w-20 bg-primary/10 rounded"></div>
-                    </div>
-                    <div className="h-6 w-full bg-primary/20 rounded mb-2"></div>
-                    <div className="h-6 w-3/4 bg-primary/10 rounded"></div>
+                  <div key={i} className="border border-primary/20 bg-black/40 p-6 space-y-4 animate-pulse">
+                    <div className="h-4 bg-primary/20 w-1/3"></div>
+                    <div className="h-6 bg-primary/20 w-3/4"></div>
+                    <div className="h-20 bg-primary/10 w-full"></div>
                   </div>
                 ))
               ) : blogPosts.length > 0 ? (
