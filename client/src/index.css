@@ -326,4 +326,49 @@
   .animate-marquee {
     animation: marquee 20s linear infinite;
   }
+
+  /* Simple Text Scan Effect (Light Pass) */
+  .text-scan-effect {
+    color: transparent;
+    background-color: white;
+
+    background-image: linear-gradient(to bottom,
+        #ffffff 0%,
+        #ffffff 40%,
+        #88ff88 50%,
+        /* Green tint */
+        #ffffff 60%,
+        #ffffff 100%);
+
+    background-size: 100% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    animation: text-scan-light 8s linear infinite;
+  }
+
+  @keyframes text-scan-light {
+    0% {
+      background-position: 0% 0%;
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+
+    40% {
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+
+    50% {
+      background-position: 0% 50%;
+      text-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
+    }
+
+    60% {
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+      background-position: 0% 100%;
+      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+    }
+  }
 }
