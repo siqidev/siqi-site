@@ -327,47 +327,29 @@
     animation: marquee 20s linear infinite;
   }
 
-  /* Simple Text Scan Effect (Light Pass) */
+  /* Simple Text Scan Effect (Global Sync) */
   .text-scan-effect {
-    color: transparent;
-    background-color: white;
-
-    background-image: linear-gradient(to bottom,
-        #ffffff 0%,
-        #ffffff 40%,
-        #88ff88 50%,
-        /* Green tint */
-        #ffffff 60%,
-        #ffffff 100%);
-
-    background-size: 100% 300%;
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    animation: text-scan-light 8s linear infinite;
+    /* Base color is handled by text-white in HTML, but we animate it here */
+    animation: text-scan-flash 8s linear infinite;
   }
 
-  @keyframes text-scan-light {
-    0% {
-      background-position: 0% 0%;
-      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
-    }
+  @keyframes text-scan-flash {
 
-    40% {
+    0%,
+    45% {
+      color: white;
       text-shadow: 0 0 0px rgba(255, 255, 255, 0);
     }
 
     50% {
-      background-position: 0% 50%;
-      text-shadow: 0 0 15px rgba(0, 255, 65, 0.8);
+      /* Flash Green when scanline passes (approx center of screen) */
+      color: #ccffcc;
+      text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.4);
     }
 
-    60% {
-      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
-    }
-
+    55%,
     100% {
-      background-position: 0% 100%;
+      color: white;
       text-shadow: 0 0 0px rgba(255, 255, 255, 0);
     }
   }
