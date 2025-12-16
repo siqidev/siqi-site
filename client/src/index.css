@@ -310,5 +310,20 @@
     @apply text-neon-amber translate-x-[2px];
     clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
     animation: glitch 2.5s infinite linear alternate-reverse;
+
+    /* Marquee Animation for Data Stream */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 20s linear infinite;
+    }
   }
 }

@@ -4,6 +4,37 @@ import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
 import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
+import React from "react";
+
+function DataStreamContent() {
+  const streamText = React.useMemo(() => {
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜｦﾝ";
+    let result = "";
+    for (let i = 0; i < 100; i++) {
+      // Random chunks of data
+      const chunkLength = Math.floor(Math.random() * 8) + 4;
+      let chunk = "";
+      for (let j = 0; j < chunkLength; j++) {
+        chunk += chars.charAt(Math.floor(Math.random() * chars.length));
+      }
+
+      // Add some meaningful keywords occasionally
+      if (Math.random() > 0.9) {
+        const keywords = ["SYSTEM", "DATA", "SIQI", "CONNECT", "UPLINK", "ERROR", "OK", "404", "200"];
+        chunk = keywords[Math.floor(Math.random() * keywords.length)];
+      }
+
+      result += chunk + " // ";
+    }
+    return result;
+  }, []);
+
+  return (
+    <span className="font-mono text-xs text-primary/40 mx-4 tracking-wider">
+      {streamText}
+    </span>
+  );
+}
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
@@ -94,6 +125,14 @@ export default function Home() {
               </Button>
             </div>
 
+          </div>
+
+          {/* Data Stream (Matrix-like Marquee) */}
+          <div className="absolute bottom-0 left-0 w-full bg-black/80 backdrop-blur-sm border-t border-white/5 overflow-hidden py-2 select-none pointer-events-none z-30">
+            <div className="flex whitespace-nowrap animate-marquee">
+              <DataStreamContent />
+              <DataStreamContent />
+            </div>
           </div>
         </section>
 
