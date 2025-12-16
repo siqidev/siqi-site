@@ -76,19 +76,18 @@ export default function Home() {
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className="fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex flex-col items-center justify-center gap-8 animate-in slide-in-from-top-5 fade-in duration-200">
-            <button onClick={() => scrollToSection("hero")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./HOME</button>
-            <button onClick={() => scrollToSection("about")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./PROFILE</button>
-            <button onClick={() => scrollToSection("works")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./WORKS</button>
-            <button onClick={() => scrollToSection("blog")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./LOGS</button>
-            <button onClick={() => scrollToSection("contact")} className="text-2xl font-display text-primary hover:text-neon-magenta tracking-widest">./CONTACT</button>
+          <div className="fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex flex-col items-center justify-start pt-12 gap-8 animate-in slide-in-from-top-5 fade-in duration-200 h-[calc(100vh-4rem)] overflow-y-auto">
+            <button onClick={() => scrollToSection("hero")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./HOME</button>
+            <button onClick={() => scrollToSection("about")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./PROFILE</button>
+            <button onClick={() => scrollToSection("works")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./WORKS</button>
+            <button onClick={() => scrollToSection("blog")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./LOGS</button>
+            <button onClick={() => scrollToSection("contact")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./CONTACT</button>
           </div>
         )}
       </nav>
 
       <main className="flex-1 relative z-10 pt-16">
 
-        {/* Hero Section - Simplified & Clean */}
         {/* Hero Section - Typography Focused */}
         <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
           {/* Background Elements */}
@@ -103,7 +102,7 @@ export default function Home() {
 
             {/* Main Typography Logo */}
             <div className="relative mb-12 flex flex-col items-center">
-              <h1 className="font-syne font-extrabold text-[20vw] md:text-[15rem] leading-none tracking-tighter text-white mix-blend-difference select-none">
+              <h1 className="font-syne font-extrabold text-[15vw] md:text-[12rem] leading-none tracking-tighter select-none text-scan-effect">
                 SIQI
               </h1>
               <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-8">
