@@ -11,14 +11,14 @@ interface TerminalWindowProps extends React.HTMLAttributes<HTMLDivElement> {
 export function TerminalWindow({ title = "TERMINAL", children, className, ...props }: TerminalWindowProps) {
   // Filter out event handlers that might conflict with framer-motion props if passed directly
   const { onDrag, onDragStart, onDragEnd, ...validProps } = props as any;
-  
+
   return (
-    <motion.div 
+    <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, type: "spring" }}
-      className={cn("terminal-window flex flex-col", className)} 
+      className={cn("terminal-window flex flex-col", className)}
       {...validProps}
     >
       <div className="terminal-header">
@@ -78,8 +78,8 @@ export function Typewriter({ text, speed = 50, delay = 0, className, onComplete 
 
     let i = 0;
     const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayedText((prev) => prev + text.charAt(i));
+      if (i <= text.length) {
+        setDisplayedText(text.slice(0, i));
         i++;
       } else {
         clearInterval(interval);

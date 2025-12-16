@@ -281,7 +281,7 @@
   .scanline {
     @apply fixed top-0 left-0 w-full h-[100px] pointer-events-none z-50 opacity-30;
     background: linear-gradient(to bottom, transparent 0%, rgba(0, 255, 65, 0.8) 50%, transparent 100%);
-    animation: scanline 4s linear infinite;
+    animation: scanline 8s linear infinite;
   }
 
   .crt-flicker {
