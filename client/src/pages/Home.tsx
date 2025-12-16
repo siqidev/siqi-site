@@ -303,7 +303,7 @@ export default function Home() {
               <span className="text-primary">04.</span> ESTABLISH_UPLINK
             </h2>
             <p className="font-mono text-gray-400 mb-12">
-              プロジェクトの依頼、コラボレーションの提案、または単なる挨拶まで。
+              プロジェクトの依頼、コラボレーションの提案、または単なる挨拶まで。<br />
               常に通信回線を開いています。
             </p>
 
