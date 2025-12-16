@@ -327,30 +327,67 @@
     animation: marquee 20s linear infinite;
   }
 
-  /* Simple Text Scan Effect (Global Sync) */
+  /* Cyberpunk Text Scan Effect (True Scan) */
   .text-scan-effect {
-    /* Base color is handled by text-white in HTML, but we animate it here */
-    animation: text-scan-flash 8s linear infinite;
+    color: transparent;
+    background-color: transparent;
+
+    /* 
+      Layer 1 (Top): Moving Green Scanline (Gradient)
+      Layer 2 (Bottom): Solid White Base (Fixed)
+    */
+    background-image:
+      linear-gradient(to bottom,
+        transparent 0%,
+        transparent 45%,
+        rgba(0, 255, 65, 0.8) 50%,
+        /* Bright Green Scanline */
+        transparent 55%,
+        transparent 100%),
+      linear-gradient(to bottom, #ffffff, #ffffff);
+    /* Solid White Base */
+
+    /* 
+      Size:
+      Layer 1: 300% height (to move smoothly)
+      Layer 2: 100% height (static)
+    */
+    background-size: 100% 300%, 100% 100%;
+    background-repeat: no-repeat;
+
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    /* Sync with global scanline animation (8s) */
+    animation: text-scan-move 8s linear infinite;
   }
 
-  @keyframes text-scan-flash {
+  @keyframes text-scan-move {
+    0% {
+      /* Start: Scanline above text */
+      background-position: 0% 0%, 0 0;
+      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
+    }
 
-    0%,
     45% {
-      color: white;
-      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
     }
 
     50% {
-      /* Flash Green when scanline passes (approx center of screen) */
-      color: #ccffcc;
-      text-shadow: 0 0 20px rgba(0, 255, 65, 0.8), 0 0 40px rgba(0, 255, 65, 0.4);
+      /* Middle: Scanline passing through */
+      /* Add glow when scanline is over the text */
+      background-position: 0% 50%, 0 0;
+      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
     }
 
-    55%,
+    55% {
+      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
+    }
+
     100% {
-      color: white;
-      text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+      /* End: Scanline below text */
+      background-position: 0% 100%, 0 0;
+      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
     }
   }
 }
