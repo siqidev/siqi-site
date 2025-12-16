@@ -359,13 +359,22 @@
 
   @keyframes text-circuit-reveal {
     0% {
-      /* Start position: Gradient top aligned */
-      background-position: 0% 0%, 0 0;
+      /* Start position: Gradient bottom aligned (Image is shifted up, so we see the bottom part) */
+      /* Actually, to move the slit DOWN, we need to move the background DOWN (from top to bottom) */
+      /* Wait, background-size is 300%.
+         0% (top aligned) -> shows top of image.
+         100% (bottom aligned) -> shows bottom of image.
+         Moving 0% -> 100% shifts the image UP relative to the container.
+         So the slit moves UP.
+         
+         To move the slit DOWN, we need to go from 100% to 0%.
+      */
+      background-position: 0% 100%, 0 0;
     }
 
     100% {
-      /* End position: Gradient bottom aligned */
-      background-position: 0% 100%, 0 0;
+      /* End position: Gradient top aligned */
+      background-position: 0% 0%, 0 0;
     }
   }
 }
