@@ -61,99 +61,70 @@ export default function Home() {
       <main className="flex-1 relative z-10 pt-16">
 
         {/* Hero Section - Simplified & Clean */}
-        {/* Hero Section - HUD Style & Enhanced Typography */}
-        <section id="hero" className="min-h-[90vh] flex items-center justify-center relative border-b border-primary/20 overflow-hidden">
+        {/* Hero Section - Modern Minimal Cyberpunk */}
+        <section id="hero" className="min-h-[90vh] flex items-center justify-center relative border-b border-white/5 overflow-hidden">
           {/* Background */}
           <div className="absolute inset-0 z-0 opacity-60">
             <img src="/images/avatar-ui-demo.gif" alt="Hero Background" className="w-full h-full object-cover scale-110 blur-sm" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/70 to-black"></div>
+            {/* Subtle Grid Overlay */}
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay"></div>
           </div>
 
-          {/* HUD Overlay */}
-          <div className="absolute inset-0 z-10 pointer-events-none p-4 md:p-8">
-            {/* Top Left */}
-            <div className="absolute top-8 left-8 flex flex-col gap-1">
-              <div className="w-32 h-1 bg-primary/50"></div>
-              <div className="text-[10px] font-mono text-primary/70 tracking-widest">SYS.VER.2.0.5</div>
-            </div>
-            {/* Top Right */}
-            <div className="absolute top-8 right-8 text-right">
-              <div className="w-8 h-8 border-t-2 border-r-2 border-primary/50 absolute top-0 right-0"></div>
-              <div className="text-[10px] font-mono text-primary/70 tracking-widest mt-2 mr-2">TARGET: USER</div>
-            </div>
-            {/* Bottom Left */}
-            <div className="absolute bottom-8 left-8">
-              <div className="w-8 h-8 border-b-2 border-l-2 border-primary/50 absolute bottom-0 left-0"></div>
-              <div className="text-[10px] font-mono text-primary/70 tracking-widest mb-2 ml-2">COORDS: 35.6895, 139.6917</div>
-            </div>
-            {/* Bottom Right */}
-            <div className="absolute bottom-8 right-8 flex flex-col items-end gap-1">
-              <div className="flex gap-1">
-                <div className="w-2 h-2 bg-primary/30 animate-pulse"></div>
-                <div className="w-2 h-2 bg-primary/30 animate-pulse delay-75"></div>
-                <div className="w-2 h-2 bg-primary/30 animate-pulse delay-150"></div>
+          <div className="container relative z-20 flex flex-col items-center text-center max-w-6xl mx-auto mt-10">
+
+            <div className="mb-16 space-y-8">
+              {/* Main Title */}
+              <h1 className="flex flex-col items-center justify-center">
+                <span className="text-6xl md:text-9xl font-display font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 drop-shadow-[0_0_30px_rgba(255,255,255,0.2)]">
+                  CREATIVE
+                </span>
+                <span className="flex items-center gap-4 md:gap-8">
+                  <span className="h-[1px] w-12 md:w-24 bg-primary/50"></span>
+                  <GlitchText text="DEVELOPER" className="text-4xl md:text-7xl font-display font-bold tracking-widest text-primary drop-shadow-[0_0_15px_rgba(0,255,65,0.4)]" />
+                  <span className="h-[1px] w-12 md:w-24 bg-primary/50"></span>
+                </span>
+              </h1>
+
+              {/* Subtitle / Roles */}
+              <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-gray-400 font-mono text-sm md:text-base tracking-widest uppercase">
+                <span className="hover:text-white transition-colors">Writer</span>
+                <span className="text-primary/30">//</span>
+                <span className="hover:text-white transition-colors">Engineer</span>
+                <span className="text-primary/30">//</span>
+                <span className="hover:text-white transition-colors">Designer</span>
               </div>
-              <div className="w-32 h-1 bg-primary/50"></div>
-            </div>
 
-            {/* Center Crosshair */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full pointer-events-none hidden md:block"></div>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-primary/10 rounded-full pointer-events-none hidden md:block border-dashed"></div>
-          </div>
-
-          <div className="container relative z-20 flex flex-col items-center text-center max-w-5xl mx-auto mt-10">
-
-            <div className="mb-12 space-y-6">
-              <div className="relative inline-block">
-                <div className="absolute -top-6 -left-6 text-xs font-mono text-primary/40 hidden md:block">
-                  &lt;h1&gt;
-                </div>
-                <h1 className="text-5xl md:text-8xl font-display font-bold tracking-tighter text-white leading-none">
-                  <GlitchText text="CREATIVE" className="text-primary" />
-                  <br />
-                  <span className="text-white">DEVELOPER</span>
-                </h1>
-                <div className="absolute -bottom-6 -right-6 text-xs font-mono text-primary/40 hidden md:block">
-                  &lt;/h1&gt;
+              {/* Terminal Typing Effect */}
+              <div className="inline-flex items-center justify-center px-6 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-md">
+                <div className="w-2 h-2 rounded-full bg-primary animate-pulse mr-3"></div>
+                <div className="text-sm md:text-lg font-mono text-gray-300">
+                  <Typewriter
+                    text="Building the future, pixel by pixel."
+                    speed={30}
+                    delay={500}
+                  />
                 </div>
               </div>
-
-              <div className="flex items-center justify-center gap-4 text-primary/60 font-mono text-sm md:text-base tracking-widest">
-                <span>WRITER</span>
-                <span>//</span>
-                <span>ENGINEER</span>
-                <span>//</span>
-                <span>DESIGNER</span>
-              </div>
-
-              <div className="text-lg md:text-2xl font-mono text-white h-12 mt-4">
-                <Typewriter
-                  text="> Building the future, pixel by pixel._"
-                  speed={40}
-                  delay={500}
-                  className="bg-black/50 px-4 py-1"
-                />
-              </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-6 relative">
-              {/* Decorative lines connecting buttons */}
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[1px] bg-gradient-to-r from-transparent via-primary/20 to-transparent -z-10"></div>
-
+            {/* Actions */}
+            <div className="flex flex-col md:flex-row gap-6">
               <Button
                 onClick={() => scrollToSection("works")}
-                className="bg-primary text-black hover:bg-white hover:text-black border-none rounded-none font-mono px-10 h-14 text-lg transition-all duration-300 shadow-[0_0_20px_rgba(0,255,65,0.3)] hover:shadow-[0_0_40px_rgba(0,255,65,0.6)] clip-path-polygon"
-                style={{ clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)" }}
+                className="group relative px-8 h-14 bg-white text-black hover:bg-primary hover:text-black border-none rounded-none font-mono text-lg tracking-wide transition-all duration-300 overflow-hidden"
               >
-                View Works <ArrowRight className="ml-2 w-5 h-5" />
+                <span className="relative z-10 flex items-center">
+                  VIEW WORKS <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
               </Button>
+
               <Button
                 variant="outline"
                 onClick={() => window.open("https://github.com", "_blank")}
-                className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono px-10 h-14 text-lg backdrop-blur-md bg-black/30"
-                style={{ clipPath: "polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px)" }}
+                className="group px-8 h-14 border border-white/20 text-white hover:bg-white/10 hover:border-white/40 rounded-none font-mono text-lg tracking-wide backdrop-blur-sm transition-all duration-300"
               >
-                <Github className="mr-2 w-5 h-5" /> GitHub
+                <Github className="mr-2 w-5 h-5" /> GITHUB
               </Button>
             </div>
           </div>
