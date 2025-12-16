@@ -61,85 +61,41 @@ export default function Home() {
       <main className="flex-1 relative z-10 pt-16">
 
         {/* Hero Section - Simplified & Clean */}
-        {/* Hero Section - Swiss Cyberpunk Style */}
-        <section id="hero" className="min-h-screen flex flex-col justify-center relative border-b border-white/10 overflow-hidden bg-black">
+        {/* Hero Section - Typography Focused */}
+        <section id="hero" className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
           {/* Background Elements */}
           <div className="absolute inset-0 z-0">
-            {/* Grid Background */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
-
-            {/* Demo GIF - Positioned as a texture */}
-            <div className="absolute top-0 right-0 w-full md:w-2/3 h-full opacity-40 mix-blend-screen grayscale contrast-125">
+            <div className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125">
               <img src="/images/avatar-ui-demo.gif" alt="Hero Background" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/50 to-black"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
             </div>
           </div>
 
-          <div className="container relative z-20 max-w-7xl mx-auto px-6">
-            <div className="grid grid-cols-12 gap-4">
+          <div className="container relative z-20 flex flex-col items-center justify-center text-center px-4">
 
-              {/* Massive Typography */}
-              <div className="col-span-12 md:col-span-10 space-y-0">
-                <h1 className="flex flex-col font-display font-bold leading-[0.85] tracking-tighter text-white mix-blend-difference">
-                  <span className="text-[15vw] md:text-[12rem] block -ml-1 md:-ml-2">CREATIVE</span>
-                  <div className="flex items-center gap-4 md:gap-8 overflow-hidden">
-                    <span className="h-2 md:h-4 w-12 md:w-32 bg-white block"></span>
-                    <span className="text-[8vw] md:text-[6rem] font-mono font-normal tracking-tight text-transparent stroke-white stroke-2" style={{ WebkitTextStroke: "1px white" }}>
-                      DEVELOPER
-                    </span>
-                  </div>
-                </h1>
+            {/* Main Typography Logo */}
+            <div className="relative mb-8">
+              <h1 className="font-display font-extrabold text-[25vw] md:text-[18rem] leading-[0.8] tracking-tighter text-white mix-blend-difference select-none">
+                SIQI
+              </h1>
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+                <p className="font-serif italic text-2xl md:text-5xl text-white mix-blend-difference tracking-wide whitespace-nowrap opacity-90">
+                  Building the future, pixel by pixel.
+                </p>
               </div>
-
-              {/* Description & Metadata */}
-              <div className="col-span-12 md:col-span-5 mt-12 md:mt-24 space-y-8">
-                <div className="border-l-2 border-white/20 pl-6">
-                  <p className="font-mono text-gray-400 text-sm md:text-base leading-relaxed uppercase tracking-wide">
-                    Building the future interface.<br />
-                    Writer // Engineer // Designer
-                  </p>
-                </div>
-
-                <div className="flex flex-col gap-4">
-                  <div className="font-mono text-xs text-gray-500">SYSTEM STATUS: ONLINE</div>
-                  <div className="w-full h-[1px] bg-white/10"></div>
-                  <div className="font-mono text-xs text-gray-500">COORDS: 35.6895° N, 139.6917° E</div>
-                </div>
-              </div>
-
-              {/* Actions */}
-              <div className="col-span-12 md:col-span-7 mt-12 md:mt-24 flex flex-col md:flex-row items-start md:items-end justify-end gap-6">
-                <Button
-                  onClick={() => scrollToSection("works")}
-                  className="bg-white text-black hover:bg-gray-200 border-none rounded-none font-display font-bold text-xl px-10 h-16 w-full md:w-auto transition-transform hover:-translate-y-1"
-                >
-                  VIEW WORKS
-                </Button>
-                <Button
-                  variant="outline"
-                  onClick={() => window.open("https://github.com", "_blank")}
-                  className="border-white/30 text-white hover:bg-white/10 rounded-none font-mono text-sm px-8 h-16 w-full md:w-auto uppercase tracking-widest"
-                >
-                  GitHub Profile
-                </Button>
-              </div>
-
             </div>
-          </div>
 
-          {/* Bottom Ticker */}
-          <div className="absolute bottom-0 left-0 w-full border-t border-white/10 bg-black/80 backdrop-blur-sm py-2 overflow-hidden">
-            <div className="whitespace-nowrap animate-marquee font-mono text-xs text-gray-500 flex gap-8">
-              <span>INITIALIZING SYSTEM...</span>
-              <span>LOADING ASSETS...</span>
-              <span>ESTABLISHING CONNECTION...</span>
-              <span>WELCOME TO SIQI.DEV</span>
-              <span>//</span>
-              <span>INITIALIZING SYSTEM...</span>
-              <span>LOADING ASSETS...</span>
-              <span>ESTABLISHING CONNECTION...</span>
-              <span>WELCOME TO SIQI.DEV</span>
+            {/* Minimal Action */}
+            <div className="mt-12 opacity-0 animate-fade-in" style={{ animationDelay: "1s", animationFillMode: "forwards" }}>
+              <Button
+                onClick={() => scrollToSection("works")}
+                variant="ghost"
+                className="text-white/70 hover:text-white hover:bg-white/10 font-mono text-sm tracking-widest uppercase transition-all duration-300"
+              >
+                [ View Works ]
+              </Button>
             </div>
+
           </div>
         </section>
 
