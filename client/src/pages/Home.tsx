@@ -74,15 +74,13 @@ export default function Home() {
           <div className="container relative z-20 flex flex-col items-center justify-center text-center px-4">
 
             {/* Main Typography Logo */}
-            <div className="relative mb-8">
-              <h1 className="font-syne font-extrabold text-[25vw] md:text-[18rem] leading-[0.8] tracking-tighter text-white mix-blend-difference select-none">
+            <div className="relative mb-12 flex flex-col items-center">
+              <h1 className="font-display font-bold text-[15vw] md:text-[12rem] leading-none tracking-tight text-white mix-blend-difference select-none">
                 SIQI
               </h1>
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
-                <p className="font-serif italic text-2xl md:text-5xl text-white mix-blend-difference tracking-wide whitespace-nowrap opacity-90">
-                  Building the future, pixel by pixel.
-                </p>
-              </div>
+              <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-4">
+                &gt; Building the future, pixel by pixel._
+              </p>
             </div>
 
             {/* Minimal Action */}
