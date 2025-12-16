@@ -49,7 +49,7 @@ export default function Home() {
             <button onClick={() => scrollToSection("hero")} className="hover:text-neon-magenta transition-colors text-primary/80">./HOME</button>
             <button onClick={() => scrollToSection("about")} className="hover:text-neon-magenta transition-colors text-primary/80">./PROFILE</button>
             <button onClick={() => scrollToSection("works")} className="hover:text-neon-magenta transition-colors text-primary/80">./WORKS</button>
-            <button onClick={() => scrollToSection("blog")} className="hover:text-neon-magenta transition-colors text-primary/80">./BLOG</button>
+            <button onClick={() => scrollToSection("blog")} className="hover:text-neon-magenta transition-colors text-primary/80">./LOGS</button>
             <button onClick={() => scrollToSection("contact")} className="hover:text-neon-magenta transition-colors text-primary/80">./CONTACT</button>
           </div>
           <Button variant="outline" size="sm" className="hidden md:flex border-primary text-primary hover:bg-primary hover:text-black font-mono rounded-none">
@@ -62,9 +62,9 @@ export default function Home() {
 
         {/* Hero Section - Simplified & Clean */}
         <section id="hero" className="min-h-[90vh] flex items-center justify-center relative border-b border-primary/20 overflow-hidden">
-          <div className="absolute inset-0 z-0 opacity-40">
+          <div className="absolute inset-0 z-0 opacity-60">
             <img src="/images/avatar-ui-demo.gif" alt="Hero Background" className="w-full h-full object-cover scale-110 blur-sm" />
-            <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-black"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black"></div>
           </div>
 
           <div className="container relative z-10 flex flex-col items-center text-center max-w-4xl mx-auto">

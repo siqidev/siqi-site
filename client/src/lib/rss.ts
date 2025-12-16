@@ -8,19 +8,40 @@ export interface BlogPost {
   thumbnail?: string;
 }
 
+// Multiple CORS proxies for fallback
+const CORS_PROXIES = [
+  (url: string) => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+  (url: string) => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+];
+
+async function fetchWithProxy(url: string): Promise<string | null> {
+  for (const getProxyUrl of CORS_PROXIES) {
+    try {
+      const proxyUrl = getProxyUrl(url);
+      const response = await fetch(proxyUrl);
+
+      if (!response.ok) continue;
+
+      const data = await response.json();
+      // Handle different proxy response formats
+      const content = data.contents || data;
+      if (typeof content === 'string' && content.includes('<?xml')) {
+        return content;
+      }
+    } catch {
+      continue;
+    }
+  }
+  return null;
+}
+
 export async function fetchRSS(url: string, source: "note" | "zenn"): Promise<BlogPost[]> {
   try {
-    // Note: In a real production environment, you would need a proxy to avoid CORS issues.
-    // For this static site demo, we'll simulate the data or use a CORS proxy if available.
-    // Using a public CORS proxy for demonstration purposes.
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`;
-    const response = await fetch(proxyUrl);
-    const data = await response.json();
-    
-    if (!data.contents) return [];
+    const content = await fetchWithProxy(url);
+    if (!content) return [];
 
     const parser = new XMLParser();
-    const xml = parser.parse(data.contents);
+    const xml = parser.parse(content);
     const items = xml.rss?.channel?.item || [];
 
     // Normalize data
