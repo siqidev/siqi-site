@@ -1,10 +1,28 @@
 import { SEOMetadata } from "@/components/SEOMetadata";
 import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { fetchRSS, BlogPost } from "@/lib/rss";
+import { useEffect, useState } from "react";
 import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
 
 export default function Home() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [isLoadingPosts, setIsLoadingPosts] = useState(true);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const posts = await fetchRSS("https://note.com/sikino_sito/rss", "note");
+        setBlogPosts(posts);
+      } catch (error) {
+        console.error("Failed to load blog posts:", error);
+      } finally {
+        setIsLoadingPosts(false);
+      }
+    };
+    loadPosts();
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -16,10 +34,9 @@ export default function Home() {
     <div className="min-h-screen flex flex-col relative overflow-hidden">
       <SEOMetadata />
 
-      {/* Background Elements - Hidden on mobile for better UX */}
-      <div className="fixed inset-0 z-0 pointer-events-none hidden md:block">
+      {/* Background Elements - Scanline only (no flicker for consistent look) */}
+      <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="scanline"></div>
-        <div className="crt-flicker"></div>
       </div>
 
       {/* Navigation */}
@@ -121,9 +138,7 @@ export default function Home() {
                 </div>
 
                 <p className="font-mono text-gray-300 leading-relaxed text-lg">
-                  人とAIが共存する次世代インターフェース基盤。
-                  Gemini・GPT・Claude対応。デスクトップで動くエージェントUI。
-                  検索エージェントを標準搭載し、MCP連携やツール追加も可能です。
+                  人とAIが共存する次世代インターフェース基盤。Gemini・GPT・Claude対応。デスクトップで動くエージェントUI。検索エージェントを標準搭載し、MCP連携やツール追加も可能です。
                 </p>
 
                 <div className="flex flex-wrap gap-6">
@@ -184,8 +199,7 @@ export default function Home() {
 
                 <div className="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
                   <p>
-                    <span className="text-primary">{">"}</span> 作家兼個人開発者として活動するクリエイター。
-                    デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。
+                    <span className="text-primary">{">"}</span> 作家兼個人開発者として活動するクリエイター。デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。
                   </p>
                   <p>
                     <span className="text-primary">{">"}</span> 主な経歴：HelveticaBooks短編小説賞 奨励賞を受賞。
@@ -236,48 +250,48 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              {/* Note: In a real app, these would be fetched dynamically using the rss.ts utility */}
-              {/* For this static demo, we'll hardcode some example posts that look like they came from RSS */}
-              {[
-                {
-                  title: "React Server Componentsと次世代のステート管理について",
-                  date: "2025.12.10",
-                  source: "Zenn",
-                  link: "#"
-                },
-                {
-                  title: "サイバーパンクなUIデザインを実装するためのCSSテクニック集",
-                  date: "2025.11.28",
-                  source: "note",
-                  link: "#"
-                },
-                {
-                  title: "個人開発者がOSSをメンテナンスし続けるための生存戦略",
-                  date: "2025.11.15",
-                  source: "Zenn",
-                  link: "#"
-                }
-              ].map((post, i) => (
-                <a
-                  key={i}
-                  href={post.link}
-                  className="group block border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300 p-6 relative overflow-hidden"
-                >
-                  <div className="absolute top-0 right-0 p-2 opacity-50">
-                    <ExternalLink className="w-4 h-4 text-primary" />
+              {isLoadingPosts ? (
+                // Loading skeleton
+                [...Array(3)].map((_, i) => (
+                  <div key={i} className="border border-primary/20 bg-primary/5 p-6 animate-pulse">
+                    <div className="flex items-center gap-2 mb-4">
+                      <div className="h-5 w-12 bg-primary/20 rounded"></div>
+                      <div className="h-4 w-20 bg-primary/10 rounded"></div>
+                    </div>
+                    <div className="h-6 w-full bg-primary/20 rounded mb-2"></div>
+                    <div className="h-6 w-3/4 bg-primary/10 rounded"></div>
                   </div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className={`text-xs font-mono px-2 py-0.5 border ${post.source === 'Zenn' ? 'border-blue-400 text-blue-400' : 'border-green-400 text-green-400'}`}>
-                      {post.source}
-                    </span>
-                    <span className="text-xs font-mono text-gray-500">{post.date}</span>
-                  </div>
-                  <h3 className="text-lg font-display text-white group-hover:text-primary transition-colors line-clamp-2 mb-4">
-                    {post.title}
-                  </h3>
-                  <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
-                </a>
-              ))}
+                ))
+              ) : blogPosts.length > 0 ? (
+                blogPosts.map((post, i) => (
+                  <a
+                    key={i}
+                    href={post.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300 p-6 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-2 opacity-50">
+                      <ExternalLink className="w-4 h-4 text-primary" />
+                    </div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="text-xs font-mono px-2 py-0.5 border border-green-400 text-green-400">
+                        {post.source}
+                      </span>
+                      <span className="text-xs font-mono text-gray-500">{post.pubDate}</span>
+                    </div>
+                    <h3 className="text-lg font-display text-white group-hover:text-primary transition-colors line-clamp-2 mb-4">
+                      {post.title}
+                    </h3>
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
+                  </a>
+                ))
+              ) : (
+                // Fallback if no posts loaded
+                <p className="text-primary/60 font-mono col-span-3 text-center py-8">
+                  記事を読み込めませんでした。
+                </p>
+              )}
             </div>
           </div>
         </section>
