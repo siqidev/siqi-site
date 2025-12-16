@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --font-syne: "Syne", sans-serif;
   --font-display: "VT323", monospace;
   --font-mono: "JetBrains Mono", monospace;
 

@@ -75,10 +75,10 @@ export default function Home() {
 
             {/* Main Typography Logo */}
             <div className="relative mb-12 flex flex-col items-center">
-              <h1 className="font-display font-bold text-[15vw] md:text-[12rem] leading-none tracking-tight text-white mix-blend-difference select-none">
+              <h1 className="font-syne font-extrabold text-[20vw] md:text-[15rem] leading-none tracking-tighter text-white mix-blend-difference select-none">
                 SIQI
               </h1>
-              <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-4">
+              <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-8">
                 &gt; Building the future, pixel by pixel._
               </p>
             </div>
