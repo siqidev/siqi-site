@@ -327,67 +327,56 @@
     animation: marquee 20s linear infinite;
   }
 
-  /* Cyberpunk Text Scan Effect (True Scan) */
+  /* Cyberpunk Text Scan Effect (Overlay Scan) */
   .text-scan-effect {
-    color: transparent;
-    background-color: transparent;
-
-    /* 
-      Layer 1 (Top): Moving Green Scanline (Gradient)
-      Layer 2 (Bottom): Solid White Base (Fixed)
-    */
-    background-image:
-      linear-gradient(to bottom,
-        transparent 0%,
-        transparent 45%,
-        rgba(0, 255, 65, 0.8) 50%,
-        /* Bright Green Scanline */
-        transparent 55%,
-        transparent 100%),
-      linear-gradient(to bottom, #ffffff, #ffffff);
-    /* Solid White Base */
-
-    /* 
-      Size:
-      Layer 1: 300% height (to move smoothly)
-      Layer 2: 100% height (static)
-    */
-    background-size: 100% 300%, 100% 100%;
-    background-repeat: no-repeat;
-
-    background-clip: text;
-    -webkit-background-clip: text;
-
-    /* Sync with global scanline animation (8s) */
-    animation: text-scan-move 8s linear infinite;
+    position: relative;
+    color: white !important;
+    /* Ensure base text is always white */
   }
 
-  @keyframes text-scan-move {
-    0% {
-      /* Start: Scanline above text */
-      background-position: 0% 0%, 0 0;
-      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
-    }
+  .text-scan-effect::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
+    /* The scanning color */
+    color: #00ff41;
+
+    /* Optional: Add a slight glow to the scanning part */
+    text-shadow: 0 0 10px rgba(0, 255, 65, 0.8);
+
+    /* Initial state: Hidden above */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    /* Sync with global scanline animation (8s) */
+    animation: text-scan-overlay 8s linear infinite;
+  }
+
+  @keyframes text-scan-overlay {
+
+    0%,
     45% {
-      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
+      /* Hidden at top */
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
     }
 
-    50% {
-      /* Middle: Scanline passing through */
-      /* Add glow when scanline is over the text */
-      background-position: 0% 50%, 0 0;
-      text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
+    /* Scan starts passing through around 48% */
+    48% {
+      clip-path: polygon(0 0, 100% 0, 100% 10%, 0 10%);
     }
 
-    55% {
-      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
+    /* Scan finishes passing through around 52% */
+    52% {
+      clip-path: polygon(0 90%, 100% 90%, 100% 100%, 0 100%);
     }
 
+    55%,
     100% {
-      /* End: Scanline below text */
-      background-position: 0% 100%, 0 0;
-      text-shadow: 0 0 0px rgba(0, 255, 65, 0);
+      /* Hidden at bottom */
+      clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%);
     }
   }
 }

@@ -102,7 +102,10 @@ export default function Home() {
 
             {/* Main Typography Logo */}
             <div className="relative mb-12 flex flex-col items-center">
-              <h1 className="font-syne font-extrabold text-[15vw] md:text-[12rem] leading-none tracking-tighter select-none text-scan-effect">
+              <h1
+                className="font-syne font-extrabold text-[15vw] md:text-[12rem] leading-none tracking-tighter select-none text-white text-scan-effect"
+                data-text="SIQI"
+              >
                 SIQI
               </h1>
               <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-8">
