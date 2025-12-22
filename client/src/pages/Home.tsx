@@ -230,16 +230,17 @@ export default function Home() {
                   <p>
                     <span className="text-primary">{">"}</span> 作家兼個人開発者として活動するクリエイター。デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。
                   </p>
-                  <p>
-                    <span className="text-primary">{">"}</span> 主な経歴：HelveticaBooks短編小説賞 奨励賞を受賞。
-                  </p>
-                  <div className="space-y-1">
-                    <p>
-                      <span className="text-primary">{">"}</span> キャラクターSPECTRAが第三者によりミームコイン化、取引総額6億円超*
-                    </p>
-                    <p className="text-[10px] text-gray-500 leading-tight opacity-70">
-                      *これは第三者の行為によるもので、私の承認を伴うものではなく、投資に関する責任は一切負いません。
-                    </p>
+                  <div className="space-y-2">
+                    <p><span className="text-primary">{">"}</span> 主な経歴：</p>
+                    <div className="pl-4 space-y-3">
+                      <p className="text-base">・HelveticaBooks短編小説賞 奨励賞を受賞。</p>
+                      <div className="space-y-1">
+                        <p className="text-base">・キャラクターSPECTRAが第三者によりミームコイン化、取引総額6億円超*</p>
+                        <p className="text-[10px] text-gray-500 leading-tight opacity-70">
+                          *これは第三者の行為によるもので、私の承認を伴うものではなく、投資に関する責任は一切負いません。
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
