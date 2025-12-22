@@ -233,6 +233,14 @@ export default function Home() {
                   <p>
                     <span className="text-primary">{">"}</span> 主な経歴：HelveticaBooks短編小説賞 奨励賞を受賞。
                   </p>
+                  <div className="space-y-1">
+                    <p>
+                      <span className="text-primary">{">"}</span> キャラクターSPECTRAが第三者によりミームコイン化、取引総額6億円超*
+                    </p>
+                    <p className="text-[10px] text-gray-500 leading-tight opacity-70">
+                      *これは第三者の行為によるもので、私の承認を伴うものではなく、投資に関する責任は一切負いません。
+                    </p>
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
