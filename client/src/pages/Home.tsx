@@ -234,6 +234,7 @@ export default function Home() {
                     <p><span className="text-primary">{">"}</span> 主な経歴：</p>
                     <div className="pl-4 space-y-3">
                       <p className="text-base">・第2回HelveticaBooks短編小説賞 奨励賞を受賞。</p>
+                      <p className="text-base">・izanami Awards 2025 プロダクト賞を受賞</p>
                       <div className="space-y-1">
                         <p className="text-base">・キャラクターSPECTRAが第三者によりミームコイン化、取引総額6億円超*</p>
                         <p className="text-[10px] text-gray-500 leading-tight opacity-70">
