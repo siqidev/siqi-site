@@ -1,9 +1,10 @@
 import { SEOMetadata } from "@/components/SEOMetadata";
+import { Header } from "@/components/Header";
 import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code, ExternalLink, Github, Terminal, X, Menu } from "lucide-react";
+import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
 import React from "react";
 
 
@@ -11,7 +12,6 @@ import React from "react";
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -32,7 +32,6 @@ export default function Home() {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false);
     }
   };
 
@@ -46,45 +45,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 border-b border-primary/30 bg-black/80 backdrop-blur-md">
-        <div className="container flex items-center justify-between h-16 px-4">
-          <div className="flex items-center gap-2">
-            <span className="font-display text-xl tracking-widest text-primary">&gt;_SIQI</span>
-          </div>
-
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 text-sm font-mono">
-            <button onClick={() => scrollToSection("hero")} className="hover:text-neon-magenta transition-colors text-primary/80">./HOME</button>
-            <button onClick={() => scrollToSection("about")} className="hover:text-neon-magenta transition-colors text-primary/80">./PROFILE</button>
-            <button onClick={() => scrollToSection("works")} className="hover:text-neon-magenta transition-colors text-primary/80">./WORKS</button>
-            <button onClick={() => scrollToSection("blog")} className="hover:text-neon-magenta transition-colors text-primary/80">./LOGS</button>
-            <button onClick={() => scrollToSection("contact")} className="hover:text-neon-magenta transition-colors text-primary/80">./CONTACT</button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-primary hover:text-neon-magenta transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
-
-          <Button variant="outline" size="sm" className="hidden md:flex border-primary text-primary hover:bg-primary hover:text-black font-mono rounded-none">
-            SYS.STATUS: ONLINE
-          </Button>
-        </div>
-
-        {/* Mobile Menu Overlay */}
-        {isMenuOpen && (
-          <div className="fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex flex-col items-center justify-start pt-12 gap-8 animate-in slide-in-from-top-5 fade-in duration-200 h-[calc(100vh-4rem)] overflow-y-auto">
-            <button onClick={() => scrollToSection("hero")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./HOME</button>
-            <button onClick={() => scrollToSection("about")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./PROFILE</button>
-            <button onClick={() => scrollToSection("works")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./WORKS</button>
-            <button onClick={() => scrollToSection("blog")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./LOGS</button>
-            <button onClick={() => scrollToSection("contact")} className="text-xl font-display text-primary hover:text-neon-magenta tracking-widest">./CONTACT</button>
-          </div>
-        )}
-      </nav>
+      <Header variant="home" />
 
       <main className="flex-1 relative z-10 pt-16">
 

@@ -1,0 +1,224 @@
+import { SEOMetadata } from "@/components/SEOMetadata";
+import { Header } from "@/components/Header";
+import { Button } from "@/components/ui/button";
+import { ExternalLink } from "lucide-react";
+
+export default function Spectra() {
+    return (
+        <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden">
+            <SEOMetadata
+                title="Spectra Communicator - AITuber by SIQI LABEL"
+                description="AVATAR UIから生まれたAITuberキャラクター。人とAIの新しいコミュニケーションの形を探求します。"
+            />
+
+            {/* CRT Effects */}
+            <div className="fixed inset-0 z-50 pointer-events-none">
+                <div className="scanline"></div>
+            </div>
+
+            <Header variant="page" />
+
+            <main className="flex-1 relative z-10 pt-16">
+                {/* Hero Section - Same style as main page with GIF background */}
+                <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
+                    {/* Background - Same as Home */}
+                    <div className="absolute inset-0 z-0">
+                        <div className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125">
+                            <img
+                                src="/images/avatar-ui-demo.gif"
+                                alt="Spectra Background"
+                                className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+                        </div>
+                    </div>
+
+                    <div className="container relative z-20 flex flex-col items-center justify-center text-center px-4">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-neon-magenta/10 border border-neon-magenta/30 rounded-full mb-8">
+                            <span className="w-2 h-2 bg-neon-magenta rounded-full animate-pulse"></span>
+                            <span className="font-mono text-sm text-neon-magenta">AITuber Project</span>
+                        </div>
+
+                        {/* Responsive Hero Text - uses clamp for dynamic sizing */}
+                        <h1
+                            className="font-syne font-extrabold leading-none tracking-tighter text-white mb-8"
+                            style={{ fontSize: "clamp(2.5rem, 12vw, 10rem)" }}
+                        >
+                            SPECTRA
+                        </h1>
+                        <h2
+                            className="font-display text-neon-magenta mb-8"
+                            style={{ fontSize: "clamp(1rem, 4vw, 2.5rem)" }}
+                        >
+                            COMMUNICATOR
+                        </h2>
+
+                        {/* Concept integrated into Hero */}
+                        <div className="max-w-2xl space-y-4 mb-12">
+                            <p className="font-mono text-base md:text-lg text-white/80 leading-relaxed">
+                                AVATAR UIの技術基盤から生まれたAITuberプロジェクト。
+                            </p>
+                            <p className="font-mono text-sm md:text-base text-white/60 leading-relaxed">
+                                レトロフューチャー的な美学と最先端のAI技術を融合させ、
+                                人とAIの新しいコミュニケーションの形を探求する実験的な存在。
+                            </p>
+                        </div>
+
+                        <a
+                            href="https://x.com/spectra_siqi"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono h-12 px-8 text-base">
+                                <svg className="mr-2 w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                </svg>
+                                Follow on X
+                                <ExternalLink className="ml-2 w-4 h-4" />
+                            </Button>
+                        </a>
+                    </div>
+
+                    <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
+                </section>
+
+                {/* Roadmap Section - 01 */}
+                <section className="py-24 relative border-b border-primary/20 bg-black">
+                    <div className="container relative z-10">
+                        <div className="mb-16 text-center">
+                            <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
+                                <span className="text-primary">01.</span> ROADMAP
+                            </h2>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">今後の展開</p>
+                        </div>
+
+                        <div className="max-w-3xl mx-auto">
+                            <div className="relative border-2 border-dashed border-neon-magenta/40 bg-gradient-to-br from-neon-magenta/5 to-transparent p-8 md:p-12">
+                                {/* Corner decorations */}
+                                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon-magenta"></div>
+                                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon-magenta"></div>
+                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon-magenta"></div>
+                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon-magenta"></div>
+
+                                <div className="text-center">
+                                    <div className="inline-flex items-center gap-2 mb-6">
+                                        <span className="w-2 h-2 bg-neon-magenta rounded-full animate-pulse"></span>
+                                        <span className="font-mono text-xs text-neon-magenta/80">STATUS: IN DEVELOPMENT</span>
+                                    </div>
+
+                                    <h3
+                                        className="font-display text-neon-magenta mb-6"
+                                        style={{ fontSize: "clamp(1.5rem, 5vw, 3rem)" }}
+                                    >
+                                        COMING SOON
+                                    </h3>
+
+                                    <p className="font-mono text-gray-400 mb-8 max-w-md mx-auto text-sm md:text-base">
+                                        新しいコンテンツや配信計画を準備中です。
+                                        最新情報はXでチェックしてください。
+                                    </p>
+
+                                    <div className="flex flex-wrap justify-center gap-3 mb-8">
+                                        {["配信開始", "コンテンツ制作", "コミュニティ構築"].map((item, i) => (
+                                            <span
+                                                key={i}
+                                                className="px-3 py-1 border border-gray-600 text-gray-500 font-mono text-xs"
+                                            >
+                                                {item}
+                                            </span>
+                                        ))}
+                                    </div>
+
+                                    <a
+                                        href="https://x.com/spectra_siqi"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                    >
+                                        <Button
+                                            variant="outline"
+                                            className="border-neon-magenta text-neon-magenta hover:bg-neon-magenta/10 rounded-none font-mono"
+                                        >
+                                            <svg className="mr-2 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                            </svg>
+                                            Follow for Updates
+                                        </Button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Connect Section - 02 (renamed from Links) */}
+                <section className="py-24 relative bg-black">
+                    <div className="container relative z-10">
+                        <div className="mb-16 text-center">
+                            <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
+                                <span className="text-primary">02.</span> CONNECT
+                            </h2>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">つながる</p>
+                        </div>
+
+                        <div className="max-w-2xl mx-auto">
+                            {/* Main Connection Card */}
+                            <a
+                                href="https://x.com/spectra_siqi"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group block"
+                            >
+                                <div className="relative border border-primary/20 bg-gradient-to-br from-primary/5 via-transparent to-neon-magenta/5 p-8 transition-all duration-500 hover:border-neon-magenta/50 hover:shadow-[0_0_40px_rgba(255,0,128,0.1)]">
+                                    {/* Animated border effect */}
+                                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                        <div className="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-neon-magenta to-transparent"></div>
+                                        <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent"></div>
+                                    </div>
+
+                                    <div className="flex flex-col md:flex-row items-center gap-6">
+                                        {/* Icon */}
+                                        <div className="w-20 h-20 bg-black border border-primary/30 flex items-center justify-center group-hover:border-neon-magenta transition-colors">
+                                            <svg className="w-10 h-10 text-white group-hover:text-neon-magenta transition-colors" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                                            </svg>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className="flex-1 text-center md:text-left">
+                                            <h3 className="text-2xl font-display text-white group-hover:text-neon-magenta transition-colors mb-2">
+                                                X (Twitter)
+                                            </h3>
+                                            <p className="font-mono text-gray-500 mb-2">@spectra_siqi</p>
+                                            <p className="font-mono text-sm text-gray-400">
+                                                最新の活動情報やアップデートはこちらで発信しています。
+                                            </p>
+                                        </div>
+
+                                        {/* Arrow */}
+                                        <ExternalLink className="w-6 h-6 text-primary/30 group-hover:text-neon-magenta transition-colors" />
+                                    </div>
+                                </div>
+                            </a>
+
+                            {/* Additional info */}
+                            <div className="mt-8 text-center">
+                                <p className="font-mono text-xs text-gray-500">
+                                    他のプラットフォームでの展開も計画中です
+                                </p>
+                            </div>
+                        </div>
+
+                        {/* Footer */}
+                        <div className="mt-16 pt-8 border-t border-primary/20 text-center">
+                            <p className="font-mono text-xs text-primary/40">
+                                © 2025 SIQI LABEL. ALL RIGHTS RESERVED.
+                                <br />
+                                Spectra Communicator is a project by SIQI LABEL.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
+}
