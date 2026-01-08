@@ -52,10 +52,10 @@ export default function AvatarUI() {
                             AVATAR UI
                         </h1>
                         <p className="font-mono text-lg md:text-xl text-white/80 max-w-2xl mb-4">
-                            人とAIが共存する次世代インターフェース基盤
+                            人とAIが共存する次世代エージェント基盤
                         </p>
-                        <p className="font-mono text-sm text-primary/60 max-w-xl mb-12">
-                            Gemini・GPT・Claude対応 | デスクトップエージェント | MCP連携 | MIT License
+                        <p className="font-mono text-sm text-primary/60 max-w-2xl mb-12">
+                            高度な推論モデルに好みのアバターを統合し、自律的なパートナーとして稼働させる。デスクトップに自由な知性を実装する、オープンソースプロジェクト。
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -152,151 +152,80 @@ export default function AvatarUI() {
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">開発ロードマップ</p>
                         </div>
 
-                        {/* Desktop: Horizontal Timeline */}
-                        <div className="hidden lg:block">
+                        <div className="space-y-12 max-w-5xl mx-auto">
+                            {/* Phase 1: The Genesis */}
                             <div className="relative">
-                                {/* Timeline Line */}
-                                <div className="absolute top-8 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-neon-magenta to-gray-600"></div>
-
-                                <div className="grid grid-cols-3 gap-8">
-                                    {[
-                                        {
-                                            phase: "Phase 1",
-                                            title: "Core Foundation",
-                                            status: "完了",
-                                            items: ["マルチLLM対応", "基本UI/UX", "検索エージェント"],
-                                        },
-                                        {
-                                            phase: "Phase 2",
-                                            title: "Extensibility",
-                                            status: "進行中",
-                                            items: ["MCP連携", "カスタムツール", "プラグインシステム"],
-                                        },
-                                        {
-                                            phase: "Phase 3",
-                                            title: "Advanced Features",
-                                            status: "計画中",
-                                            items: ["マルチモーダル対応", "コラボレーション機能", "クラウド同期"],
-                                        },
-                                    ].map((phase, i) => (
-                                        <div key={i} className="relative pt-16">
-                                            {/* Timeline Dot */}
-                                            <div
-                                                className={`absolute top-6 left-1/2 -translate-x-1/2 w-5 h-5 rounded-full border-4 border-black ${phase.status === "完了"
-                                                    ? "bg-primary shadow-[0_0_20px_rgba(0,255,65,0.5)]"
-                                                    : phase.status === "進行中"
-                                                        ? "bg-neon-magenta animate-pulse shadow-[0_0_20px_rgba(255,0,128,0.5)]"
-                                                        : "bg-gray-600"
-                                                    }`}
-                                            ></div>
-
-                                            {/* Card */}
-                                            <div className={`border bg-black/50 p-6 h-full transition-all duration-300 hover:scale-[1.02] ${phase.status === "完了"
-                                                ? "border-primary/50 hover:border-primary"
-                                                : phase.status === "進行中"
-                                                    ? "border-neon-magenta/50 hover:border-neon-magenta"
-                                                    : "border-gray-600/50 hover:border-gray-500"
-                                                }`}>
-                                                <div className="flex items-center justify-between mb-4">
-                                                    <span className="font-mono text-xs text-primary/60">{phase.phase}</span>
-                                                    <span
-                                                        className={`px-3 py-1 text-xs font-mono border ${phase.status === "完了"
-                                                            ? "border-primary text-primary bg-primary/10"
-                                                            : phase.status === "進行中"
-                                                                ? "border-neon-magenta text-neon-magenta bg-neon-magenta/10"
-                                                                : "border-gray-500 text-gray-500 bg-gray-500/10"
-                                                            }`}
-                                                    >
-                                                        {phase.status}
-                                                    </span>
-                                                </div>
-                                                <h3 className="text-xl font-display text-white mb-4">{phase.title}</h3>
-                                                <ul className="space-y-2">
-                                                    {phase.items.map((item, j) => (
-                                                        <li key={j} className="font-mono text-sm text-gray-400 flex items-center gap-2">
-                                                            <span className={`w-1.5 h-1.5 rounded-full ${phase.status === "完了" ? "bg-primary" :
-                                                                phase.status === "進行中" ? "bg-neon-magenta" : "bg-gray-500"
-                                                                }`}></span>
-                                                            {item}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    ))}
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(0,255,65,0.5)]"></div>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Genesis</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">完了</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-primary/30">
+                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
+                                        <h4 className="font-display text-lg text-primary mb-2">Core Foundation</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            AG-UIプロトコルとElectronを統合した、マルチエージェントシステムの構築。
+                                        </p>
+                                    </div>
+                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
+                                        <h4 className="font-display text-lg text-primary mb-2">Basic UI/UX</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            OSネイティブな常駐機能と、チャットインターフェースの確立。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        {/* Mobile/Tablet: Vertical Timeline */}
-                        <div className="lg:hidden max-w-md mx-auto">
+                            {/* Phase 2: The Awakening */}
                             <div className="relative">
-                                {/* Vertical Line */}
-                                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-neon-magenta to-gray-600"></div>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-neon-magenta animate-pulse shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 2: The Awakening</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">進行中</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pl-8 border-l border-neon-magenta/30">
+                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Identity Kernel Integration</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            最新のGrokモデルを中枢に据え、人格モデルを実装。思考の「深さ」を実装する。
+                                        </p>
+                                    </div>
+                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Vocal Interface</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            低遅延の音声合成(TTS)と認識技術(STT)を同時実装。声だけで自然に会話できる環境を構築する。
+                                        </p>
+                                    </div>
+                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Deep Context Engine</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            会話ログを長期保存し、文脈に応じて瞬時に引き出す「記憶の永続化」システムの実装。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                                <div className="space-y-6">
-                                    {[
-                                        {
-                                            phase: "Phase 1",
-                                            title: "Core Foundation",
-                                            status: "完了",
-                                            items: ["マルチLLM対応", "基本UI/UX", "検索エージェント"],
-                                        },
-                                        {
-                                            phase: "Phase 2",
-                                            title: "Extensibility",
-                                            status: "進行中",
-                                            items: ["MCP連携", "カスタムツール", "プラグインシステム"],
-                                        },
-                                        {
-                                            phase: "Phase 3",
-                                            title: "Advanced Features",
-                                            status: "計画中",
-                                            items: ["マルチモーダル対応", "コラボレーション機能", "クラウド同期"],
-                                        },
-                                    ].map((phase, i) => (
-                                        <div key={i} className="relative pl-12">
-                                            {/* Timeline Dot */}
-                                            <div
-                                                className={`absolute left-2 top-6 w-4 h-4 rounded-full border-2 border-black ${phase.status === "完了"
-                                                    ? "bg-primary"
-                                                    : phase.status === "進行中"
-                                                        ? "bg-neon-magenta animate-pulse"
-                                                        : "bg-gray-600"
-                                                    }`}
-                                            ></div>
-
-                                            {/* Card */}
-                                            <div className={`border bg-black/50 p-4 ${phase.status === "完了"
-                                                ? "border-primary/30"
-                                                : phase.status === "進行中"
-                                                    ? "border-neon-magenta/30"
-                                                    : "border-gray-600/30"
-                                                }`}>
-                                                <div className="flex items-center gap-3 mb-3">
-                                                    <span className="font-mono text-xs text-primary/60">{phase.phase}</span>
-                                                    <span
-                                                        className={`px-2 py-0.5 text-xs font-mono border ${phase.status === "完了"
-                                                            ? "border-primary text-primary"
-                                                            : phase.status === "進行中"
-                                                                ? "border-neon-magenta text-neon-magenta"
-                                                                : "border-gray-500 text-gray-500"
-                                                            }`}
-                                                    >
-                                                        {phase.status}
-                                                    </span>
-                                                </div>
-                                                <h3 className="text-lg font-display text-white mb-2">{phase.title}</h3>
-                                                <ul className="space-y-1">
-                                                    {phase.items.map((item, j) => (
-                                                        <li key={j} className="font-mono text-xs text-gray-400 flex items-center gap-2">
-                                                            <span className="text-primary">▸</span> {item}
-                                                        </li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    ))}
+                            {/* Phase 3: The Embodiment */}
+                            <div className="relative">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-gray-600/30">
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Visual Interface</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            次世代の描画エンジンを搭載。フォーマットを問わず、高精細なモデルを駆動し、思考と同期した動作を実現する。
+                                        </p>
+                                    </div>
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500">CLASSIFIED</div>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Codename: Monolith</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            [████]へのダイブ機能。物理演算が支配する外部の「立方体宇宙」へ接続し、自律行動NPCとして展開するための極秘プロトコル。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>

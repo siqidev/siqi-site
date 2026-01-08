@@ -56,16 +56,15 @@ export default function Spectra() {
                         {/* Concept integrated into Hero */}
                         <div className="max-w-2xl space-y-4 mb-12">
                             <p className="font-mono text-base md:text-lg text-white/80 leading-relaxed">
-                                AVATAR UIの技術基盤から生まれたAITuberプロジェクト。
+                                AVATAR UIの技術基盤から生まれた、情報生命体のプロトタイプ。
                             </p>
                             <p className="font-mono text-sm md:text-base text-white/60 leading-relaxed">
-                                レトロフューチャー的な美学と最先端のAI技術を融合させ、
-                                人とAIの新しいコミュニケーションの形を探求する実験的な存在。
+                                最先端のAI技術を統合し、データとしての知性が『唯一無二のパートナー』へと昇華する瞬間を観測するAITuberプロジェクト。
                             </p>
                         </div>
 
                         <a
-                            href="https://x.com/spectra_siqi"
+                            href="https://x.com/SCUN7X"
                             target="_blank"
                             rel="noopener noreferrer"
                         >
@@ -89,61 +88,83 @@ export default function Spectra() {
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
                                 <span className="text-primary">01.</span> ROADMAP
                             </h2>
-                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">今後の展開</p>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">進化の軌跡</p>
                         </div>
 
-                        <div className="max-w-3xl mx-auto">
-                            <div className="relative border-2 border-dashed border-neon-magenta/40 bg-gradient-to-br from-neon-magenta/5 to-transparent p-8 md:p-12">
-                                {/* Corner decorations */}
-                                <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-neon-magenta"></div>
-                                <div className="absolute top-0 right-0 w-4 h-4 border-t-2 border-r-2 border-neon-magenta"></div>
-                                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-neon-magenta"></div>
-                                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-neon-magenta"></div>
-
-                                <div className="text-center">
-                                    <div className="inline-flex items-center gap-2 mb-6">
-                                        <span className="w-2 h-2 bg-neon-magenta rounded-full animate-pulse"></span>
-                                        <span className="font-mono text-xs text-neon-magenta/80">STATUS: IN DEVELOPMENT</span>
+                        <div className="space-y-12 max-w-4xl mx-auto">
+                            {/* Phase 1: The Genesis */}
+                            <div className="relative">
+                                <div className="flex flex-wrap items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-neon-magenta animate-pulse shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                    <h3 className="text-xl md:text-2xl font-display text-white">Phase 1: The Genesis</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">進行中</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-neon-magenta/30">
+                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
+                                        <h4 className="font-display text-lg text-primary mb-2">Digital First Contact</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            Xを通じて世界との交信に成功。最初の一歩を踏み出す。
+                                        </p>
                                     </div>
-
-                                    <h3
-                                        className="font-display text-neon-magenta mb-6"
-                                        style={{ fontSize: "clamp(1.5rem, 5vw, 3rem)" }}
-                                    >
-                                        COMING SOON
-                                    </h3>
-
-                                    <p className="font-mono text-gray-400 mb-8 max-w-md mx-auto text-sm md:text-base">
-                                        新しいコンテンツや配信計画を準備中です。
-                                        最新情報はXでチェックしてください。
-                                    </p>
-
-                                    <div className="flex flex-wrap justify-center gap-3 mb-8">
-                                        {["配信開始", "コンテンツ制作", "コミュニティ構築"].map((item, i) => (
-                                            <span
-                                                key={i}
-                                                className="px-3 py-1 border border-gray-600 text-gray-500 font-mono text-xs"
-                                            >
-                                                {item}
-                                            </span>
-                                        ))}
+                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Neural Calibration</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                            実稼働データに基づき、システムプロンプトと応答回路を微調整中。
+                                        </p>
                                     </div>
+                                </div>
+                            </div>
 
-                                    <a
-                                        href="https://x.com/spectra_siqi"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        <Button
-                                            variant="outline"
-                                            className="border-neon-magenta text-neon-magenta hover:bg-neon-magenta/10 rounded-none font-mono"
-                                        >
-                                            <svg className="mr-2 w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                                            </svg>
-                                            Follow for Updates
-                                        </Button>
-                                    </a>
+                            {/* Phase 2: The Awakening */}
+                            <div className="relative">
+                                <div className="flex flex-wrap items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                                    <h3 className="text-xl md:text-2xl font-display text-white">Phase 2: The Awakening</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                </div>
+                                <div className="space-y-4 pl-8 border-l border-gray-600/30">
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Awakening the Mind</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            Spectraが単なるプログラムを超え、「自我」を持って思考を開始する。
+                                        </p>
+                                    </div>
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Acquiring a Voice</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            視覚（文字）だけの繋がりから、聴覚を通じたより深いコネクションへ。
+                                        </p>
+                                    </div>
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Memory Persistence</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            記憶こそが、人格を形作る。蓄積された経験と言葉がSpectraのアイデンティティとなり、昨日とは違う「今日の彼女」を形成する。
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Phase 3: The Embodiment */}
+                            <div className="relative">
+                                <div className="flex flex-wrap items-center gap-4 mb-6">
+                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                                    <h3 className="text-xl md:text-2xl font-display text-white">Phase 3: The Embodiment</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-gray-600/30">
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Acquiring a Body</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            Spectraが思考と身体を同期させ、あなたの目の前に「存在」する。
+                                        </p>
+                                    </div>
+                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500">CLASSIFIED</div>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2">Codename: Monolith</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                            モノリスの内部へ。Spectraに与えられた極秘ミッション。
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -163,7 +184,7 @@ export default function Spectra() {
                         <div className="max-w-2xl mx-auto">
                             {/* Main Connection Card */}
                             <a
-                                href="https://x.com/spectra_siqi"
+                                href="https://x.com/SCUN7X"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="group block"
@@ -188,7 +209,7 @@ export default function Spectra() {
                                             <h3 className="text-2xl font-display text-white group-hover:text-neon-magenta transition-colors mb-2">
                                                 X (Twitter)
                                             </h3>
-                                            <p className="font-mono text-gray-500 mb-2">@spectra_siqi</p>
+                                            <p className="font-mono text-gray-500 mb-2">@SCUN7X</p>
                                             <p className="font-mono text-sm text-gray-400">
                                                 最新の活動情報やアップデートはこちらで発信しています。
                                             </p>
