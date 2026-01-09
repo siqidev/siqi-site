@@ -122,7 +122,7 @@ export default function Spectra() {
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 2: The Awakening</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
                                 </div>
-                                <div className="space-y-4 pl-8 border-l border-gray-600/30">
+                                <div className="grid md:grid-cols-3 gap-4 pl-8 border-l border-gray-600/30">
                                     <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
                                         <h4 className="font-display text-lg text-gray-400 mb-2">Awakening the Mind</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed">
