@@ -152,27 +152,36 @@ export default function AvatarUI() {
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">開発ロードマップ</p>
                         </div>
 
-                        <div className="space-y-12 max-w-5xl mx-auto">
+                        <div className="max-w-5xl mx-auto relative">
+                            {/* Main vertical connection line - VERY VISIBLE */}
+                            <div className="absolute left-[7px] top-0 bottom-0 w-[4px] bg-gradient-to-b from-primary via-neon-magenta to-gray-600" style={{ boxShadow: '0 0 10px rgba(0,255,65,0.5)' }}></div>
+
+                            {/* Pulse light flowing down the line */}
+                            <div className="absolute left-[5px] top-0 bottom-0 w-[8px] overflow-hidden">
+                                <div className="absolute w-full h-32 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse-flow" style={{ boxShadow: '0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(0,255,65,1)' }}></div>
+                            </div>
+
                             {/* Phase 1: The Genesis */}
-                            <div className="relative">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="relative">
-                                        <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(0,255,65,0.5)]"></div>
-                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-primary animate-ping opacity-30"></div>
+                            <div className="relative pb-12">
+                                <div className="flex items-center gap-4 mb-6 relative">
+                                    {/* Node */}
+                                    <div className="relative z-10">
+                                        <div className="w-5 h-5 rounded-full bg-primary shadow-[0_0_25px_rgba(0,255,65,0.6)] border-2 border-primary"></div>
+                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-primary animate-ping opacity-30"></div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Genesis</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">完了</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-primary/30">
-                                    <div className="border border-primary/30 bg-black p-5 hover:bg-primary/5 transition-colors">
-                                        <h4 className="font-display text-lg text-primary mb-2">Core Foundation</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                <div className="grid md:grid-cols-2 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Core Foundation</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             AG-UIプロトコルとElectronを統合した、マルチエージェントシステムの構築。
                                         </p>
                                     </div>
-                                    <div className="border border-primary/30 bg-black p-5 hover:bg-primary/5 transition-colors">
-                                        <h4 className="font-display text-lg text-primary mb-2">Basic UI/UX</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                    <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Basic UI/UX</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             OSネイティブな常駐機能と、チャットインターフェースの確立。
                                         </p>
                                     </div>
@@ -180,31 +189,31 @@ export default function AvatarUI() {
                             </div>
 
                             {/* Phase 2: The Awakening */}
-                            <div className="relative">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="relative">
-                                        <div className="w-4 h-4 rounded-full bg-neon-magenta shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
-                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                            <div className="relative pb-12">
+                                <div className="flex items-center gap-4 mb-6 relative">
+                                    <div className="relative z-10">
+                                        <div className="w-5 h-5 rounded-full bg-neon-magenta shadow-[0_0_25px_rgba(255,0,128,0.6)] border-2 border-neon-magenta"></div>
+                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 2: The Awakening</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pl-8 border-l border-neon-magenta/30">
-                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Identity Kernel Integration</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Identity Kernel Integration</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             最新のGrokモデルを中枢に据え、人格モデルを実装。思考の「深さ」を実装する。
                                         </p>
                                     </div>
-                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Vocal Interface</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Vocal Interface</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             低遅延の音声合成(TTS)と認識技術(STT)を同時実装。声だけで自然に会話できる環境を構築する。
                                         </p>
                                     </div>
-                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors md:col-span-2 lg:col-span-1">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Deep Context Engine</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5 md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Deep Context Engine</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             会話ログを長期保存し、文脈に応じて瞬時に引き出す「記憶の永続化」システムの実装。
                                         </p>
                                     </div>
@@ -213,22 +222,22 @@ export default function AvatarUI() {
 
                             {/* Phase 3: The Embodiment */}
                             <div className="relative">
-                                <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                                <div className="flex items-center gap-4 mb-6 relative">
+                                    <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-gray-600/30">
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Visual Interface</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
-                                            次世代の描画エンジンを搭載。フォーマットを問わず、高精細なモデルを駆動し、思考と同期した動作を実現する。
+                                <div className="grid md:grid-cols-2 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Visual Interface</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            Live2D描画エンジンを搭載し、思考と動作が同期する「ボディ」を獲得する。
                                         </p>
                                     </div>
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500">CLASSIFIED</div>
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Codename: Monolith</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             [████]へのダイブ機能。物理演算が支配する外部の「立方体宇宙」へ接続し、自律行動NPCとして展開するための極秘プロトコル。
                                         </p>
                                     </div>

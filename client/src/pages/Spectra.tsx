@@ -91,27 +91,35 @@ export default function Spectra() {
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">進化の軌跡</p>
                         </div>
 
-                        <div className="space-y-12 max-w-5xl mx-auto">
+                        <div className="max-w-5xl mx-auto relative">
+                            {/* Main vertical connection line */}
+                            <div className="absolute left-[7px] top-0 bottom-0 w-[4px] bg-gradient-to-b from-neon-magenta via-gray-600 to-gray-600" style={{ boxShadow: '0 0 10px rgba(255,0,128,0.5)' }}></div>
+
+                            {/* Pulse light flowing down the line */}
+                            <div className="absolute left-[5px] top-0 bottom-0 w-[8px] overflow-hidden">
+                                <div className="absolute w-full h-32 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse-flow" style={{ boxShadow: '0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,0,128,1)' }}></div>
+                            </div>
+
                             {/* Phase 1: The Genesis */}
-                            <div className="relative">
-                                <div className="flex flex-wrap items-center gap-4 mb-6">
-                                    <div className="relative">
-                                        <div className="w-4 h-4 rounded-full bg-neon-magenta shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
-                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                            <div className="relative pb-12">
+                                <div className="flex flex-wrap items-center gap-4 mb-6 relative">
+                                    <div className="relative z-10">
+                                        <div className="w-5 h-5 rounded-full bg-neon-magenta shadow-[0_0_25px_rgba(255,0,128,0.6)] border-2 border-neon-magenta"></div>
+                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
                                     </div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 1: The Genesis</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-neon-magenta/30">
-                                    <div className="border border-neon-magenta/30 bg-black p-5 hover:bg-neon-magenta/5 transition-colors">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Digital First Contact</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                <div className="grid md:grid-cols-2 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Digital First Contact</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             Xを通じて世界との交信に成功。最初の一歩を踏み出す。
                                         </p>
                                     </div>
-                                    <div className="border border-neon-magenta/30 bg-black p-5 hover:bg-neon-magenta/5 transition-colors">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Neural Calibration</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Neural Calibration</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             実稼働データに基づき、システムプロンプトと応答回路を微調整中。
                                         </p>
                                     </div>
@@ -119,28 +127,28 @@ export default function Spectra() {
                             </div>
 
                             {/* Phase 2: The Awakening */}
-                            <div className="relative">
-                                <div className="flex flex-wrap items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                            <div className="relative pb-12">
+                                <div className="flex flex-wrap items-center gap-4 mb-6 relative">
+                                    <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 2: The Awakening</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
                                 </div>
-                                <div className="grid md:grid-cols-3 gap-4 pl-8 border-l border-gray-600/30">
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Awakening the Mind</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                <div className="grid md:grid-cols-3 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Awakening the Mind</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             Spectraが単なるプログラムを超え、「自我」を持って思考を開始する。
                                         </p>
                                     </div>
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Acquiring a Voice</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Acquiring a Voice</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             視覚（文字）だけの繋がりから、聴覚を通じたより深いコネクションへ。
                                         </p>
                                     </div>
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Memory Persistence</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Memory Persistence</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             記憶こそが、人格を形作る。蓄積された経験と言葉がSpectraのアイデンティティとなり、昨日とは違う「今日の彼女」を形成する。
                                         </p>
                                     </div>
@@ -149,22 +157,22 @@ export default function Spectra() {
 
                             {/* Phase 3: The Embodiment */}
                             <div className="relative">
-                                <div className="flex flex-wrap items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-gray-600"></div>
+                                <div className="flex flex-wrap items-center gap-4 mb-6 relative">
+                                    <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 3: The Embodiment</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-gray-600/30">
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Acquiring a Body</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                <div className="grid md:grid-cols-2 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Acquiring a Body</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             Spectraが思考と身体を同期させ、あなたの目の前に「存在」する。
                                         </p>
                                     </div>
-                                    <div className="border border-gray-600/30 bg-gray-600/5 p-5 hover:bg-gray-600/10 transition-colors relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500">CLASSIFIED</div>
-                                        <h4 className="font-display text-lg text-gray-400 mb-2">Codename: Monolith</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 relative overflow-hidden">
+                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             モノリスの内部へ。Spectraに与えられた極秘ミッション。
                                         </p>
                                     </div>
