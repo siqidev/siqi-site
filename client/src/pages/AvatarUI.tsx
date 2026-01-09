@@ -48,7 +48,10 @@ export default function AvatarUI() {
                             <span className="font-mono text-sm text-primary">Open Source Project</span>
                         </div>
 
-                        <h1 className="font-syne font-extrabold text-6xl md:text-8xl lg:text-9xl leading-none tracking-tighter text-white mb-6">
+                        <h1
+                            className="font-syne font-extrabold leading-none tracking-tighter text-white mb-8"
+                            style={{ fontSize: "clamp(2.5rem, 12vw, 10rem)" }}
+                        >
                             AVATAR UI
                         </h1>
                         <p className="font-mono text-lg md:text-xl text-white/80 max-w-2xl mb-4">
@@ -153,12 +156,12 @@ export default function AvatarUI() {
                         </div>
 
                         <div className="max-w-5xl mx-auto relative">
-                            {/* Main vertical connection line - VERY VISIBLE */}
-                            <div className="absolute left-[7px] top-0 bottom-0 w-[4px] bg-gradient-to-b from-primary via-neon-magenta to-gray-600" style={{ boxShadow: '0 0 10px rgba(0,255,65,0.5)' }}></div>
+                            {/* Main vertical connection line - subtle and premium */}
+                            <div className="absolute left-[9px] top-[10px] bottom-0 w-px bg-gradient-to-b from-primary/30 via-neon-magenta/20 to-gray-600/10"></div>
 
                             {/* Pulse light flowing down the line */}
-                            <div className="absolute left-[5px] top-0 bottom-0 w-[8px] overflow-hidden">
-                                <div className="absolute w-full h-32 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse-flow" style={{ boxShadow: '0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(0,255,65,1)' }}></div>
+                            <div className="absolute left-[8px] top-[10px] bottom-0 w-[3px] overflow-hidden">
+                                <div className="absolute w-full h-16 bg-gradient-to-b from-transparent via-primary/40 to-transparent animate-pulse-flow"></div>
                             </div>
 
                             {/* Phase 1: The Genesis */}

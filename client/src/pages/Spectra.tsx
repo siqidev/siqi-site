@@ -92,12 +92,12 @@ export default function Spectra() {
                         </div>
 
                         <div className="max-w-5xl mx-auto relative">
-                            {/* Main vertical connection line */}
-                            <div className="absolute left-[7px] top-0 bottom-0 w-[4px] bg-gradient-to-b from-neon-magenta via-gray-600 to-gray-600" style={{ boxShadow: '0 0 10px rgba(255,0,128,0.5)' }}></div>
+                            {/* Main vertical connection line - subtle and premium */}
+                            <div className="absolute left-[9px] top-[10px] bottom-0 w-px bg-gradient-to-b from-neon-magenta/30 via-gray-600/20 to-gray-600/10"></div>
 
                             {/* Pulse light flowing down the line */}
-                            <div className="absolute left-[5px] top-0 bottom-0 w-[8px] overflow-hidden">
-                                <div className="absolute w-full h-32 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse-flow" style={{ boxShadow: '0 0 20px rgba(255,255,255,0.9), 0 0 40px rgba(255,0,128,1)' }}></div>
+                            <div className="absolute left-[8px] top-[10px] bottom-0 w-[3px] overflow-hidden">
+                                <div className="absolute w-full h-16 bg-gradient-to-b from-transparent via-neon-magenta/40 to-transparent animate-pulse-flow"></div>
                             </div>
 
                             {/* Phase 1: The Genesis */}

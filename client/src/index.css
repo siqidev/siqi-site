@@ -330,18 +330,26 @@
   /* Pulse flow animation for connection lines */
   @keyframes pulse-flow {
     0% {
-      top: -30px;
-      opacity: 1;
+      top: -20px;
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 0.6;
+    }
+
+    90% {
+      opacity: 0.3;
     }
 
     100% {
       top: 100%;
-      opacity: 0.2;
+      opacity: 0;
     }
   }
 
   .animate-pulse-flow {
-    animation: pulse-flow 1.5s ease-in-out infinite;
+    animation: pulse-flow 4s ease-in-out infinite;
   }
 
   /* CRT scanline overlay for cards - BRIGHT VERSION */
