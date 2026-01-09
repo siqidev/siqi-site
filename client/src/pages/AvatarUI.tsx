@@ -131,7 +131,7 @@ export default function AvatarUI() {
                             ].map((feature, i) => (
                                 <div
                                     key={i}
-                                    className="border border-primary/20 bg-primary/5 p-6 hover:bg-primary/10 transition-all duration-300 group"
+                                    className="border border-primary/30 bg-black p-6 hover:bg-primary/5 transition-all duration-300 group"
                                 >
                                     <feature.icon className="w-8 h-8 text-neon-magenta mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-xl font-display text-white mb-2">{feature.title}</h3>
@@ -156,18 +156,21 @@ export default function AvatarUI() {
                             {/* Phase 1: The Genesis */}
                             <div className="relative">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(0,255,65,0.5)]"></div>
+                                    <div className="relative">
+                                        <div className="w-4 h-4 rounded-full bg-primary shadow-[0_0_20px_rgba(0,255,65,0.5)]"></div>
+                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-primary animate-ping opacity-30"></div>
+                                    </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Genesis</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">完了</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-primary/30">
-                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
+                                    <div className="border border-primary/30 bg-black p-5 hover:bg-primary/5 transition-colors">
                                         <h4 className="font-display text-lg text-primary mb-2">Core Foundation</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed">
                                             AG-UIプロトコルとElectronを統合した、マルチエージェントシステムの構築。
                                         </p>
                                     </div>
-                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
+                                    <div className="border border-primary/30 bg-black p-5 hover:bg-primary/5 transition-colors">
                                         <h4 className="font-display text-lg text-primary mb-2">Basic UI/UX</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed">
                                             OSネイティブな常駐機能と、チャットインターフェースの確立。
@@ -179,9 +182,12 @@ export default function AvatarUI() {
                             {/* Phase 2: The Awakening */}
                             <div className="relative">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-neon-magenta animate-pulse shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                    <div className="relative">
+                                        <div className="w-4 h-4 rounded-full bg-neon-magenta shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                                    </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 2: The Awakening</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">進行中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 pl-8 border-l border-neon-magenta/30">
                                     <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
@@ -261,7 +267,7 @@ export default function AvatarUI() {
                                     a: "完全にオープンソースなので、自由にフォーク・カスタマイズできます。プラグインシステムも開発中です。",
                                 },
                             ].map((faq, i) => (
-                                <div key={i} className="border border-primary/20 bg-primary/5 p-6">
+                                <div key={i} className="border border-primary/30 bg-black p-6 hover:bg-primary/5 transition-colors">
                                     <h3 className="text-lg font-display text-white mb-2 flex items-start gap-3">
                                         <span className="text-neon-magenta">Q.</span>
                                         {faq.q}

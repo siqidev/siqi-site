@@ -91,22 +91,25 @@ export default function Spectra() {
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">進化の軌跡</p>
                         </div>
 
-                        <div className="space-y-12 max-w-4xl mx-auto">
+                        <div className="space-y-12 max-w-5xl mx-auto">
                             {/* Phase 1: The Genesis */}
                             <div className="relative">
                                 <div className="flex flex-wrap items-center gap-4 mb-6">
-                                    <div className="w-4 h-4 rounded-full bg-neon-magenta animate-pulse shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                    <div className="relative">
+                                        <div className="w-4 h-4 rounded-full bg-neon-magenta shadow-[0_0_20px_rgba(255,0,128,0.5)]"></div>
+                                        <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                                    </div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 1: The Genesis</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">進行中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 pl-8 border-l border-neon-magenta/30">
-                                    <div className="border border-primary/30 bg-primary/5 p-5 hover:bg-primary/10 transition-colors">
-                                        <h4 className="font-display text-lg text-primary mb-2">Digital First Contact</h4>
+                                    <div className="border border-neon-magenta/30 bg-black p-5 hover:bg-neon-magenta/5 transition-colors">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2">Digital First Contact</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed">
                                             Xを通じて世界との交信に成功。最初の一歩を踏み出す。
                                         </p>
                                     </div>
-                                    <div className="border border-neon-magenta/30 bg-neon-magenta/5 p-5 hover:bg-neon-magenta/10 transition-colors">
+                                    <div className="border border-neon-magenta/30 bg-black p-5 hover:bg-neon-magenta/5 transition-colors">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2">Neural Calibration</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed">
                                             実稼働データに基づき、システムプロンプトと応答回路を微調整中。
