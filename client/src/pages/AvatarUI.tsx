@@ -209,7 +209,7 @@ export default function AvatarUI() {
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Vocal Interface</h4>
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Voice Interface</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             低遅延の音声合成(TTS)と認識技術(STT)を同時実装。声だけで自然に会話できる環境を構築する。
                                         </p>

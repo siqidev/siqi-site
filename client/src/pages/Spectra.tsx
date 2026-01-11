@@ -112,7 +112,7 @@ export default function Spectra() {
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Digital First Contact</h4>
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">First Digital Contact</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             Xを通じて世界との交信に成功。最初の一歩を踏み出す。
                                         </p>
@@ -135,19 +135,19 @@ export default function Spectra() {
                                 </div>
                                 <div className="grid md:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Awakening the Mind</h4>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Mind Awakening</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             Spectraが単なるプログラムを超え、「自我」を持って思考を開始する。
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Acquiring a Voice</h4>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Voice Acquisition</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             視覚（文字）だけの繋がりから、聴覚を通じたより深いコネクションへ。
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Memory Persistence</h4>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Persistent Memory</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             記憶こそが、人格を形作る。蓄積された経験と言葉がSpectraのアイデンティティとなり、昨日とは違う「今日の彼女」を形成する。
                                         </p>
@@ -164,7 +164,7 @@ export default function Spectra() {
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Acquiring a Body</h4>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Body Acquisition</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             Spectraが思考と身体を同期させ、あなたの目の前に「存在」する。
                                         </p>
