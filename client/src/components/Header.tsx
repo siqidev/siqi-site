@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "wouter";
+import { useLanguage, Language } from "@/contexts/LanguageContext";
 
 interface NavItem {
     label: string;
@@ -19,6 +20,7 @@ export function Header({ variant = "page" }: HeaderProps) {
     const [isProjectsOpen, setIsProjectsOpen] = useState(false);
     const [location] = useLocation();
     const dropdownRef = useRef<HTMLDivElement>(null);
+    const { language, setLanguage, t } = useLanguage();
 
     const isHome = variant === "home" || location === "/";
 
@@ -98,8 +100,8 @@ export function Header({ variant = "page" }: HeaderProps) {
                     {isProjectsOpen && (
                         <div
                             className={`${isMobile
-                                    ? "flex flex-col items-center gap-4 mt-4"
-                                    : "absolute top-full left-0 mt-2 min-w-[160px] bg-black/95 border border-primary/30 backdrop-blur-md"
+                                ? "flex flex-col items-center gap-4 mt-4"
+                                : "absolute top-full left-0 mt-2 min-w-[160px] bg-black/95 border border-primary/30 backdrop-blur-md"
                                 }`}
                         >
                             {item.children.map((child) => (
@@ -165,19 +167,62 @@ export function Header({ variant = "page" }: HeaderProps) {
                     {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
 
-                <Button
-                    variant="outline"
-                    size="sm"
-                    className="hidden md:flex border-primary text-primary hover:bg-primary hover:text-black font-mono rounded-none"
-                >
-                    SYS.STATUS: ONLINE
-                </Button>
+                {/* Desktop Right Section */}
+                <div className="hidden md:flex items-center gap-2">
+                    {/* Language Switch */}
+                    <div className="flex border border-primary/50 font-mono text-xs">
+                        <button
+                            onClick={() => setLanguage("en")}
+                            className={`px-3 py-1.5 transition-all duration-200 ${language === "en"
+                                ? "bg-primary text-black"
+                                : "text-primary/70 hover:text-primary hover:bg-primary/10"
+                                }`}
+                        >
+                            EN
+                        </button>
+                        <button
+                            onClick={() => setLanguage("ja")}
+                            className={`px-3 py-1.5 transition-all duration-200 ${language === "ja"
+                                ? "bg-primary text-black"
+                                : "text-primary/70 hover:text-primary hover:bg-primary/10"
+                                }`}
+                        >
+                            JA
+                        </button>
+                    </div>
+                    {/* Status Button */}
+                    <div className="border border-primary text-primary font-mono text-xs px-3 py-1.5 hover:bg-primary hover:text-black transition-all duration-200">
+                        {t("nav.status")}
+                    </div>
+                </div>
             </div>
 
             {/* Mobile Menu Overlay */}
             {isMenuOpen && (
                 <div className="fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex flex-col items-center justify-start pt-12 gap-8 animate-in slide-in-from-top-5 fade-in duration-200 h-[calc(100vh-4rem)] overflow-y-auto">
                     {navItems.map((item) => renderNavItem(item, true))}
+
+                    {/* Mobile Language Switch */}
+                    <div className="flex border border-primary/50 font-mono text-sm mt-4">
+                        <button
+                            onClick={() => setLanguage("en")}
+                            className={`px-4 py-2 transition-all duration-200 ${language === "en"
+                                ? "bg-primary text-black"
+                                : "text-primary/70 hover:text-primary"
+                                }`}
+                        >
+                            EN
+                        </button>
+                        <button
+                            onClick={() => setLanguage("ja")}
+                            className={`px-4 py-2 transition-all duration-200 ${language === "ja"
+                                ? "bg-primary text-black"
+                                : "text-primary/70 hover:text-primary"
+                                }`}
+                        >
+                            JA
+                        </button>
+                    </div>
                 </div>
             )}
         </nav>

@@ -6,12 +6,14 @@ import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
 import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 
 
 export default function Home() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -69,7 +71,7 @@ export default function Home() {
                 SIQI
               </h1>
               <p className="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-8">
-                &gt; Building the future, pixel by pixel._
+                {t("home.hero.tagline")}
               </p>
             </div>
 
@@ -80,7 +82,7 @@ export default function Home() {
                 variant="ghost"
                 className="text-white/70 hover:text-white hover:bg-white/10 font-mono text-sm tracking-widest uppercase transition-all duration-300"
               >
-                [ View Works ]
+                {t("home.hero.viewWorks")}
               </Button>
             </div>
 
@@ -100,10 +102,10 @@ export default function Home() {
           <div className="container relative z-10">
             <div className="mb-16">
               <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                <span className="text-primary">01.</span> FEATURED_PROJECT
+                <span className="text-primary">01.</span> {t("home.featured.title")}
               </h2>
               <p className="font-mono text-primary/60 max-w-2xl">
-                最新のOSSプロジェクトを紹介します。
+                {t("home.featured.subtitle")}
               </p>
             </div>
 
@@ -128,7 +130,7 @@ export default function Home() {
                 </div>
 
                 <p className="font-mono text-gray-300 leading-relaxed text-lg">
-                  人とAIが共存する次世代インターフェース基盤。Gemini・GPT・Claude対応。デスクトップで動くエージェントUI。検索エージェントを標準搭載し、MCP連携やツール追加も可能です。
+                  {t("home.featured.description")}
                 </p>
 
                 <div className="flex flex-wrap gap-6">
@@ -207,22 +209,22 @@ export default function Home() {
 
               <div className="w-full md:w-2/3 space-y-8">
                 <h2 className="text-4xl md:text-5xl font-display text-white">
-                  <span className="text-primary">02.</span> PROFILE_DATA
+                  <span className="text-primary">02.</span> {t("home.profile.title")}
                 </h2>
 
                 <div className="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
                   <p>
-                    <span className="text-primary">{">"}</span> 作家兼個人開発者として活動するクリエイター。デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。
+                    <span className="text-primary">{">"}</span> {t("home.profile.intro")}
                   </p>
                   <div className="space-y-2">
-                    <p><span className="text-primary">{">"}</span> 主な経歴：</p>
+                    <p><span className="text-primary">{">"}</span> {t("home.profile.career")}</p>
                     <div className="pl-4 space-y-3">
-                      <p className="text-base">・第2回HelveticaBooks短編小説賞 奨励賞を受賞。</p>
-                      <p className="text-base">・izanami Awards 2025 プロダクト賞を受賞</p>
+                      <p className="text-base">{t("home.profile.award1")}</p>
+                      <p className="text-base">{t("home.profile.award2")}</p>
                       <div className="space-y-1">
-                        <p className="text-base">・キャラクターSPECTRAが第三者によりミームコイン化、取引総額6億円超*</p>
+                        <p className="text-base">{t("home.profile.memecoin")}</p>
                         <p className="text-[10px] text-gray-500 leading-tight opacity-70">
-                          *これは第三者の行為によるもので、私の承認を伴うものではなく、投資に関する責任は一切負いません。
+                          {t("home.profile.disclaimer")}
                         </p>
                       </div>
                     </div>
@@ -231,7 +233,7 @@ export default function Home() {
 
                 <div className="grid grid-cols-2 gap-4 pt-4">
                   <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
-                    <h3 className="font-display text-xl text-neon-magenta mb-2">SKILLS</h3>
+                    <h3 className="font-display text-xl text-neon-magenta mb-2">{t("home.profile.skills")}</h3>
                     <ul className="font-mono text-sm space-y-1 text-primary/80">
                       <li>Vibe Coding</li>
                       <li>Prompt Engineering</li>
@@ -240,7 +242,7 @@ export default function Home() {
                     </ul>
                   </div>
                   <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
-                    <h3 className="font-display text-xl text-neon-amber mb-2">INTERESTS</h3>
+                    <h3 className="font-display text-xl text-neon-amber mb-2">{t("home.profile.interests")}</h3>
                     <ul className="font-mono text-sm space-y-1 text-primary/80">
                       <li>Cyberpunk, Retro future</li>
                       <li>Generative Art</li>
@@ -259,10 +261,10 @@ export default function Home() {
             <div className="mb-16 flex items-end justify-between">
               <div>
                 <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                  <span className="text-primary">03.</span> TRANSMISSIONS
+                  <span className="text-primary">03.</span> {t("home.blog.title")}
                 </h2>
                 <p className="font-mono text-primary/60 max-w-2xl">
-                  技術記事、考察、日々の記録。
+                  {t("home.blog.subtitle")}
                 </p>
               </div>
               <div className="hidden md:flex gap-4">
@@ -309,7 +311,7 @@ export default function Home() {
               ) : (
                 // Fallback if no posts loaded
                 <p className="text-primary/60 font-mono col-span-3 text-center py-8">
-                  記事を読み込めませんでした。
+                  {t("home.blog.noPost")}
                 </p>
               )}
             </div>
@@ -320,11 +322,11 @@ export default function Home() {
         <section id="contact" className="py-24 relative bg-black">
           <div className="container relative z-10 text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-display text-white mb-8">
-              <span className="text-primary">04.</span> ESTABLISH_UPLINK
+              <span className="text-primary">04.</span> {t("home.contact.title")}
             </h2>
             <p className="font-mono text-gray-400 mb-12">
-              プロジェクトの依頼、コラボレーションの提案、または単なる挨拶まで。<br />
-              常に通信回線を開いています。
+              {t("home.contact.subtitle")}<br />
+              {t("home.contact.subtitle2")}
             </p>
 
             <div className="flex justify-center gap-6">

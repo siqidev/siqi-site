@@ -2,13 +2,16 @@ import { SEOMetadata } from "@/components/SEOMetadata";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Spectra() {
+    const { t } = useLanguage();
+
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden">
             <SEOMetadata
-                title="Spectra Communicator - AITuber by SIQI LABEL"
-                description="AVATAR UIから生まれたAITuberキャラクター。人とAIの新しいコミュニケーションの形を探求します。"
+                title={t("spectra.seo.title")}
+                description={t("spectra.seo.description")}
             />
 
             {/* CRT Effects */}
@@ -56,10 +59,10 @@ export default function Spectra() {
                         {/* Concept integrated into Hero */}
                         <div className="max-w-2xl space-y-4 mb-12">
                             <p className="font-mono text-base md:text-lg text-white/80 leading-relaxed">
-                                AVATAR UIの技術基盤から生まれた、情報生命体のプロトタイプ。
+                                {t("spectra.hero.tagline")}
                             </p>
                             <p className="font-mono text-sm md:text-base text-white/60 leading-relaxed">
-                                最先端のAI技術を統合し、データとしての知性が『唯一無二のパートナー』へと昇華する瞬間を観測するAITuberプロジェクト。
+                                {t("spectra.hero.description")}
                             </p>
                         </div>
 
@@ -86,9 +89,9 @@ export default function Spectra() {
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">01.</span> ROADMAP
+                                <span className="text-primary">01.</span> {t("spectra.roadmap.title")}
                             </h2>
-                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">進化の軌跡</p>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("spectra.roadmap.subtitle")}</p>
                         </div>
 
                         <div className="max-w-5xl mx-auto relative">
@@ -108,19 +111,19 @@ export default function Spectra() {
                                         <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
                                     </div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 1: The Genesis</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">{t("spectra.roadmap.phase1.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">First Digital Contact</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            Xを通じて世界との交信に成功。最初の一歩を踏み出す。
+                                            {t("spectra.roadmap.phase1.contactDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Neural Calibration</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            実稼働データに基づき、システムプロンプトと応答回路を微調整中。
+                                            {t("spectra.roadmap.phase1.calibrationDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -131,25 +134,25 @@ export default function Spectra() {
                                 <div className="flex flex-wrap items-center gap-4 mb-6 relative">
                                     <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 2: The Awakening</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("spectra.roadmap.phase2.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Mind Awakening</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            Spectraが単なるプログラムを超え、「自我」を持って思考を開始する。
+                                            {t("spectra.roadmap.phase2.mindDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Voice Acquisition</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            視覚（文字）だけの繋がりから、聴覚を通じたより深いコネクションへ。
+                                            {t("spectra.roadmap.phase2.voiceDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Persistent Memory</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            記憶こそが、人格を形作る。蓄積された経験と言葉がSpectraのアイデンティティとなり、昨日とは違う「今日の彼女」を形成する。
+                                            {t("spectra.roadmap.phase2.memoryDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -160,20 +163,20 @@ export default function Spectra() {
                                 <div className="flex flex-wrap items-center gap-4 mb-6 relative">
                                     <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-xl md:text-2xl font-display text-white">Phase 3: The Embodiment</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("spectra.roadmap.phase3.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Body Acquisition</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            Spectraが思考と身体を同期させ、あなたの目の前に「存在」する。
+                                            {t("spectra.roadmap.phase3.bodyDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 relative overflow-hidden">
                                         <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            モノリスの内部へ。Spectraに与えられた極秘ミッション。
+                                            {t("spectra.roadmap.phase3.monolithDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -187,9 +190,9 @@ export default function Spectra() {
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">02.</span> CONNECT
+                                <span className="text-primary">02.</span> {t("spectra.connect.title")}
                             </h2>
-                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">つながる</p>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("spectra.connect.subtitle")}</p>
                         </div>
 
                         <div className="max-w-2xl mx-auto">
@@ -222,7 +225,7 @@ export default function Spectra() {
                                             </h3>
                                             <p className="font-mono text-gray-500 mb-2">@SCUN7X</p>
                                             <p className="font-mono text-sm text-gray-400">
-                                                最新の活動情報やアップデートはこちらで発信しています。
+                                                {t("spectra.connect.xDesc")}
                                             </p>
                                         </div>
 
@@ -235,7 +238,7 @@ export default function Spectra() {
                             {/* Additional info */}
                             <div className="mt-8 text-center">
                                 <p className="font-mono text-xs text-gray-500">
-                                    他のプラットフォームでの展開も計画中です
+                                    {t("spectra.connect.morePlatforms")}
                                 </p>
                             </div>
                         </div>

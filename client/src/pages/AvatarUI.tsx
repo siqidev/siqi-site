@@ -12,13 +12,16 @@ import {
     Settings,
     Zap,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function AvatarUI() {
+    const { t } = useLanguage();
+
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden">
             <SEOMetadata
-                title="AVATAR UI - 人とAIが共存する次世代インターフェース基盤"
-                description="Gemini・GPT・Claude対応のマルチLLMデスクトップエージェント。検索エージェント標準搭載、MCP連携対応のオープンソースプロジェクト。"
+                title={t("avatarui.seo.title")}
+                description={t("avatarui.seo.description")}
             />
 
             {/* CRT Effects */}
@@ -55,10 +58,10 @@ export default function AvatarUI() {
                             AVATAR UI
                         </h1>
                         <p className="font-mono text-lg md:text-xl text-white/80 max-w-2xl mb-4">
-                            人とAIが共存する次世代エージェント基盤
+                            {t("avatarui.hero.tagline")}
                         </p>
                         <p className="font-mono text-sm text-primary/60 max-w-2xl mb-12">
-                            高度な推論モデルに好みのアバターを統合し、自律的なパートナーとして稼働させる。デスクトップに自由な知性を実装する、オープンソースプロジェクト。
+                            {t("avatarui.hero.description")}
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4">
@@ -69,7 +72,7 @@ export default function AvatarUI() {
                             >
                                 <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono h-12 px-8 text-base">
                                     <Github className="mr-2 w-5 h-5" />
-                                    GitHub でインストール
+                                    {t("avatarui.hero.install")}
                                 </Button>
                             </a>
                             <a href="#features">
@@ -77,7 +80,7 @@ export default function AvatarUI() {
                                     variant="outline"
                                     className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-8 text-base"
                                 >
-                                    機能を見る
+                                    {t("avatarui.hero.viewFeatures")}
                                     <ArrowRight className="ml-2 w-5 h-5" />
                                 </Button>
                             </a>
@@ -118,10 +121,10 @@ export default function AvatarUI() {
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">01.</span> FEATURES
+                                <span className="text-primary">01.</span> {t("avatarui.features.title")}
                             </h2>
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">
-                                AVATAR UIが提供する主要機能
+                                {t("avatarui.features.subtitle")}
                             </p>
                         </div>
 
@@ -130,32 +133,32 @@ export default function AvatarUI() {
                                 {
                                     icon: Bot,
                                     title: "Multi-LLM Support",
-                                    description: "Gemini、GPT、Claudeなど複数のLLMプロバイダーに対応。切り替えも簡単。",
+                                    descKey: "avatarui.features.multiLlm",
                                 },
                                 {
                                     icon: Search,
-                                    title: "検索エージェント",
-                                    description: "Web検索機能を標準搭載。情報収集を自動化。",
+                                    title: t("avatarui.features.searchTitle"),
+                                    descKey: "avatarui.features.search",
                                 },
                                 {
                                     icon: Settings,
-                                    title: "MCP連携",
-                                    description: "Model Context Protocolに対応。外部ツールとの連携が可能。",
+                                    title: t("avatarui.features.mcpTitle"),
+                                    descKey: "avatarui.features.mcp",
                                 },
                                 {
                                     icon: Zap,
-                                    title: "ツール追加",
-                                    description: "カスタムツールを追加して機能を拡張。あなただけのエージェントに。",
+                                    title: t("avatarui.features.toolsTitle"),
+                                    descKey: "avatarui.features.tools",
                                 },
                                 {
                                     icon: MessageSquare,
-                                    title: "デスクトップネイティブ",
-                                    description: "Electronベースでローカル動作。プライバシーを守りながらAIを活用。",
+                                    title: t("avatarui.features.desktopTitle"),
+                                    descKey: "avatarui.features.desktop",
                                 },
                                 {
                                     icon: Code,
-                                    title: "完全オープンソース",
-                                    description: "MITライセンスで公開。自由にカスタマイズ、商用利用も可能。",
+                                    title: t("avatarui.features.ossTitle"),
+                                    descKey: "avatarui.features.oss",
                                 },
                             ].map((feature, i) => (
                                 <div
@@ -164,10 +167,9 @@ export default function AvatarUI() {
                                 >
                                     <feature.icon className="w-8 h-8 text-neon-magenta mb-4 group-hover:scale-110 transition-transform" />
                                     <h3 className="text-xl font-display text-white mb-2">{feature.title}</h3>
-                                    <p className="font-mono text-sm text-gray-400">{feature.description}</p>
+                                    <p className="font-mono text-sm text-gray-400">{t(feature.descKey)}</p>
                                 </div>
-                            ))}
-                        </div>
+                            ))}                        </div>
                     </div>
                 </section>
 
@@ -176,9 +178,9 @@ export default function AvatarUI() {
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">02.</span> ROADMAP
+                                <span className="text-primary">02.</span> {t("avatarui.roadmap.title")}
                             </h2>
-                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">開発ロードマップ</p>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("avatarui.roadmap.subtitle")}</p>
                         </div>
 
                         <div className="max-w-5xl mx-auto relative">
@@ -199,19 +201,19 @@ export default function AvatarUI() {
                                         <div className="absolute inset-0 w-5 h-5 rounded-full bg-primary animate-ping opacity-30"></div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Genesis</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">完了</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">{t("avatarui.roadmap.phase1.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-primary mb-2 relative z-10">Core Foundation</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            AG-UIプロトコルとElectronを統合した、マルチエージェントシステムの構築。
+                                            {t("avatarui.roadmap.phase1.coreDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-primary mb-2 relative z-10">Basic UI/UX</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            OSネイティブな常駐機能と、チャットインターフェースの確立。
+                                            {t("avatarui.roadmap.phase1.uiDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -225,25 +227,25 @@ export default function AvatarUI() {
                                         <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 2: The Awakening</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">進行中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">{t("avatarui.roadmap.phase2.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Identity Kernel Integration</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            最新のGrokモデルを中枢に据え、人格モデルを実装。思考の「深さ」を実装する。
+                                            {t("avatarui.roadmap.phase2.identityDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Voice Interface</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            低遅延の音声合成(TTS)と認識技術(STT)を同時実装。声だけで自然に会話できる環境を構築する。
+                                            {t("avatarui.roadmap.phase2.voiceDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5 md:col-span-2 lg:col-span-1">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Deep Context Engine</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            会話ログを長期保存し、文脈に応じて瞬時に引き出す「記憶の永続化」システムの実装。
+                                            {t("avatarui.roadmap.phase2.contextDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -254,20 +256,20 @@ export default function AvatarUI() {
                                 <div className="flex items-center gap-4 mb-6 relative">
                                     <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">計画中</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("avatarui.roadmap.phase3.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Visual Interface</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            Live2D描画エンジンを搭載し、思考と動作が同期する「ボディ」を獲得する。
+                                            {t("avatarui.roadmap.phase3.visualDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 relative overflow-hidden">
                                         <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            Robloxへのダイブ機能。物理演算が支配する外部の「立方体宇宙」へ接続し、自律行動NPCとして展開するための極秘プロトコル。
+                                            {t("avatarui.roadmap.phase3.monolithDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -281,37 +283,37 @@ export default function AvatarUI() {
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">03.</span> FAQ
+                                <span className="text-primary">03.</span> {t("avatarui.faq.title")}
                             </h2>
-                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">よくある質問</p>
+                            <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("avatarui.faq.subtitle")}</p>
                         </div>
 
                         <div className="max-w-3xl mx-auto space-y-6">
                             {[
                                 {
-                                    q: "どのOSで動作しますか？",
-                                    a: "Windows、macOS、Linuxに対応しています。Electronベースなのでクロスプラットフォームで動作します。",
+                                    qKey: "avatarui.faq.q1",
+                                    aKey: "avatarui.faq.a1",
                                 },
                                 {
-                                    q: "APIキーは必要ですか？",
-                                    a: "はい、使用するLLMプロバイダー（OpenAI、Google、Anthropic等）のAPIキーが必要です。",
+                                    qKey: "avatarui.faq.q2",
+                                    aKey: "avatarui.faq.a2",
                                 },
                                 {
-                                    q: "商用利用は可能ですか？",
-                                    a: "はい、MITライセンスなので商用利用も自由です。",
+                                    qKey: "avatarui.faq.q3",
+                                    aKey: "avatarui.faq.a3",
                                 },
                                 {
-                                    q: "カスタマイズは可能ですか？",
-                                    a: "完全にオープンソースなので、自由にフォーク・カスタマイズできます。プラグインシステムも開発中です。",
+                                    qKey: "avatarui.faq.q4",
+                                    aKey: "avatarui.faq.a4",
                                 },
                             ].map((faq, i) => (
                                 <div key={i} className="border border-primary/30 bg-black p-6 hover:bg-primary/5 transition-colors">
                                     <h3 className="text-lg font-display text-white mb-2 flex items-start gap-3">
                                         <span className="text-neon-magenta">Q.</span>
-                                        {faq.q}
+                                        {t(faq.qKey)}
                                     </h3>
                                     <p className="font-mono text-sm text-gray-400 pl-7">
-                                        <span className="text-primary">A.</span> {faq.a}
+                                        <span className="text-primary">A.</span> {t(faq.aKey)}
                                     </p>
                                 </div>
                             ))}
@@ -324,12 +326,12 @@ export default function AvatarUI() {
                     <div className="container relative z-10 text-center max-w-2xl mx-auto">
                         <h2 className="text-4xl md:text-5xl font-display text-white mb-8">GET_STARTED</h2>
                         <p className="font-mono text-gray-400 mb-8">
-                            GitHubリポジトリからインストールして始めましょう
+                            {t("avatarui.cta.subtitle")}
                         </p>
 
                         <div className="bg-black/50 border border-primary/30 p-6 mb-8">
                             <p className="font-mono text-sm text-gray-400 mb-4">
-                                詳細なインストール手順と設定方法はREADMEをご確認ください
+                                {t("avatarui.cta.readme")}
                             </p>
                             <div className="flex flex-col sm:flex-row justify-center gap-4">
                                 <a
@@ -341,7 +343,7 @@ export default function AvatarUI() {
                                         variant="outline"
                                         className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono w-full sm:w-auto"
                                     >
-                                        📖 README を読む
+                                        {t("avatarui.cta.readReadme")}
                                     </Button>
                                 </a>
                                 <a
@@ -351,7 +353,7 @@ export default function AvatarUI() {
                                 >
                                     <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono w-full sm:w-auto">
                                         <Github className="mr-2 w-5 h-5" />
-                                        リポジトリを見る
+                                        {t("avatarui.cta.viewRepo")}
                                         <ExternalLink className="ml-2 w-4 h-4" />
                                     </Button>
                                 </a>
