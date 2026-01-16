@@ -146,7 +146,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-wrap items-center gap-4 pt-4">
                   <a href="https://github.com/siqidev/avatar-ui" target="_blank" rel="noopener noreferrer">
                     <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono h-12 px-6">
                       VIEW_REPO <ExternalLink className="ml-2 w-4 h-4" />
@@ -156,6 +156,29 @@ export default function Home() {
                     <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6">
                       git clone ...
                     </Button>
+                  </a>
+                  {/* Badges */}
+                  <a
+                    href="https://orynth.dev/projects/avatar-ui"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="https://orynth.dev/api/badge/avatar-ui?theme=dark&style=default"
+                      alt="Featured on Orynth"
+                      className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                    />
+                  </a>
+                  <a
+                    href="https://www.geckoterminal.com/solana/pools/ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <img
+                      src="/images/geckoterminal-logo.png"
+                      alt="GeckoTerminal"
+                      className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                    />
                   </a>
                 </div>
               </div>

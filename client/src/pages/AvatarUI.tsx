@@ -82,6 +82,32 @@ export default function AvatarUI() {
                                 </Button>
                             </a>
                         </div>
+
+                        {/* Badges */}
+                        <div className="mt-8 flex items-center justify-center gap-4">
+                            <a
+                                href="https://orynth.dev/projects/avatar-ui"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="https://orynth.dev/api/badge/avatar-ui?theme=dark&style=default"
+                                    alt="Featured on Orynth"
+                                    className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                                />
+                            </a>
+                            <a
+                                href="https://www.geckoterminal.com/solana/pools/ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="/images/geckoterminal-logo.png"
+                                    alt="GeckoTerminal"
+                                    className="h-14 w-auto opacity-80 hover:opacity-100 transition-opacity"
+                                />
+                            </a>
+                        </div>
                     </div>
 
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
@@ -241,7 +267,7 @@ export default function AvatarUI() {
                                         <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
                                         <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            [████]へのダイブ機能。物理演算が支配する外部の「立方体宇宙」へ接続し、自律行動NPCとして展開するための極秘プロトコル。
+                                            Robloxへのダイブ機能。物理演算が支配する外部の「立方体宇宙」へ接続し、自律行動NPCとして展開するための極秘プロトコル。
                                         </p>
                                     </div>
                                 </div>
