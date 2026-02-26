@@ -113,7 +113,7 @@ export default function AvatarUI() {
                         {/* CA Copy Badge */}
                         <button
                             onClick={handleCopyCA}
-                            className="crt-card neon-shimmer inline-flex items-center gap-1.5 px-4 py-1.5 border-4 border-primary/30 rounded-full bg-black transition-all duration-300 cursor-pointer mt-8 group"
+                            className="crt-card neon-shimmer inline-flex items-center gap-1.5 px-4 py-1.5 border-[3px] border-primary/30 rounded-full bg-black transition-all duration-300 cursor-pointer mt-8 group"
                             title="Copy Contract Address"
                         >
                             <span className="font-mono text-[11px] sm:text-xs text-primary tracking-wide break-all relative z-10">
