@@ -117,7 +117,7 @@ export default function AvatarUI() {
                             title="Copy Contract Address"
                         >
                             <span className="font-mono text-[11px] sm:text-xs text-primary tracking-wide break-all relative z-10">
-                                {CONTRACT_ADDRESS}
+                                <span className="text-primary/50">CA: </span>{CONTRACT_ADDRESS}
                             </span>
                             {copied ? (
                                 <Check className="w-3.5 h-3.5 text-primary shrink-0 relative z-10" />
