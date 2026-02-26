@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const CONTRACT_ADDRESS = "ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ";
+const CONTRACT_ADDRESS = "63rvcwia2reibpdJMCf71bPLqBLvPRu9eM2xmRvNory";
 
 export default function AvatarUI() {
     const { t } = useLanguage();
@@ -84,25 +84,9 @@ export default function AvatarUI() {
                         <p className="font-mono text-lg md:text-xl text-white/80 max-w-2xl mb-4">
                             {t("avatarui.hero.tagline")}
                         </p>
-                        <p className="font-mono text-sm text-primary/60 max-w-2xl mb-8">
+                        <p className="font-mono text-sm text-primary/60 max-w-2xl mb-12">
                             {t("avatarui.hero.description")}
                         </p>
-
-                        {/* CA Copy Badge */}
-                        <button
-                            onClick={handleCopyCA}
-                            className="crt-card neon-shimmer inline-flex items-center gap-1.5 px-4 py-1.5 border border-primary/30 rounded-full bg-black transition-all duration-300 cursor-pointer mb-8 group outline outline-2 outline-primary/20 outline-offset-2"
-                            title="Copy Contract Address"
-                        >
-                            <span className="font-mono text-[11px] sm:text-xs text-primary tracking-wide break-all relative z-10">
-                                {CONTRACT_ADDRESS}
-                            </span>
-                            {copied ? (
-                                <Check className="w-3.5 h-3.5 text-primary shrink-0 relative z-10" />
-                            ) : (
-                                <Copy className="w-3.5 h-3.5 text-primary/60 group-hover:text-primary shrink-0 transition-colors relative z-10" />
-                            )}
-                        </button>
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
@@ -126,8 +110,24 @@ export default function AvatarUI() {
                             </a>
                         </div>
 
+                        {/* CA Copy Badge */}
+                        <button
+                            onClick={handleCopyCA}
+                            className="crt-card neon-shimmer inline-flex items-center gap-1.5 px-4 py-1.5 border-4 border-primary/30 rounded-full bg-black transition-all duration-300 cursor-pointer mt-8 group"
+                            title="Copy Contract Address"
+                        >
+                            <span className="font-mono text-[11px] sm:text-xs text-primary tracking-wide break-all relative z-10">
+                                {CONTRACT_ADDRESS}
+                            </span>
+                            {copied ? (
+                                <Check className="w-3.5 h-3.5 text-primary shrink-0 relative z-10" />
+                            ) : (
+                                <Copy className="w-3.5 h-3.5 text-primary/60 group-hover:text-primary shrink-0 transition-colors relative z-10" />
+                            )}
+                        </button>
+
                         {/* Badges */}
-                        <div className="mt-8 flex items-center justify-center gap-4">
+                        <div className="mt-4 flex items-center justify-center gap-4">
                             <a
                                 href="https://orynth.dev/projects/avatar-ui"
                                 target="_blank"
