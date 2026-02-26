@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { SEOMetadata } from "@/components/SEOMetadata";
 import { Header } from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import {
     ArrowRight,
     Bot,
+    Check,
     Code,
+    Copy,
     ExternalLink,
     Github,
     MessageSquare,
@@ -14,8 +17,29 @@ import {
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
+const CONTRACT_ADDRESS = "ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ";
+
 export default function AvatarUI() {
     const { t } = useLanguage();
+    const [copied, setCopied] = useState(false);
+
+    const handleCopyCA = async () => {
+        try {
+            await navigator.clipboard.writeText(CONTRACT_ADDRESS);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        } catch {
+            // fallback
+            const textarea = document.createElement("textarea");
+            textarea.value = CONTRACT_ADDRESS;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(textarea);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+        }
+    };
 
     return (
         <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden">
@@ -60,9 +84,25 @@ export default function AvatarUI() {
                         <p className="font-mono text-lg md:text-xl text-white/80 max-w-2xl mb-4">
                             {t("avatarui.hero.tagline")}
                         </p>
-                        <p className="font-mono text-sm text-primary/60 max-w-2xl mb-12">
+                        <p className="font-mono text-sm text-primary/60 max-w-2xl mb-8">
                             {t("avatarui.hero.description")}
                         </p>
+
+                        {/* CA Copy Badge */}
+                        <button
+                            onClick={handleCopyCA}
+                            className="crt-card neon-shimmer inline-flex items-center gap-2 px-5 py-2.5 border border-primary/30 rounded-full bg-black transition-all duration-300 cursor-pointer mb-8 group"
+                            title="Copy Contract Address"
+                        >
+                            <span className="font-mono text-xs sm:text-sm text-primary tracking-wide break-all">
+                                {CONTRACT_ADDRESS}
+                            </span>
+                            {copied ? (
+                                <Check className="w-4 h-4 text-primary shrink-0" />
+                            ) : (
+                                <Copy className="w-4 h-4 text-primary/60 group-hover:text-primary shrink-0 transition-colors" />
+                            )}
+                        </button>
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
