@@ -271,21 +271,21 @@ export default function AvatarUI() {
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Identity Kernel Integration</h4>
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Monolith: First Contact</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase2.monolithDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Identity & Memory</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.identityDesc")}
                                         </p>
                                     </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Voice Interface</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            {t("avatarui.roadmap.phase2.voiceDesc")}
-                                        </p>
-                                    </div>
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5 md:col-span-2 lg:col-span-1">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Deep Context Engine</h4>
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Coexistence Engine</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            {t("avatarui.roadmap.phase2.contextDesc")}
+                                            {t("avatarui.roadmap.phase2.engineDesc")}
                                         </p>
                                     </div>
                                 </div>
@@ -298,18 +298,23 @@ export default function AvatarUI() {
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("avatarui.roadmap.phase3.status")}</span>
                                 </div>
-                                <div className="grid md:grid-cols-2 gap-4 ml-8">
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Visual Interface</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            {t("avatarui.roadmap.phase3.visualDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 relative overflow-hidden">
-                                        <div className="absolute top-0 right-0 px-2 py-0.5 bg-gray-800 text-[10px] font-mono text-gray-500 z-10">CLASSIFIED</div>
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Codename: Monolith</h4>
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Monolith: Deep Dive</h4>
                                         <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase3.monolithDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Social Presence</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase3.socialDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Sensory Interface</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase3.sensoryDesc")}
                                         </p>
                                     </div>
                                 </div>
