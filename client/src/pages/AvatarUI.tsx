@@ -263,58 +263,90 @@ export default function AvatarUI() {
                             <div className="relative pb-12">
                                 <div className="flex items-center gap-4 mb-6 relative">
                                     <div className="relative z-10">
-                                        <div className="w-5 h-5 rounded-full bg-neon-magenta shadow-[0_0_25px_rgba(255,0,128,0.6)] border-2 border-neon-magenta"></div>
-                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                                        <div className="w-5 h-5 rounded-full bg-primary shadow-[0_0_25px_rgba(0,255,65,0.6)] border-2 border-primary"></div>
+                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-primary animate-ping opacity-30"></div>
                                     </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 2: The Awakening</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">{t("avatarui.roadmap.phase2.status")}</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">{t("avatarui.roadmap.phase2.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
-                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Monolith: First Contact</h4>
-                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
-                                            {t("avatarui.roadmap.phase2.monolithDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Identity & Memory</h4>
+                                    <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Identity & Memory</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.identityDesc")}
                                         </p>
                                     </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5 md:col-span-2 lg:col-span-1">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Coexistence Engine</h4>
+                                    <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Coexistence Engine</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.engineDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5 md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Monolith: First Contact</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase2.monolithDesc")}
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
                             {/* Phase 3: The Embodiment */}
-                            <div className="relative">
+                            <div className="relative pb-12">
                                 <div className="flex items-center gap-4 mb-6 relative">
-                                    <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
+                                    <div className="relative z-10">
+                                        <div className="w-5 h-5 rounded-full bg-neon-magenta shadow-[0_0_25px_rgba(255,0,128,0.6)] border-2 border-neon-magenta"></div>
+                                        <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
+                                    </div>
                                     <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
-                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("avatarui.roadmap.phase3.status")}</span>
+                                    <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">{t("avatarui.roadmap.phase3.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
-                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Monolith: Deep Dive</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
-                                            {t("avatarui.roadmap.phase3.monolithDesc")}
-                                        </p>
-                                    </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Social Presence</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Social Presence</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase3.socialDesc")}
                                         </p>
                                     </div>
-                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 md:col-span-2 lg:col-span-1">
-                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Sensory Interface</h4>
-                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Sensory Interface</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase3.sensoryDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5 md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">Monolith: Deep Dive</h4>
+                                        <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase3.monolithDesc")}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Phase 4: The Expansion */}
+                            <div className="relative">
+                                <div className="flex items-center gap-4 mb-6 relative">
+                                    <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 4: The Expansion</h3>
+                                    <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("avatarui.roadmap.phase4.status")}</span>
+                                </div>
+                                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Multi-Channel Gateway</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase4.channelDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Co-Evolution</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase4.evolutionDesc")}
+                                        </p>
+                                    </div>
+                                    <div className="crt-card neon-shimmer neon-shimmer-gray border border-gray-600/30 bg-black p-5 md:col-span-2 lg:col-span-1">
+                                        <h4 className="font-display text-lg text-gray-400 mb-2 relative z-10">Monolith: Open World</h4>
+                                        <p className="font-mono text-sm text-gray-500 leading-relaxed relative z-10">
+                                            {t("avatarui.roadmap.phase4.monolithDesc")}
                                         </p>
                                     </div>
                                 </div>
