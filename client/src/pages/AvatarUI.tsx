@@ -232,7 +232,7 @@ export default function AvatarUI() {
                                 <div className="absolute w-full h-16 bg-gradient-to-b from-transparent via-primary/40 to-transparent animate-pulse-flow"></div>
                             </div>
 
-                            {/* Phase 1: The Genesis */}
+                            {/* Phase 1: The Core */}
                             <div className="relative pb-12">
                                 <div className="flex items-center gap-4 mb-6 relative">
                                     {/* Node */}
@@ -240,7 +240,7 @@ export default function AvatarUI() {
                                         <div className="w-5 h-5 rounded-full bg-primary shadow-[0_0_25px_rgba(0,255,65,0.6)] border-2 border-primary"></div>
                                         <div className="absolute inset-0 w-5 h-5 rounded-full bg-primary animate-ping opacity-30"></div>
                                     </div>
-                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Genesis</h3>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 1: The Core</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-primary text-primary bg-primary/10">{t("avatarui.roadmap.phase1.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
@@ -291,14 +291,14 @@ export default function AvatarUI() {
                                 </div>
                             </div>
 
-                            {/* Phase 3: The Embodiment */}
+                            {/* Phase 3: The Presence */}
                             <div className="relative pb-12">
                                 <div className="flex items-center gap-4 mb-6 relative">
                                     <div className="relative z-10">
                                         <div className="w-5 h-5 rounded-full bg-neon-magenta shadow-[0_0_25px_rgba(255,0,128,0.6)] border-2 border-neon-magenta"></div>
                                         <div className="absolute inset-0 w-5 h-5 rounded-full bg-neon-magenta animate-ping opacity-40"></div>
                                     </div>
-                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Embodiment</h3>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 3: The Presence</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10 animate-pulse">{t("avatarui.roadmap.phase3.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
@@ -323,11 +323,11 @@ export default function AvatarUI() {
                                 </div>
                             </div>
 
-                            {/* Phase 4: The Expansion */}
+                            {/* Phase 4: The Horizon */}
                             <div className="relative">
                                 <div className="flex items-center gap-4 mb-6 relative">
                                     <div className="w-5 h-5 rounded-full bg-gray-600 shadow-[0_0_15px_rgba(100,100,100,0.4)] border-2 border-gray-600"></div>
-                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 4: The Expansion</h3>
+                                    <h3 className="text-2xl md:text-3xl font-display text-white">Phase 4: The Horizon</h3>
                                     <span className="px-3 py-1 text-xs font-mono border border-gray-500 text-gray-500 bg-gray-500/10">{t("avatarui.roadmap.phase4.status")}</span>
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
