@@ -245,19 +245,13 @@ export default function AvatarUI() {
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10 flex items-center gap-2">
-                                            Core Foundation
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
-                                        </h4>
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Core Foundation</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase1.coreDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10 flex items-center gap-2">
-                                            Basic UI/UX
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
-                                        </h4>
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Basic UI/UX</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase1.uiDesc")}
                                         </p>
@@ -277,28 +271,19 @@ export default function AvatarUI() {
                                 </div>
                                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10 flex items-center gap-2">
-                                            Identity & Memory
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
-                                        </h4>
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Identity & Memory</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.identityDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10 flex items-center gap-2">
-                                            Coexistence Engine
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
-                                        </h4>
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Coexistence Engine</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.engineDesc")}
                                         </p>
                                     </div>
                                     <div className="crt-card neon-shimmer border border-primary/30 bg-black p-5 md:col-span-2 lg:col-span-1">
-                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10 flex items-center gap-2">
-                                            Monolith: First Contact
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
-                                        </h4>
+                                        <h4 className="font-display text-lg text-primary mb-2 relative z-10">Monolith: First Contact</h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase2.monolithDesc")}
                                         </p>
@@ -320,7 +305,7 @@ export default function AvatarUI() {
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10 flex items-center gap-2">
                                             Social Presence
-                                            <span className="w-2.5 h-2.5 rounded-full bg-primary shadow-[0_0_8px_rgba(0,255,65,0.6)]" title="Complete"></span>
+                                            <span className="px-2 py-0.5 text-[10px] font-mono border border-primary text-primary bg-primary/10">{t("avatarui.roadmap.phase1.status")}</span>
                                         </h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase3.socialDesc")}
@@ -329,7 +314,7 @@ export default function AvatarUI() {
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10 flex items-center gap-2">
                                             Sensory Interface
-                                            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" title="In Progress"></span>
+                                            <span className="px-2 py-0.5 text-[10px] font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">{t("avatarui.roadmap.phase3.status")}</span>
                                         </h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase3.sensoryDesc")}
@@ -358,7 +343,7 @@ export default function AvatarUI() {
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
                                         <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10 flex items-center gap-2">
                                             Multi-Channel Gateway
-                                            <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.6)]" title="In Progress"></span>
+                                            <span className="px-2 py-0.5 text-[10px] font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">{t("avatarui.roadmap.phase3.status")}</span>
                                         </h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("avatarui.roadmap.phase4.channelDesc")}
