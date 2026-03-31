@@ -126,7 +126,7 @@ export default function Home() {
               <div className="space-y-8 max-w-3xl">
                 <div className="flex items-center gap-4">
                   <h3 className="text-5xl font-display text-neon-magenta">Avatar UI</h3>
-                  <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">v0.1.0</span>
+                  <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">v0.5.0</span>
                 </div>
 
                 <p className="font-mono text-gray-300 leading-relaxed text-lg">
