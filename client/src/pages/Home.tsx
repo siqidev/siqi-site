@@ -4,10 +4,31 @@ import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { Code, ExternalLink, Github, X } from "lucide-react";
+import { Code, ExternalLink, Github, X, Terminal, ArrowRight, Bot, Radio, Heart, Gamepad2, Users, Brain, Award, BookOpen, Atom } from "lucide-react";
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { projects } from "@/data/projectsData";
+import { projects, ProjectMeta } from "@/data/projectsData";
+
+const iconMap: Record<string, React.ElementType> = {
+  Code, Terminal, ArrowRight, Bot, Radio, Heart, Gamepad2, Users, Brain, Award, BookOpen, Atom,
+};
+
+// Tailwind JITは動的クラス名を検出できないため、完全なクラス名を返す
+const accentTextClass: Record<string, string> = {
+  "neon-magenta": "text-neon-magenta",
+  "primary": "text-primary",
+  "neon-amber": "text-neon-amber",
+};
+const accentBgClass: Record<string, string> = {
+  "neon-magenta": "bg-neon-magenta",
+  "primary": "bg-primary",
+  "neon-amber": "bg-neon-amber",
+};
+const accentHoverBgClass: Record<string, string> = {
+  "neon-magenta": "hover:bg-neon-magenta/80",
+  "primary": "hover:bg-primary/80",
+  "neon-amber": "hover:bg-neon-amber/80",
+};
 
 
 
@@ -94,50 +115,102 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="works" className="relative border-b border-primary/20 bg-black">
-          <div className="container relative z-10 pt-24 pb-8">
-            <div className="mb-16">
-              <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                <span className="text-primary">01.</span> {t("home.projects.title")}
-              </h2>
-              <p className="font-mono text-primary/60 max-w-2xl">
-                {t("home.projects.subtitle")}
-              </p>
-            </div>
-          </div>
-
+        <section id="works" className="relative border-b border-primary/20">
           {projects.map((project, i) => (
-            <div key={project.id} className={`relative ${i < projects.length - 1 ? "border-b border-primary/10" : ""}`}>
+            <div key={project.id} className={`py-24 relative ${i < projects.length - 1 ? "border-b border-primary/20" : ""}`}>
               {/* 背景画像（あれば） */}
               {project.image && (
-                <div className="absolute inset-0 z-0">
-                  <div className="absolute inset-0 w-full h-full opacity-30 mix-blend-screen grayscale contrast-125">
-                    <img src={project.image} alt="" className="w-full h-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40"></div>
-                  </div>
+                <div className="absolute inset-0 z-0 opacity-30">
+                  <img src={project.image} alt="" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-black/80"></div>
                 </div>
               )}
 
-              <a href={project.path} className="group block relative z-10">
-                <div className="container py-20 md:py-28">
-                  <div className="max-w-3xl">
-                    <span className="inline-block px-3 py-1 text-xs font-mono border border-neon-magenta/50 text-neon-magenta bg-neon-magenta/10 mb-6">
-                      {t(project.categoryKey)}
-                    </span>
-                    <h3 className="text-4xl md:text-6xl font-display text-white group-hover:text-primary transition-colors mb-6">
-                      {t(project.titleKey)}
-                    </h3>
-                    <p className="font-mono text-lg text-gray-300 leading-relaxed max-w-2xl">
+              <div className="container relative z-10">
+                {/* セクション番号＋タイトル（最初のプロジェクトのみ） */}
+                {i === 0 && (
+                  <div className="mb-16">
+                    <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
+                      <span className="text-primary">01.</span> {t("home.projects.title")}
+                    </h2>
+                    <p className="font-mono text-primary/60 max-w-2xl">
+                      {t("home.projects.subtitle")}
+                    </p>
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-16">
+                  {/* デモ画像（あれば） */}
+                  {project.image && (
+                    <div className="w-full">
+                      <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
+                        <img
+                          src={project.image}
+                          alt={t(project.titleKey)}
+                          className="w-full h-auto block"
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {/* プロジェクト情報 */}
+                  <div className="space-y-8 max-w-3xl">
+                    <div className="flex items-center gap-4">
+                      <h3 className={`text-5xl font-display ${accentTextClass[project.accentColor]}`}>
+                        {t(project.titleKey)}
+                      </h3>
+                      {project.version && (
+                        <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">
+                          {project.version}
+                        </span>
+                      )}
+                    </div>
+
+                    <p className="font-mono text-gray-300 leading-relaxed text-lg">
                       {t(project.descKey)}
                     </p>
-                    <div className="mt-8 flex items-center gap-2 font-mono text-sm text-primary/60 group-hover:text-primary transition-colors">
-                      <span>{t("home.projects.viewProject")}</span>
-                      <ExternalLink className="w-4 h-4" />
+
+                    {/* タグ行 */}
+                    <div className="flex flex-wrap gap-6">
+                      {project.tags.map((tag) => {
+                        const IconComp = iconMap[tag.icon];
+                        return (
+                          <div key={tag.labelKey} className="flex items-center gap-3 text-sm font-mono text-primary/80">
+                            {IconComp && <IconComp className="w-4 h-4" />}
+                            <span>{t(tag.labelKey)}</span>
+                          </div>
+                        );
+                      })}
+                    </div>
+
+                    {/* ボタン＋バッジ */}
+                    <div className="flex flex-wrap items-center gap-4 pt-4">
+                      {project.buttons.map((btn) => (
+                        <a key={btn.href + btn.labelKey} href={btn.href} target="_blank" rel="noopener noreferrer">
+                          {btn.variant === "primary" ? (
+                            <Button className={`${accentBgClass[project.accentColor]} text-white ${accentHoverBgClass[project.accentColor]} border-none rounded-none font-mono h-12 px-6`}>
+                              {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                            </Button>
+                          ) : (
+                            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6">
+                              {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                            </Button>
+                          )}
+                        </a>
+                      ))}
+                      {project.badges?.map((badge) => (
+                        <a key={badge.href} href={badge.href} target="_blank" rel="noopener noreferrer">
+                          <img
+                            src={badge.src}
+                            alt={badge.alt}
+                            className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                          />
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>
-                <div className="h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></div>
-              </a>
+              </div>
             </div>
           ))}
         </section>
