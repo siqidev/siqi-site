@@ -94,8 +94,8 @@ export default function Home() {
         </section>
 
         {/* Projects Section */}
-        <section id="works" className="py-24 relative border-b border-primary/20 bg-black">
-          <div className="container relative z-10">
+        <section id="works" className="relative border-b border-primary/20 bg-black">
+          <div className="container relative z-10 pt-24 pb-8">
             <div className="mb-16">
               <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
                 <span className="text-primary">01.</span> {t("home.projects.title")}
@@ -104,39 +104,42 @@ export default function Home() {
                 {t("home.projects.subtitle")}
               </p>
             </div>
+          </div>
 
-            <div className="flex flex-col gap-6">
-              {projects.map((project) => (
-                <a
-                  key={project.id}
-                  href={project.path}
-                  className="group block border border-primary/20 bg-black hover:bg-primary/5 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="flex flex-col md:flex-row">
-                    {project.image && (
-                      <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
-                        <img
-                          src={project.image}
-                          alt={t(project.titleKey)}
-                          className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity"
-                        />
-                      </div>
-                    )}
-                    <div className={`p-6 md:p-8 flex flex-col justify-center ${project.image ? "md:w-3/5" : "w-full"}`}>
-                      <span className="text-xs font-mono text-neon-magenta mb-2">{t(project.categoryKey)}</span>
-                      <h3 className="text-2xl md:text-3xl font-display text-white group-hover:text-primary transition-colors mb-3">
-                        {t(project.titleKey)}
-                      </h3>
-                      <p className="font-mono text-sm text-gray-400 leading-relaxed">
-                        {t(project.descKey)}
-                      </p>
+          {projects.map((project, i) => (
+            <div key={project.id} className={`relative ${i < projects.length - 1 ? "border-b border-primary/10" : ""}`}>
+              {/* 背景画像（あれば） */}
+              {project.image && (
+                <div className="absolute inset-0 z-0">
+                  <div className="absolute inset-0 w-full h-full opacity-30 mix-blend-screen grayscale contrast-125">
+                    <img src={project.image} alt="" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/70 to-black/40"></div>
+                  </div>
+                </div>
+              )}
+
+              <a href={project.path} className="group block relative z-10">
+                <div className="container py-20 md:py-28">
+                  <div className="max-w-3xl">
+                    <span className="inline-block px-3 py-1 text-xs font-mono border border-neon-magenta/50 text-neon-magenta bg-neon-magenta/10 mb-6">
+                      {t(project.categoryKey)}
+                    </span>
+                    <h3 className="text-4xl md:text-6xl font-display text-white group-hover:text-primary transition-colors mb-6">
+                      {t(project.titleKey)}
+                    </h3>
+                    <p className="font-mono text-lg text-gray-300 leading-relaxed max-w-2xl">
+                      {t(project.descKey)}
+                    </p>
+                    <div className="mt-8 flex items-center gap-2 font-mono text-sm text-primary/60 group-hover:text-primary transition-colors">
+                      <span>{t("home.projects.viewProject")}</span>
+                      <ExternalLink className="w-4 h-4" />
                     </div>
                   </div>
-                  <div className="h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
-                </a>
-              ))}
+                </div>
+                <div className="h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-700"></div>
+              </a>
             </div>
-          </div>
+          ))}
         </section>
 
         {/* About Section - MOVED TO SECOND */}
@@ -300,7 +303,7 @@ export default function Home() {
 
             <div className="mt-16 pt-8 border-t border-primary/20">
               <p className="font-mono text-xs text-primary/40">
-                © 2025 SIQI LABEL. ALL RIGHTS RESERVED.<br />
+                © 2025-2026 SIQI LABEL. ALL RIGHTS RESERVED.<br />
                 SYSTEM VERSION 1.0.0 // BUILD 20251215
               </p>
             </div>

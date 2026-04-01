@@ -28,6 +28,7 @@ const translations: Record<Language, Record<string, string>> = {
         // Home - Featured Project
         "home.projects.title": "PROJECTS",
         "home.projects.subtitle": "制作中のプロジェクト",
+        "home.projects.viewProject": "View Project",
 
         // Projects メタデータ
         "projects.avatarui.title": "Avatar UI",
@@ -172,6 +173,7 @@ const translations: Record<Language, Record<string, string>> = {
         // Home - Featured Project
         "home.projects.title": "PROJECTS",
         "home.projects.subtitle": "Current projects",
+        "home.projects.viewProject": "View Project",
 
         // Projects metadata
         "projects.avatarui.title": "Avatar UI",
