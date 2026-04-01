@@ -4,9 +4,10 @@ import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { ArrowRight, Code, ExternalLink, Github, Terminal, X } from "lucide-react";
+import { Code, ExternalLink, Github, X } from "lucide-react";
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { projects } from "@/data/projectsData";
 
 
 
@@ -92,98 +93,48 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
         </section>
 
-        {/* Works Section (Avatar UI) - MOVED TO TOP */}
-        <section id="works" className="py-24 relative border-b border-primary/20">
-          <div className="absolute inset-0 z-0 opacity-30">
-            <img src="/images/avatar-section-bg.png" alt="Works Background" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-black/80"></div>
-          </div>
-
+        {/* Projects Section */}
+        <section id="works" className="py-24 relative border-b border-primary/20 bg-black">
           <div className="container relative z-10">
             <div className="mb-16">
               <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                <span className="text-primary">01.</span> {t("home.featured.title")}
+                <span className="text-primary">01.</span> {t("home.projects.title")}
               </h2>
               <p className="font-mono text-primary/60 max-w-2xl">
-                {t("home.featured.subtitle")}
+                {t("home.projects.subtitle")}
               </p>
             </div>
 
-            <div className="flex flex-col gap-16">
-              {/* Demo Display - MOVED TO TOP */}
-              <div className="w-full">
-                <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
-                  {/* Using img tag directly to ensure full visibility without cropping */}
-                  <img
-                    src="/images/avatar-ui-demo.gif"
-                    alt="Avatar UI Demo"
-                    className="w-full h-auto block"
-                  />
-                </div>
-              </div>
-
-              {/* Project Info - Bottom */}
-              <div className="space-y-8 max-w-3xl">
-                <div className="flex items-center gap-4">
-                  <h3 className="text-5xl font-display text-neon-magenta">Avatar UI</h3>
-                  <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">v0.5.0</span>
-                </div>
-
-                <p className="font-mono text-gray-300 leading-relaxed text-lg">
-                  {t("home.featured.description")}
-                </p>
-
-                <div className="flex flex-wrap gap-6">
-                  <div className="flex items-center gap-3 text-sm font-mono text-primary/80">
-                    <Code className="w-4 h-4" />
-                    <span>Multi-LLM Support</span>
+            <div className="flex flex-col gap-6">
+              {projects.map((project) => (
+                <a
+                  key={project.id}
+                  href={project.path}
+                  className="group block border border-primary/20 bg-black hover:bg-primary/5 transition-all duration-300 overflow-hidden"
+                >
+                  <div className="flex flex-col md:flex-row">
+                    {project.image && (
+                      <div className="md:w-2/5 h-48 md:h-auto overflow-hidden">
+                        <img
+                          src={project.image}
+                          alt={t(project.titleKey)}
+                          className="w-full h-full object-cover opacity-70 group-hover:opacity-90 transition-opacity"
+                        />
+                      </div>
+                    )}
+                    <div className={`p-6 md:p-8 flex flex-col justify-center ${project.image ? "md:w-3/5" : "w-full"}`}>
+                      <span className="text-xs font-mono text-neon-magenta mb-2">{t(project.categoryKey)}</span>
+                      <h3 className="text-2xl md:text-3xl font-display text-white group-hover:text-primary transition-colors mb-3">
+                        {t(project.titleKey)}
+                      </h3>
+                      <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                        {t(project.descKey)}
+                      </p>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-sm font-mono text-primary/80">
-                    <Terminal className="w-4 h-4" />
-                    <span>Desktop Agent</span>
-                  </div>
-                  <div className="flex items-center gap-3 text-sm font-mono text-primary/80">
-                    <ArrowRight className="w-4 h-4" />
-                    <span>MIT License</span>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-4 pt-4">
-                  <a href="https://github.com/siqidev/avatar-ui" target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono h-12 px-6">
-                      VIEW_REPO <ExternalLink className="ml-2 w-4 h-4" />
-                    </Button>
-                  </a>
-                  <a href="https://github.com/siqidev/avatar-ui" target="_blank" rel="noopener noreferrer">
-                    <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6">
-                      git clone ...
-                    </Button>
-                  </a>
-                  {/* Badges */}
-                  <a
-                    href="https://orynth.dev/projects/avatar-ui"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="https://orynth.dev/api/badge/avatar-ui?theme=dark&style=default"
-                      alt="Featured on Orynth"
-                      className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                  </a>
-                  <a
-                    href="https://www.geckoterminal.com/solana/pools/ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <img
-                      src="/images/geckoterminal-logo.png"
-                      alt="GeckoTerminal"
-                      className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
-                    />
-                  </a>
-                </div>
-              </div>
+                  <div className="h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
+                </a>
+              ))}
             </div>
           </div>
         </section>

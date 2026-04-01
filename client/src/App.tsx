@@ -8,6 +8,8 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Home from "./pages/Home";
 import AvatarUI from "./pages/AvatarUI";
 import Spectra from "./pages/Spectra";
+import Roblox from "./pages/Roblox";
+import Novels from "./pages/Novels";
 
 
 function Router() {
@@ -16,6 +18,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/avatarui"} component={AvatarUI} />
       <Route path={"/spectra"} component={Spectra} />
+      <Route path={"/roblox"} component={Roblox} />
+      <Route path={"/novels"} component={Novels} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

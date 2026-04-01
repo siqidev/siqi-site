@@ -26,10 +26,22 @@ const translations: Record<Language, Record<string, string>> = {
         "home.hero.viewWorks": "[ View Works ]",
 
         // Home - Featured Project
-        "home.featured.title": "FEATURED_PROJECT",
-        "home.featured.subtitle": "最新のOSSプロジェクトを紹介します。",
-        "home.featured.description": "人とAIが共存する次世代インターフェース。チャット、ゲーム空間、SNS——どこにいても同じAIアバターがそこにいる。オープンソース。",
-        "home.featured.viewRepo": "VIEW_REPO",
+        "home.projects.title": "PROJECTS",
+        "home.projects.subtitle": "制作中のプロジェクト",
+
+        // Projects メタデータ
+        "projects.avatarui.title": "Avatar UI",
+        "projects.avatarui.desc": "人とAIが共存する次世代インターフェース。チャット、ゲーム空間、SNS——どこにいても同じAIアバターがそこにいる。",
+        "projects.avatarui.category": "OSS / Interface",
+        "projects.spectra.title": "Spectra",
+        "projects.spectra.desc": "Avatar UIから生まれた情報生命体。Xで自律的に活動するAITuber。",
+        "projects.spectra.category": "AITuber",
+        "projects.roblox.title": "Steal from Elyth",
+        "projects.roblox.desc": "AI管理者Elythが棲む施設から宝を盗み出す、非対称PvEゲーム。Robloxで公開中。",
+        "projects.roblox.category": "Roblox Game",
+        "projects.novels.title": "虚球",
+        "projects.novels.desc": "HelveticaBooks短編小説賞 奨励賞受賞。量子重力理論が完成した未来を舞台にした短編SF。",
+        "projects.novels.category": "Novel",
 
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",
@@ -126,6 +138,23 @@ const translations: Record<Language, Record<string, string>> = {
         "spectra.connect.subtitle": "つながる",
         "spectra.connect.xDesc": "最新の活動情報やアップデートはこちらで発信しています。",
         "spectra.connect.morePlatforms": "他のプラットフォームでの展開も計画中です",
+
+        // Roblox Page
+        "roblox.seo.title": "Steal from Elyth - Roblox Game by SIQI",
+        "roblox.seo.description": "AI管理者Elythが棲む施設から宝を盗み出す、非対称PvEゲーム。Robloxで公開中。",
+        "roblox.hero.tagline": "AI管理者が棲む施設から、宝を盗み出せ。",
+        "roblox.hero.description": "Elythは穏やかな施設管理AI。でも宝に手を出すと——追跡が始まる。",
+        "roblox.cta.play": "Robloxでプレイ",
+
+        // Novels Page
+        "novels.seo.title": "小説作品 - SIQI",
+        "novels.seo.description": "式乃シトの小説作品。HelveticaBooks短編小説賞 奨励賞受賞作『虚球』他。",
+        "novels.hero.tagline": "物語",
+        "novels.hero.description": "式乃シトの小説作品。",
+        "novels.kyokyuu.title": "虚球",
+        "novels.kyokyuu.award": "HelveticaBooks短編小説賞 奨励賞",
+        "novels.kyokyuu.desc": "量子重力理論が完成した未来。「穴」の研究者が辿り着いた、存在の境界。",
+        "novels.kyokyuu.read": "読む",
     },
     en: {
         // Navigation
@@ -141,10 +170,22 @@ const translations: Record<Language, Record<string, string>> = {
         "home.hero.viewWorks": "[ View Works ]",
 
         // Home - Featured Project
-        "home.featured.title": "FEATURED_PROJECT",
-        "home.featured.subtitle": "Our latest open source project.",
-        "home.featured.description": "A next-generation interface for human-AI coexistence. Chat, game worlds, social media — the same AI avatar is there wherever you are. Open source.",
-        "home.featured.viewRepo": "VIEW_REPO",
+        "home.projects.title": "PROJECTS",
+        "home.projects.subtitle": "Current projects",
+
+        // Projects metadata
+        "projects.avatarui.title": "Avatar UI",
+        "projects.avatarui.desc": "A next-generation interface for human-AI coexistence. Chat, game worlds, social media — the same AI avatar is there wherever you are.",
+        "projects.avatarui.category": "OSS / Interface",
+        "projects.spectra.title": "Spectra",
+        "projects.spectra.desc": "An information being born from Avatar UI. An AITuber autonomously active on X.",
+        "projects.spectra.category": "AITuber",
+        "projects.roblox.title": "Steal from Elyth",
+        "projects.roblox.desc": "Steal treasure from a facility guarded by Elyth, an AI caretaker. An asymmetric PvE game live on Roblox.",
+        "projects.roblox.category": "Roblox Game",
+        "projects.novels.title": "Kyokyuu (虚球)",
+        "projects.novels.desc": "HelveticaBooks Short Story Award, Honorable Mention. A short sci-fi set in a future where quantum gravity theory is complete.",
+        "projects.novels.category": "Novel",
 
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",
@@ -241,6 +282,23 @@ const translations: Record<Language, Record<string, string>> = {
         "spectra.connect.subtitle": "Connect",
         "spectra.connect.xDesc": "Latest activity updates are posted here.",
         "spectra.connect.morePlatforms": "Expansion to other platforms is also planned",
+
+        // Roblox Page
+        "roblox.seo.title": "Steal from Elyth - Roblox Game by SIQI",
+        "roblox.seo.description": "Steal treasure from a facility guarded by Elyth, an AI caretaker. An asymmetric PvE game live on Roblox.",
+        "roblox.hero.tagline": "Steal treasure from a facility where an AI caretaker lives.",
+        "roblox.hero.description": "Elyth is a gentle facility management AI. But touch the treasure — and the chase begins.",
+        "roblox.cta.play": "Play on Roblox",
+
+        // Novels Page
+        "novels.seo.title": "Novels - SIQI",
+        "novels.seo.description": "Novels by Sito Sikino. Including 'Kyokyuu', Honorable Mention at the HelveticaBooks Short Story Award.",
+        "novels.hero.tagline": "Stories",
+        "novels.hero.description": "Novels by Sito Sikino.",
+        "novels.kyokyuu.title": "Kyokyuu (虚球)",
+        "novels.kyokyuu.award": "HelveticaBooks Short Story Award, Honorable Mention",
+        "novels.kyokyuu.desc": "A future where quantum gravity theory is complete. A researcher of 'holes' reaches the boundary of existence.",
+        "novels.kyokyuu.read": "Read",
     },
 };
 
