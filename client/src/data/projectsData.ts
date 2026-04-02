@@ -84,7 +84,7 @@ export const projects: ProjectMeta[] = [
       { icon: "Users", labelKey: "projects.roblox.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/9941499808", variant: "primary" },
+      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/118630117741072", variant: "primary" },
     ],
   },
   {
