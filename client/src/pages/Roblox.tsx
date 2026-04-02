@@ -43,25 +43,12 @@ export default function Roblox() {
 
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
-                                href="https://www.roblox.com/games/steal-from-elyth"
+                                href="https://www.roblox.com/games/9941499808"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
                                 <Button className="bg-neon-magenta text-white hover:bg-neon-magenta/80 border-none rounded-none font-mono h-12 px-8 text-base">
                                     {t("roblox.cta.play")}
-                                    <ExternalLink className="ml-2 w-4 h-4" />
-                                </Button>
-                            </a>
-                            <a
-                                href="https://github.com/siqidev/steal-from-elyth"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <Button
-                                    variant="outline"
-                                    className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-8 text-base"
-                                >
-                                    GitHub
                                     <ExternalLink className="ml-2 w-4 h-4" />
                                 </Button>
                             </a>

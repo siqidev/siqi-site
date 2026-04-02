@@ -4,13 +4,13 @@ import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { Code, ExternalLink, Github, X, Terminal, ArrowRight, Bot, Radio, Heart, Gamepad2, Users, Brain, Award, BookOpen, Atom } from "lucide-react";
+import { Code, ExternalLink, Github, X, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords } from "lucide-react";
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { projects, ProjectMeta } from "@/data/projectsData";
 
 const iconMap: Record<string, React.ElementType> = {
-  Code, Terminal, ArrowRight, Bot, Radio, Heart, Gamepad2, Users, Brain, Award, BookOpen, Atom,
+  Code, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords,
 };
 
 // Tailwind JITは動的クラス名を検出できないため、完全なクラス名を返す

@@ -42,8 +42,8 @@ export const projects: ProjectMeta[] = [
     version: "v0.5.0",
     accentColor: "neon-magenta",
     tags: [
-      { icon: "Code", labelKey: "projects.avatarui.tag1" },
-      { icon: "Terminal", labelKey: "projects.avatarui.tag2" },
+      { icon: "Bot", labelKey: "projects.avatarui.tag1" },
+      { icon: "Database", labelKey: "projects.avatarui.tag2" },
       { icon: "ArrowRight", labelKey: "projects.avatarui.tag3" },
     ],
     buttons: [
@@ -63,12 +63,12 @@ export const projects: ProjectMeta[] = [
     categoryKey: "projects.spectra.category",
     accentColor: "primary",
     tags: [
-      { icon: "Bot", labelKey: "projects.spectra.tag1" },
+      { icon: "Sparkles", labelKey: "projects.spectra.tag1" },
       { icon: "Radio", labelKey: "projects.spectra.tag2" },
-      { icon: "Heart", labelKey: "projects.spectra.tag3" },
+      { icon: "Shield", labelKey: "projects.spectra.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.spectra.btn1", href: "https://x.com/spectra_aui", variant: "primary" },
+      { labelKey: "projects.spectra.btn1", href: "https://x.com/SCUN7X", variant: "primary" },
     ],
   },
   {
@@ -80,12 +80,11 @@ export const projects: ProjectMeta[] = [
     accentColor: "neon-magenta",
     tags: [
       { icon: "Gamepad2", labelKey: "projects.roblox.tag1" },
-      { icon: "Users", labelKey: "projects.roblox.tag2" },
-      { icon: "Brain", labelKey: "projects.roblox.tag3" },
+      { icon: "Swords", labelKey: "projects.roblox.tag2" },
+      { icon: "Users", labelKey: "projects.roblox.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/steal-from-elyth", variant: "primary" },
-      { labelKey: "projects.roblox.btn2", href: "https://github.com/siqidev/steal-from-elyth", variant: "outline" },
+      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/9941499808", variant: "primary" },
     ],
   },
   {
@@ -98,10 +97,10 @@ export const projects: ProjectMeta[] = [
     tags: [
       { icon: "Award", labelKey: "projects.novels.tag1" },
       { icon: "BookOpen", labelKey: "projects.novels.tag2" },
-      { icon: "Atom", labelKey: "projects.novels.tag3" },
+      { icon: "Brain", labelKey: "projects.novels.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.novels.btn1", href: "https://helveticabooks.com/award/2nd/", variant: "primary" },
+      { labelKey: "projects.novels.btn1", href: "https://note.com/shinokimio/n/n8a2a3511d9b1", variant: "primary" },
     ],
   },
 ];

@@ -45,7 +45,7 @@ export default function Novels() {
                                 {t("novels.kyokyuu.desc")}
                             </p>
                             <a
-                                href="https://helveticabooks.com/award/2nd/"
+                                href="https://note.com/shinokimio/n/n8a2a3511d9b1"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
