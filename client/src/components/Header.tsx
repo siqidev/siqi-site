@@ -51,7 +51,7 @@ export function Header({ variant = "page" }: HeaderProps) {
             children: [
                 { label: "AVATAR UI", href: "/avatarui" },
                 { label: "SPECTRA", href: "/spectra" },
-                { label: "STEAL FROM ELYTH", href: "/roblox" },
+                { label: "ROBLOX GAMES", href: "/roblox" },
                 { label: "NOVELS", href: "/novels" },
             ],
         },
@@ -67,7 +67,7 @@ export function Header({ variant = "page" }: HeaderProps) {
             children: [
                 { label: "AVATAR UI", href: "/avatarui" },
                 { label: "SPECTRA", href: "/spectra" },
-                { label: "STEAL FROM ELYTH", href: "/roblox" },
+                { label: "ROBLOX GAMES", href: "/roblox" },
                 { label: "NOVELS", href: "/novels" },
             ],
         },

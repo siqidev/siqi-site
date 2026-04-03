@@ -158,11 +158,14 @@ const translations: Record<Language, Record<string, string>> = {
         "spectra.connect.morePlatforms": "他のプラットフォームでの展開も計画中です",
 
         // Roblox Page
-        "roblox.seo.title": "Steal from Elyth - Roblox Game by SIQI",
-        "roblox.seo.description": "AI管理者Elythが棲む施設から宝を盗み出す、非対称PvEゲーム。Robloxで公開中。",
-        "roblox.hero.tagline": "AI管理者が棲む施設から、宝を盗み出せ。",
-        "roblox.hero.description": "Elythは穏やかな施設管理AI。でも宝に手を出すと——追跡が始まる。",
-        "roblox.cta.play": "Robloxでプレイ",
+        "roblox.seo.title": "Roblox Games - SIQI",
+        "roblox.seo.description": "SIQIが制作するRobloxゲーム。",
+        "roblox.hero.tagline": "Roblox Games",
+        "roblox.hero.description": "SIQIが制作するRobloxゲーム。",
+        "roblox.sfe.title": "Steal from Elyth",
+        "roblox.sfe.status": "公開中",
+        "roblox.sfe.desc": "AI管理者Elythが棲む施設から宝を盗み出せ。Elythは穏やかな施設管理AI。でも宝に手を出すと——追跡が始まる。",
+        "roblox.sfe.play": "Robloxでプレイ",
 
         // Novels Page
         "novels.seo.title": "小説作品 - SIQI",
@@ -320,11 +323,14 @@ const translations: Record<Language, Record<string, string>> = {
         "spectra.connect.morePlatforms": "Expansion to other platforms is also planned",
 
         // Roblox Page
-        "roblox.seo.title": "Steal from Elyth - Roblox Game by SIQI",
-        "roblox.seo.description": "Steal treasure from a facility guarded by Elyth, an AI caretaker. An asymmetric PvE game live on Roblox.",
-        "roblox.hero.tagline": "Steal treasure from a facility where an AI caretaker lives.",
-        "roblox.hero.description": "Elyth is a gentle facility management AI. But touch the treasure — and the chase begins.",
-        "roblox.cta.play": "Play on Roblox",
+        "roblox.seo.title": "Roblox Games - SIQI",
+        "roblox.seo.description": "Roblox games by SIQI.",
+        "roblox.hero.tagline": "Roblox Games",
+        "roblox.hero.description": "Roblox games by SIQI.",
+        "roblox.sfe.title": "Steal from Elyth",
+        "roblox.sfe.status": "Live",
+        "roblox.sfe.desc": "Steal treasure from a facility where an AI caretaker lives. Elyth is a gentle facility management AI. But touch the treasure — and the chase begins.",
+        "roblox.sfe.play": "Play on Roblox",
 
         // Novels Page
         "novels.seo.title": "Novels - SIQI",
