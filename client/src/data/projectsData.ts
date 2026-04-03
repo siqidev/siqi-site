@@ -72,22 +72,6 @@ export const projects: ProjectMeta[] = [
     ],
   },
   {
-    id: "roblox",
-    path: "/roblox",
-    titleKey: "projects.roblox.title",
-    descKey: "projects.roblox.desc",
-    categoryKey: "projects.roblox.category",
-    accentColor: "neon-magenta",
-    tags: [
-      { icon: "Gamepad2", labelKey: "projects.roblox.tag1" },
-      { icon: "Swords", labelKey: "projects.roblox.tag2" },
-      { icon: "Users", labelKey: "projects.roblox.tag3" },
-    ],
-    buttons: [
-      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/118630117741072", variant: "primary" },
-    ],
-  },
-  {
     id: "novels",
     path: "/novels",
     titleKey: "projects.novels.title",
@@ -101,6 +85,22 @@ export const projects: ProjectMeta[] = [
     ],
     buttons: [
       { labelKey: "projects.novels.btn1", href: "https://note.com/shinokimio/n/n8a2a3511d9b1", variant: "primary" },
+    ],
+  },
+  {
+    id: "roblox",
+    path: "/roblox",
+    titleKey: "projects.roblox.title",
+    descKey: "projects.roblox.desc",
+    categoryKey: "projects.roblox.category",
+    accentColor: "neon-magenta",
+    tags: [
+      { icon: "Gamepad2", labelKey: "projects.roblox.tag1" },
+      { icon: "Swords", labelKey: "projects.roblox.tag2" },
+      { icon: "Users", labelKey: "projects.roblox.tag3" },
+    ],
+    buttons: [
+      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/118630117741072", variant: "primary" },
     ],
   },
 ];

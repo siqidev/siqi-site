@@ -51,8 +51,8 @@ export function Header({ variant = "page" }: HeaderProps) {
             children: [
                 { label: "AVATAR UI", href: "/avatarui" },
                 { label: "SPECTRA", href: "/spectra" },
-                { label: "ROBLOX GAMES", href: "/roblox" },
                 { label: "NOVELS", href: "/novels" },
+                { label: "ROBLOX GAMES", href: "/roblox" },
             ],
         },
         { label: "./LOGS", scrollTo: "blog" },
@@ -67,8 +67,8 @@ export function Header({ variant = "page" }: HeaderProps) {
             children: [
                 { label: "AVATAR UI", href: "/avatarui" },
                 { label: "SPECTRA", href: "/spectra" },
-                { label: "ROBLOX GAMES", href: "/roblox" },
                 { label: "NOVELS", href: "/novels" },
+                { label: "ROBLOX GAMES", href: "/roblox" },
             ],
         },
         { label: "./LOGS", href: "/#blog" },
