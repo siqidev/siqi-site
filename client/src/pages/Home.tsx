@@ -248,6 +248,7 @@ export default function Home() {
                     <div className="pl-4 space-y-3">
                       <p className="text-base">{t("home.profile.award1")}</p>
                       <p className="text-base">{t("home.profile.award2")}</p>
+                      <p className="text-base">{t("home.profile.community")}</p>
                       <div className="space-y-1">
                         <p className="text-base">{t("home.profile.memecoin")}</p>
                         <p className="text-[10px] text-gray-500 leading-tight opacity-70">
