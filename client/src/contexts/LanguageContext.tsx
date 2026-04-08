@@ -67,13 +67,13 @@ const translations: Record<Language, Record<string, string>> = {
         "community.role.founded": "創設",
         "community.role.member": "所属",
         "community.aui.title": "AVATAR UI | $AUI",
-        "community.aui.desc": "Avatar UIのXコミュニティ。$AUIトークンで応援できる。",
+        "community.aui.desc": "永久無料のAI共存OSS、Avatar UIの設計思想と開発過程をリアルタイムで共有するXコミュニティ。$AUI supported.",
         "community.sdd.title": "#SuperDevDay",
         "community.sdd.desc": "毎週土曜、ジャンル不問で個人開発者が集う祭り。27週連続開催、6,600+投稿、1,900万imp超。",
         "community.wnb.title": "Work≠Build",
-        "community.wnb.desc": "日本最大級の個人開発者コミュニティ。6,800+メンバー。",
+        "community.wnb.desc": "「全ての個人開発者を成功させる」を掲げる日本最大級のコミュニティ。6,800+メンバー、技術からマーケまで。",
         "community.obg.title": "鴎文街",
-        "community.obg.desc": "AI×創作に特化した個人クリエイターのDiscordコミュニティ。",
+        "community.obg.desc": "AI×創作に特化した個人クリエイターのDiscordコミュニティ。星新一賞受賞のSF作家・葦沢かもめ氏が主宰。",
 
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",
@@ -247,13 +247,13 @@ const translations: Record<Language, Record<string, string>> = {
         "community.role.founded": "Founded",
         "community.role.member": "Member",
         "community.aui.title": "AVATAR UI | $AUI",
-        "community.aui.desc": "X community for Avatar UI. Support through $AUI token.",
+        "community.aui.desc": "Forever free AI coexistence OSS — an X community sharing Avatar UI's design philosophy and development in real time. $AUI supported.",
         "community.sdd.title": "#SuperDevDay",
         "community.sdd.desc": "Every Saturday, indie devs of all genres gather. 27 consecutive weeks, 6,600+ posts, 19M+ impressions.",
         "community.wnb.title": "Work≠Build",
-        "community.wnb.desc": "Japan's largest indie developer community. 6,800+ members.",
+        "community.wnb.desc": "Japan's largest indie dev community, on a mission to help every indie dev succeed. 6,800+ members, from tech to marketing.",
         "community.obg.title": "Oubungai (鴎文街)",
-        "community.obg.desc": "Discord community for creators specializing in AI-powered creative work.",
+        "community.obg.desc": "A Discord community for creators specializing in AI-powered creative work. Led by Kamome Ashizawa, Hoshi Shinichi Award-winning SF author.",
 
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",
