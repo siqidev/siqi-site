@@ -188,19 +188,19 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="works" className="relative border-b border-primary/20">
-          {projects.map((project, i) => (
-            <div key={project.id} className={`py-24 relative ${i < projects.length - 1 ? "border-b border-primary/20" : ""}`}>
-              {/* 背景画像（あれば） */}
-              {project.image && (
-                <div className="absolute inset-0 z-0 opacity-30">
-                  <img src={project.image} alt="" className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-black/80"></div>
-                </div>
-              )}
+          {/* Avatar UI — フルサイズ表示 */}
+          {(() => {
+            const featured = projects[0];
+            return (
+              <div className="py-24 relative border-b border-primary/20">
+                {featured.image && (
+                  <div className="absolute inset-0 z-0 opacity-30">
+                    <img src={featured.image} alt="" className="w-full h-full object-cover" />
+                    <div className="absolute inset-0 bg-black/80"></div>
+                  </div>
+                )}
 
-              <div className="container relative z-10">
-                {/* セクション番号＋タイトル（最初のプロジェクトのみ） */}
-                {i === 0 && (
+                <div className="container relative z-10">
                   <div className="mb-16">
                     <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
                       <span className="text-primary">02.</span> {t("home.projects.title")}
@@ -209,82 +209,119 @@ export default function Home() {
                       {t("home.projects.subtitle")}
                     </p>
                   </div>
-                )}
 
-                <div className="flex flex-col gap-16">
-                  {/* デモ画像（あれば） */}
-                  {project.image && (
-                    <div className="w-full">
-                      <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
-                        <img
-                          src={project.image}
-                          alt={t(project.titleKey)}
-                          className="w-full h-auto block"
-                        />
+                  <div className="flex flex-col gap-16">
+                    {featured.image && (
+                      <div className="w-full">
+                        <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
+                          <img src={featured.image} alt={t(featured.titleKey)} className="w-full h-auto block" />
+                        </div>
+                      </div>
+                    )}
+
+                    <div className="space-y-8 max-w-3xl">
+                      <div className="flex items-center gap-4">
+                        <h3 className={`text-5xl font-display ${accentTextClass[featured.accentColor]}`}>
+                          {t(featured.titleKey)}
+                        </h3>
+                        {featured.version && (
+                          <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">
+                            {featured.version}
+                          </span>
+                        )}
+                      </div>
+
+                      <p className="font-mono text-gray-300 leading-relaxed text-lg">
+                        {t(featured.descKey)}
+                      </p>
+
+                      <div className="flex flex-wrap gap-6">
+                        {featured.tags.map((tag) => {
+                          const IconComp = iconMap[tag.icon];
+                          return (
+                            <div key={tag.labelKey} className="flex items-center gap-3 text-sm font-mono text-primary/80">
+                              {IconComp && <IconComp className="w-4 h-4" />}
+                              <span>{t(tag.labelKey)}</span>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <div className="flex flex-wrap items-center gap-4 pt-4">
+                        {featured.buttons.map((btn) => (
+                          <a key={btn.href + btn.labelKey} href={btn.href} target="_blank" rel="noopener noreferrer">
+                            {btn.variant === "primary" ? (
+                              <Button className={`${accentBgClass[featured.accentColor]} text-white ${accentHoverBgClass[featured.accentColor]} border-none rounded-none font-mono h-12 px-6`}>
+                                {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                              </Button>
+                            ) : (
+                              <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6">
+                                {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                              </Button>
+                            )}
+                          </a>
+                        ))}
+                        {featured.badges?.map((badge) => (
+                          <a key={badge.href} href={badge.href} target="_blank" rel="noopener noreferrer">
+                            <img src={badge.src} alt={badge.alt} className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity" />
+                          </a>
+                        ))}
                       </div>
                     </div>
-                  )}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
 
-                  {/* プロジェクト情報 */}
-                  <div className="space-y-8 max-w-3xl">
-                    <div className="flex items-center gap-4">
-                      <h3 className={`text-5xl font-display ${accentTextClass[project.accentColor]}`}>
-                        {t(project.titleKey)}
-                      </h3>
-                      {project.version && (
-                        <span className="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">
-                          {project.version}
-                        </span>
-                      )}
+          {/* 残りのプロジェクト — カード表示 */}
+          <div className="py-24">
+            <div className="container">
+              <div className="grid md:grid-cols-3 gap-6">
+                {projects.slice(1).map((project) => (
+                  <a
+                    key={project.id}
+                    href={project.path}
+                    className="group block border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300 p-6 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-2 opacity-50">
+                      <ArrowRight className="w-4 h-4 text-primary" />
                     </div>
 
-                    <p className="font-mono text-gray-300 leading-relaxed text-lg">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className={`text-xs font-mono px-2 py-0.5 border ${
+                        accentTextClass[project.accentColor]
+                      } border-current`}>
+                        {t(project.categoryKey)}
+                      </span>
+                    </div>
+
+                    <h3 className={`text-xl font-display ${accentTextClass[project.accentColor]} group-hover:brightness-125 transition-all mb-4`}>
+                      {t(project.titleKey)}
+                    </h3>
+
+                    <p className="font-mono text-sm text-gray-400 leading-relaxed mb-4">
                       {t(project.descKey)}
                     </p>
 
-                    {/* タグ行 */}
-                    <div className="flex flex-wrap gap-6">
+                    <div className="flex flex-wrap gap-3">
                       {project.tags.map((tag) => {
                         const IconComp = iconMap[tag.icon];
                         return (
-                          <div key={tag.labelKey} className="flex items-center gap-3 text-sm font-mono text-primary/80">
-                            {IconComp && <IconComp className="w-4 h-4" />}
+                          <div key={tag.labelKey} className="flex items-center gap-1.5 text-xs font-mono text-primary/60">
+                            {IconComp && <IconComp className="w-3 h-3" />}
                             <span>{t(tag.labelKey)}</span>
                           </div>
                         );
                       })}
                     </div>
 
-                    {/* ボタン＋バッジ */}
-                    <div className="flex flex-wrap items-center gap-4 pt-4">
-                      {project.buttons.map((btn) => (
-                        <a key={btn.href + btn.labelKey} href={btn.href} target="_blank" rel="noopener noreferrer">
-                          {btn.variant === "primary" ? (
-                            <Button className={`${accentBgClass[project.accentColor]} text-white ${accentHoverBgClass[project.accentColor]} border-none rounded-none font-mono h-12 px-6`}>
-                              {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
-                            </Button>
-                          ) : (
-                            <Button variant="outline" className="border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6">
-                              {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
-                            </Button>
-                          )}
-                        </a>
-                      ))}
-                      {project.badges?.map((badge) => (
-                        <a key={badge.href} href={badge.href} target="_blank" rel="noopener noreferrer">
-                          <img
-                            src={badge.src}
-                            alt={badge.alt}
-                            className="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
-                          />
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
+                  </a>
+                ))}
               </div>
             </div>
-          ))}
+          </div>
         </section>
 
         {/* Community Section */}
