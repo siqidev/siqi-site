@@ -61,6 +61,20 @@ const translations: Record<Language, Record<string, string>> = {
         "projects.novels.tag3": "AI Existence",
         "projects.novels.btn1": "AWARD_PAGE",
 
+        // Home - Community
+        "home.community.title": "COMMUNITY",
+        "home.community.subtitle": "創設・所属するコミュニティ",
+        "community.role.founded": "創設",
+        "community.role.member": "所属",
+        "community.aui.title": "AVATAR UI | $AUI",
+        "community.aui.desc": "Avatar UIのXコミュニティ。$AUIトークンで応援できる。",
+        "community.sdd.title": "#SuperDevDay",
+        "community.sdd.desc": "毎週土曜、ジャンル不問で個人開発者が集う祭り。27週連続開催、6,600+投稿、1,900万imp超。",
+        "community.wnb.title": "Work≠Build",
+        "community.wnb.desc": "日本最大級の個人開発者コミュニティ。6,800+メンバー。",
+        "community.obg.title": "鴎文街",
+        "community.obg.desc": "AI×創作に特化した個人クリエイターのDiscordコミュニティ。",
+
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",
         "home.profile.intro": "作家兼個人開発者として活動するクリエイター。デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。",
@@ -226,6 +240,20 @@ const translations: Record<Language, Record<string, string>> = {
         "projects.novels.tag2": "Short Sci-Fi",
         "projects.novels.tag3": "AI Existence",
         "projects.novels.btn1": "AWARD_PAGE",
+
+        // Home - Community
+        "home.community.title": "COMMUNITY",
+        "home.community.subtitle": "Communities founded & joined",
+        "community.role.founded": "Founded",
+        "community.role.member": "Member",
+        "community.aui.title": "AVATAR UI | $AUI",
+        "community.aui.desc": "X community for Avatar UI. Support through $AUI token.",
+        "community.sdd.title": "#SuperDevDay",
+        "community.sdd.desc": "Every Saturday, indie devs of all genres gather. 27 consecutive weeks, 6,600+ posts, 19M+ impressions.",
+        "community.wnb.title": "Work≠Build",
+        "community.wnb.desc": "Japan's largest indie developer community. 6,800+ members.",
+        "community.obg.title": "Oubungai (鴎文街)",
+        "community.obg.desc": "Discord community for creators specializing in AI-powered creative work.",
 
         // Home - Profile
         "home.profile.title": "PROFILE_DATA",

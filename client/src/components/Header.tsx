@@ -55,6 +55,7 @@ export function Header({ variant = "page" }: HeaderProps) {
                 { label: "ROBLOX GAMES", href: "/roblox" },
             ],
         },
+        { label: "./COMMUNITY", scrollTo: "community" },
         { label: "./LOGS", scrollTo: "blog" },
         { label: "./CONTACT", scrollTo: "contact" },
     ];
@@ -71,6 +72,7 @@ export function Header({ variant = "page" }: HeaderProps) {
                 { label: "ROBLOX GAMES", href: "/roblox" },
             ],
         },
+        { label: "./COMMUNITY", href: "/#community" },
         { label: "./LOGS", href: "/#blog" },
         { label: "./CONTACT", href: "/#contact" },
     ];

@@ -4,13 +4,14 @@ import { GlitchText, Typewriter } from "@/components/TerminalUI";
 import { Button } from "@/components/ui/button";
 import { fetchRSS, BlogPost } from "@/lib/rss";
 import { useEffect, useState } from "react";
-import { Code, ExternalLink, Github, X, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords } from "lucide-react";
+import { Code, ExternalLink, Github, X, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords, Hash } from "lucide-react";
 import React from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { projects, ProjectMeta } from "@/data/projectsData";
+import { communities } from "@/data/communityData";
 
 const iconMap: Record<string, React.ElementType> = {
-  Code, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords,
+  Code, ArrowRight, Bot, Radio, Database, Gamepad2, Users, Brain, Award, BookOpen, Sparkles, Shield, Swords, Hash,
 };
 
 // Tailwind JITは動的クラス名を検出できないため、完全なクラス名を返す
@@ -114,6 +115,74 @@ export default function Home() {
           <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
         </section>
 
+        {/* Profile Section */}
+        <section id="about" className="py-24 relative border-b border-primary/20 bg-black">
+          <div className="absolute inset-0 z-0 opacity-20">
+            <img src="/images/profile-bg.png" alt="Profile Background" className="w-full h-full object-cover" />
+          </div>
+
+          <div className="container relative z-10">
+            <div className="flex flex-col md:flex-row gap-16 items-center">
+              <div className="w-full md:w-1/3 flex justify-center">
+                <div className="relative group w-48 h-48 md:w-64 md:h-64">
+                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                  <img
+                    src="/images/shikino-icon.png"
+                    alt="Shikino Shito"
+                    className="w-full h-full rounded-full border-2 border-primary/50 relative z-10 shadow-[0_0_30px_rgba(0,255,65,0.3)] object-cover"
+                  />
+                </div>
+              </div>
+
+              <div className="w-full md:w-2/3 space-y-8">
+                <h2 className="text-4xl md:text-5xl font-display text-white">
+                  <span className="text-primary">01.</span> {t("home.profile.title")}
+                </h2>
+
+                <div className="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
+                  <p>
+                    <span className="text-primary">{">"}</span> {t("home.profile.intro")}
+                  </p>
+                  <div className="space-y-2">
+                    <p><span className="text-primary">{">"}</span> {t("home.profile.career")}</p>
+                    <div className="pl-4 space-y-3">
+                      <p className="text-base">{t("home.profile.award1")}</p>
+                      <p className="text-base">{t("home.profile.award2")}</p>
+                      <p className="text-base">{t("home.profile.community")}</p>
+                      <div className="space-y-1">
+                        <p className="text-base">{t("home.profile.memecoin")}</p>
+                        <p className="text-[10px] text-gray-500 leading-tight opacity-70">
+                          {t("home.profile.disclaimer")}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 pt-4">
+                  <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
+                    <h3 className="font-display text-xl text-neon-magenta mb-2">{t("home.profile.skills")}</h3>
+                    <ul className="font-mono text-sm space-y-1 text-primary/80">
+                      <li>Vibe Coding</li>
+                      <li>Prompt Engineering</li>
+                      <li>Creative Direction</li>
+                      <li>Storytelling</li>
+                    </ul>
+                  </div>
+                  <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
+                    <h3 className="font-display text-xl text-neon-amber mb-2">{t("home.profile.interests")}</h3>
+                    <ul className="font-mono text-sm space-y-1 text-primary/80">
+                      <li>Cyberpunk, Retro future</li>
+                      <li>Generative Art</li>
+                      <li>Open Source Culture</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Projects Section */}
         <section id="works" className="relative border-b border-primary/20">
           {projects.map((project, i) => (
@@ -131,7 +200,7 @@ export default function Home() {
                 {i === 0 && (
                   <div className="mb-16">
                     <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                      <span className="text-primary">01.</span> {t("home.projects.title")}
+                      <span className="text-primary">02.</span> {t("home.projects.title")}
                     </h2>
                     <p className="font-mono text-primary/60 max-w-2xl">
                       {t("home.projects.subtitle")}
@@ -215,70 +284,58 @@ export default function Home() {
           ))}
         </section>
 
-        {/* About Section - MOVED TO SECOND */}
-        <section id="about" className="py-24 relative border-b border-primary/20 bg-black">
-          <div className="absolute inset-0 z-0 opacity-20">
-            <img src="/images/profile-bg.png" alt="Profile Background" className="w-full h-full object-cover" />
-          </div>
-
+        {/* Community Section */}
+        <section id="community" className="py-24 relative border-b border-primary/20 bg-black">
           <div className="container relative z-10">
-            <div className="flex flex-col md:flex-row gap-16 items-center">
-              <div className="w-full md:w-1/3 flex justify-center">
-                <div className="relative group w-48 h-48 md:w-64 md:h-64">
-                  <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                  <img
-                    src="/images/shikino-icon.png"
-                    alt="Shikino Shito"
-                    className="w-full h-full rounded-full border-2 border-primary/50 relative z-10 shadow-[0_0_30px_rgba(0,255,65,0.3)] object-cover"
-                  />
-                </div>
-              </div>
+            <div className="mb-16">
+              <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
+                <span className="text-primary">03.</span> {t("home.community.title")}
+              </h2>
+              <p className="font-mono text-primary/60 max-w-2xl">
+                {t("home.community.subtitle")}
+              </p>
+            </div>
 
-              <div className="w-full md:w-2/3 space-y-8">
-                <h2 className="text-4xl md:text-5xl font-display text-white">
-                  <span className="text-primary">02.</span> {t("home.profile.title")}
-                </h2>
-
-                <div className="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
-                  <p>
-                    <span className="text-primary">{">"}</span> {t("home.profile.intro")}
-                  </p>
-                  <div className="space-y-2">
-                    <p><span className="text-primary">{">"}</span> {t("home.profile.career")}</p>
-                    <div className="pl-4 space-y-3">
-                      <p className="text-base">{t("home.profile.award1")}</p>
-                      <p className="text-base">{t("home.profile.award2")}</p>
-                      <p className="text-base">{t("home.profile.community")}</p>
-                      <div className="space-y-1">
-                        <p className="text-base">{t("home.profile.memecoin")}</p>
-                        <p className="text-[10px] text-gray-500 leading-tight opacity-70">
-                          {t("home.profile.disclaimer")}
-                        </p>
-                      </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {communities.map((c) => {
+                const IconComp = iconMap[c.icon];
+                return (
+                  <a
+                    key={c.id}
+                    href={c.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block border border-primary/20 bg-primary/5 hover:bg-primary/10 transition-all duration-300 p-6 relative overflow-hidden"
+                  >
+                    <div className="absolute top-0 right-0 p-2 opacity-50">
+                      <ExternalLink className="w-4 h-4 text-primary" />
                     </div>
-                  </div>
-                </div>
 
-                <div className="grid grid-cols-2 gap-4 pt-4">
-                  <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
-                    <h3 className="font-display text-xl text-neon-magenta mb-2">{t("home.profile.skills")}</h3>
-                    <ul className="font-mono text-sm space-y-1 text-primary/80">
-                      <li>Vibe Coding</li>
-                      <li>Prompt Engineering</li>
-                      <li>Creative Direction</li>
-                      <li>Storytelling</li>
-                    </ul>
-                  </div>
-                  <div className="border border-primary/30 p-4 bg-primary/5 hover:bg-primary/10 transition-colors">
-                    <h3 className="font-display text-xl text-neon-amber mb-2">{t("home.profile.interests")}</h3>
-                    <ul className="font-mono text-sm space-y-1 text-primary/80">
-                      <li>Cyberpunk, Retro future</li>
-                      <li>Generative Art</li>
-                      <li>Open Source Culture</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className={`text-xs font-mono px-2 py-0.5 border ${
+                        c.roleKey === "community.role.founded"
+                          ? "border-neon-magenta text-neon-magenta"
+                          : "border-primary text-primary"
+                      }`}>
+                        {t(c.roleKey)}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-3 mb-4">
+                      {IconComp && <IconComp className={`w-5 h-5 ${accentTextClass[c.accentColor]}`} />}
+                      <h3 className={`text-xl font-display ${accentTextClass[c.accentColor]} group-hover:brightness-125 transition-all`}>
+                        {t(c.titleKey)}
+                      </h3>
+                    </div>
+
+                    <p className="font-mono text-sm text-gray-400 leading-relaxed">
+                      {t(c.descKey)}
+                    </p>
+
+                    <div className="absolute bottom-0 left-0 h-0.5 bg-primary w-0 group-hover:w-full transition-all duration-500"></div>
+                  </a>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -289,7 +346,7 @@ export default function Home() {
             <div className="mb-16 flex items-end justify-between">
               <div>
                 <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                  <span className="text-primary">03.</span> {t("home.blog.title")}
+                  <span className="text-primary">04.</span> {t("home.blog.title")}
                 </h2>
                 <p className="font-mono text-primary/60 max-w-2xl">
                   {t("home.blog.subtitle")}
@@ -350,7 +407,7 @@ export default function Home() {
         <section id="contact" className="py-24 relative bg-black">
           <div className="container relative z-10 text-center max-w-2xl mx-auto">
             <h2 className="text-4xl md:text-5xl font-display text-white mb-8">
-              <span className="text-primary">04.</span> {t("home.contact.title")}
+              <span className="text-primary">05.</span> {t("home.contact.title")}
             </h2>
             <p className="font-mono text-gray-400 mb-12">
               {t("home.contact.subtitle")}<br />
