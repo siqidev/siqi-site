@@ -19,16 +19,19 @@ const accentTextClass: Record<string, string> = {
   "neon-magenta": "text-neon-magenta",
   "primary": "text-primary",
   "neon-amber": "text-neon-amber",
+  "neon-cyan": "text-neon-cyan",
 };
 const accentBgClass: Record<string, string> = {
   "neon-magenta": "bg-neon-magenta",
   "primary": "bg-primary",
   "neon-amber": "bg-neon-amber",
+  "neon-cyan": "bg-neon-cyan",
 };
 const accentHoverBgClass: Record<string, string> = {
   "neon-magenta": "hover:bg-neon-magenta/80",
   "primary": "hover:bg-primary/80",
   "neon-amber": "hover:bg-neon-amber/80",
+  "neon-cyan": "hover:bg-neon-cyan/80",
 };
 
 

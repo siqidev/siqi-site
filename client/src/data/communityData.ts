@@ -27,7 +27,7 @@ export const communities: CommunityMeta[] = [
     roleKey: "community.role.founded",
     icon: "Hash",
     href: "https://x.com/search?q=%23SuperDevDay%20OR%20%23%E3%82%B9%E3%83%BC%E3%83%91%E3%83%BC%E9%96%8B%E7%99%BA%E3%83%87%E3%83%BC&f=live",
-    accentColor: "primary",
+    accentColor: "neon-cyan",
   },
   {
     id: "wnb",
