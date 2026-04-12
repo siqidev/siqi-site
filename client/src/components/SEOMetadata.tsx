@@ -11,9 +11,9 @@ export function SEOMetadata({
   title = "SIQI - 式乃シト公式ウェブサイト", 
   description = "クリエイター兼個人開発者「式乃シト」の公式ポートフォリオ。Avatar UIなどのOSSプロジェクトや作品を紹介。",
   path = "/",
-  ogImage = "/images/hero-bg.png"
+  ogImage = "/images/og-default.jpg"
 }: SEOMetadataProps) {
-  const siteUrl = "https://siqi.official"; // 仮のURL、デプロイ後に変更推奨
+  const siteUrl = "https://siqi.jp";
   const fullUrl = `${siteUrl}${path}`;
   const fullImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
 
@@ -26,8 +26,8 @@ export function SEOMetadata({
     "url": siteUrl,
     "image": fullImage,
     "sameAs": [
-      "https://github.com/siqi", // 仮
-      "https://twitter.com/siqi" // 仮
+      "https://github.com/sito-sikino",
+      "https://x.com/Sikino_Sito"
     ],
     "jobTitle": "Creator / Developer",
     "worksFor": {
