@@ -27,9 +27,9 @@ export default function Spectra() {
                     {/* Background - Same as Home */}
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125">
-                            <img
-                                src="/images/avatar-ui-demo.gif"
-                                alt="Spectra Background"
+                            <video
+                                src="/images/avatar-ui-demo.mp4"
+                                autoPlay loop muted playsInline
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>

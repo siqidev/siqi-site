@@ -35,7 +35,7 @@ export const projects: ProjectMeta[] = [
   {
     id: "avatar-ui",
     path: "/avatarui",
-    image: "/images/avatar-ui-demo.gif",
+    image: "/images/avatar-ui-demo.mp4",
     titleKey: "projects.avatarui.title",
     descKey: "projects.avatarui.desc",
     categoryKey: "projects.avatarui.category",

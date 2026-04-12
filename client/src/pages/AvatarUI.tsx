@@ -60,9 +60,9 @@ export default function AvatarUI() {
                 <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
                     <div className="absolute inset-0 z-0">
                         <div className="absolute inset-0 w-full h-full opacity-40 mix-blend-screen grayscale contrast-125">
-                            <img
-                                src="/images/avatar-ui-demo.gif"
-                                alt="Avatar UI Demo"
+                            <video
+                                src="/images/avatar-ui-demo.mp4"
+                                autoPlay loop muted playsInline
                                 className="w-full h-full object-cover"
                             />
                             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>

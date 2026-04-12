@@ -82,7 +82,7 @@ export default function Home() {
           {/* Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125">
-              <img src="/images/avatar-ui-demo.gif" alt="Hero Background" className="w-full h-full object-cover" />
+              <video src="/images/avatar-ui-demo.mp4" autoPlay loop muted playsInline className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
             </div>
           </div>
@@ -195,7 +195,7 @@ export default function Home() {
               <div className="py-24 relative border-b border-primary/20">
                 {featured.image && (
                   <div className="absolute inset-0 z-0 opacity-30">
-                    <img src={featured.image} alt="" className="w-full h-full object-cover" />
+                    <video src={featured.image} autoPlay loop muted playsInline className="w-full h-full object-cover" />
                     <div className="absolute inset-0 bg-black/80"></div>
                   </div>
                 )}
@@ -214,7 +214,7 @@ export default function Home() {
                     {featured.image && (
                       <div className="w-full">
                         <div className="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
-                          <img src={featured.image} alt={t(featured.titleKey)} className="w-full h-auto block" />
+                          <video src={featured.image} autoPlay loop muted playsInline className="w-full h-auto block" />
                         </div>
                       </div>
                     )}
