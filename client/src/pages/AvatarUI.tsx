@@ -451,7 +451,7 @@ export default function AvatarUI() {
 
                         <div className="mt-16 pt-8 border-t border-primary/20">
                             <p className="font-mono text-xs text-primary/40">
-                                © 2025-2026 SIQI LABEL. ALL RIGHTS RESERVED.
+                                © SIQI LABEL. ALL RIGHTS RESERVED.
                                 <br />
                                 AVATAR UI is released under the MIT License.
                             </p>

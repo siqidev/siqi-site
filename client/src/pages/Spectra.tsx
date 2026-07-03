@@ -1,5 +1,6 @@
 import { SEOMetadata } from "@/components/SEOMetadata";
 import { Header } from "@/components/Header";
+import { AlayaArchitectureModel } from "@/components/AlayaArchitectureModel";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -84,12 +85,79 @@ export default function Spectra() {
                     <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"></div>
                 </section>
 
-                {/* Roadmap Section - 01 */}
+                {/* アーキテクチャセクション - 01 */}
+                <section className="py-20 relative border-b border-primary/20 bg-[#020302] md:py-28">
+                    <div className="container relative z-10">
+                        <div className="mx-auto max-w-6xl">
+                            <div className="grid gap-5 border-b border-primary/10 pb-8 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
+                                <div>
+                                    <p className="mb-3 font-mono text-[10px] tracking-[0.32em] text-primary/40">
+                                        SPECTRA / INTERNAL STRUCTURE
+                                    </p>
+                                    <h2 className="text-4xl md:text-5xl font-display text-white">
+                                        <span className="text-primary">01.</span> {t("spectra.architecture.title")}
+                                    </h2>
+                                    <p className="mt-2 font-mono text-sm tracking-[0.2em] text-[#b8a46a]/80">
+                                        {t("spectra.architecture.name")}
+                                    </p>
+                                </div>
+                                <div className="max-w-3xl lg:pb-1">
+                                    <p className="font-mono text-sm leading-relaxed text-gray-400 md:text-base">
+                                        {t("spectra.architecture.subtitle")}
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div className="mt-9 grid gap-8 lg:grid-cols-[minmax(300px,420px)_1fr] lg:items-stretch">
+                                <div className="w-full max-w-[420px] lg:max-w-none">
+                                    <AlayaArchitectureModel />
+                                </div>
+
+                                <div className="flex flex-col justify-between border-y border-primary/10 py-6 lg:min-h-[420px]">
+                                    <div>
+                                        <p className="mb-3 font-mono text-[10px] tracking-[0.28em] text-primary/40">
+                                            SYSTEM NOTE
+                                        </p>
+                                        <p className="max-w-2xl font-mono text-sm leading-relaxed text-gray-400 md:text-base">
+                                            {t("spectra.architecture.intro")}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-8 grid gap-5 md:grid-cols-[1fr_auto] md:items-end">
+                                        <div>
+                                            <p className="mb-3 font-mono text-[10px] tracking-[0.28em] text-primary/35">
+                                                SIGNAL PATH
+                                            </p>
+                                            <div className="flex flex-wrap gap-x-3 gap-y-2 font-mono text-[11px] tracking-[0.16em] text-gray-500">
+                                                <span className="text-primary/70">EXPERIENCE</span>
+                                                <span className="text-primary/25">/</span>
+                                                <span className="text-[#6f9fb1]/75">TRACE</span>
+                                                <span className="text-primary/25">/</span>
+                                                <span className="text-[#a89058]/80">SEED</span>
+                                                <span className="text-primary/25">/</span>
+                                                <span className="text-gray-400">SELF REFERENCE</span>
+                                                <span className="text-primary/25">/</span>
+                                                <span className="text-[#a89058]/80">INTENT</span>
+                                                <span className="text-primary/25">/</span>
+                                                <span className="text-gray-400">ACTION</span>
+                                            </div>
+                                        </div>
+                                        <div className="hidden border border-primary/10 px-4 py-3 text-right font-mono text-[10px] leading-relaxed tracking-[0.18em] text-primary/30 md:block">
+                                            MODEL<br />LOCKED<br />01-A
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* ロードマップセクション - 02 */}
                 <section className="py-24 relative border-b border-primary/20 bg-black">
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">01.</span> {t("spectra.roadmap.title")}
+                                <span className="text-primary">02.</span> {t("spectra.roadmap.title")}
                             </h2>
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("spectra.roadmap.subtitle")}</p>
                         </div>
@@ -115,7 +183,10 @@ export default function Spectra() {
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-4 ml-8">
                                     <div className="crt-card neon-shimmer neon-shimmer-magenta border border-neon-magenta/30 bg-black p-5">
-                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10">First Digital Contact</h4>
+                                        <h4 className="font-display text-lg text-neon-magenta mb-2 relative z-10 flex items-center gap-2">
+                                            First Digital Contact
+                                            <span className="px-2 py-0.5 text-[10px] font-mono border border-primary text-primary bg-primary/10">{t("spectra.roadmap.phase1.contactStatus")}</span>
+                                        </h4>
                                         <p className="font-mono text-sm text-gray-400 leading-relaxed relative z-10">
                                             {t("spectra.roadmap.phase1.contactDesc")}
                                         </p>
@@ -185,12 +256,12 @@ export default function Spectra() {
                     </div>
                 </section>
 
-                {/* Connect Section - 02 (renamed from Links) */}
+                {/* 接続セクション - 03 */}
                 <section className="py-24 relative bg-black">
                     <div className="container relative z-10">
                         <div className="mb-16 text-center">
                             <h2 className="text-4xl md:text-5xl font-display text-white mb-4">
-                                <span className="text-primary">02.</span> {t("spectra.connect.title")}
+                                <span className="text-primary">03.</span> {t("spectra.connect.title")}
                             </h2>
                             <p className="font-mono text-primary/60 max-w-2xl mx-auto">{t("spectra.connect.subtitle")}</p>
                         </div>
@@ -246,7 +317,7 @@ export default function Spectra() {
                         {/* Footer */}
                         <div className="mt-16 pt-8 border-t border-primary/20 text-center">
                             <p className="font-mono text-xs text-primary/40">
-                                © 2025 SIQI LABEL. ALL RIGHTS RESERVED.
+                                © SIQI LABEL. ALL RIGHTS RESERVED.
                                 <br />
                                 Spectra Communicator is a project by SIQI LABEL.
                             </p>

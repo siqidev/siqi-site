@@ -474,7 +474,7 @@ export default function Home() {
 
             <div className="mt-16 pt-8 border-t border-primary/20">
               <p className="font-mono text-xs text-primary/40">
-                © 2025-2026 SIQI LABEL. ALL RIGHTS RESERVED.<br />
+                © SIQI LABEL. ALL RIGHTS RESERVED.<br />
                 SYSTEM VERSION 1.0.0 // BUILD 20251215
               </p>
             </div>
