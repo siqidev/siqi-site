@@ -1,0 +1,91 @@
+---
+// client/src/pages/Home.tsx Community Section の移植
+import { useTranslations, type Locale } from "../../i18n";
+import { iconMap } from "../../lib/icon-map";
+import {
+  accentTextClass,
+  accentCardClass,
+  accentBadgeClass,
+  accentLineClass,
+} from "../../lib/accent-classes";
+import { communities } from "../../data/communityData";
+import { ExternalLink } from "lucide-react";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section
+  id="community"
+  class="py-24 relative border-b border-primary/20 bg-black"
+>
+  <div class="container relative z-10">
+    <div class="mb-16">
+      <h2 class="text-4xl md:text-5xl font-display text-white mb-4">
+        <span class="text-primary">02.</span> {t("home.community.title")}
+      </h2>
+      <p class="font-mono text-primary/60 max-w-2xl">
+        {t("home.community.subtitle")}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {
+        communities.map(c => {
+          const IconComp = iconMap[c.icon];
+          return (
+            <a
+              href={c.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`group block neon-shimmer neon-shimmer-gray border bg-black p-6 relative overflow-hidden transition-all duration-300 ${accentCardClass[c.accentColor]}`}
+            >
+              <div class="absolute top-0 right-0 p-2 opacity-50 transition-opacity group-hover:opacity-80">
+                <ExternalLink
+                  className={`w-4 h-4 ${accentTextClass[c.accentColor]}`}
+                />
+              </div>
+
+              <div class="flex items-center gap-2 mb-4">
+                <span
+                  class={`text-xs font-mono px-2 py-0.5 border ${
+                    c.roleKey === "community.role.founded"
+                      ? "border-neon-magenta/50 text-neon-magenta"
+                      : accentBadgeClass[c.accentColor]
+                  }`}
+                >
+                  {t(c.roleKey)}
+                </span>
+              </div>
+
+              <div class="flex items-center gap-3 mb-4">
+                {IconComp && (
+                  <IconComp
+                    className={`w-5 h-5 ${accentTextClass[c.accentColor]} transition-opacity opacity-80 group-hover:opacity-100`}
+                  />
+                )}
+                <h3
+                  class={`text-xl font-display text-gray-200 transition-colors ${accentTextClass[c.accentColor]}`}
+                >
+                  {t(c.titleKey)}
+                </h3>
+              </div>
+
+              <p class="font-mono text-sm text-gray-400 leading-relaxed">
+                {t(c.descKey)}
+              </p>
+
+              <div
+                class={`absolute bottom-0 left-0 h-px ${accentLineClass[c.accentColor]} w-0 group-hover:w-full transition-all duration-500`}
+              />
+            </a>
+          );
+        })
+      }
+    </div>
+  </div>
+</section>

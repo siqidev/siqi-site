@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+import NovelsPage from "../../components/pages/NovelsPage.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations("ja");
+---
+
+<Base
+  locale="ja"
+  path="/novels"
+  title={t("novels.seo.title")}
+  description={t("novels.seo.description")}
+>
+  <NovelsPage locale="ja" />
+</Base>

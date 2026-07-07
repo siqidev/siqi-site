@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outputPath = resolve(
   repoRoot,
-  "client/src/data/generated/avatarUiVersion.ts"
+  "src/data/generated/avatarUiVersion.ts"
 );
 const localPackagePath = resolve(repoRoot, "../avatar-ui/package.json");
 const remoteRepo = "https://github.com/siqidev/avatar-ui.git";

@@ -7,6 +7,9 @@ dist/
 build/
 *.dist
 
+# Astro
+.astro/
+
 # Environment variables
 .env
 .env.local

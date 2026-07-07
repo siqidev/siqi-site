@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+import RobloxPage from "../../components/pages/RobloxPage.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations("en");
+---
+
+<Base
+  locale="en"
+  path="/roblox"
+  title={t("roblox.seo.title")}
+  description={t("roblox.seo.description")}
+>
+  <RobloxPage locale="en" />
+</Base>

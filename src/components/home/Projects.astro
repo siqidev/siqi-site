@@ -1,0 +1,211 @@
+---
+// client/src/pages/Home.tsx Projects Section の移植
+import { useTranslations, getLocalizedPath, type Locale } from "../../i18n";
+import { buttonClass } from "../../lib/button";
+import { iconMap } from "../../lib/icon-map";
+import {
+  accentTextClass,
+  accentCardClass,
+  accentBadgeClass,
+  accentLineClass,
+} from "../../lib/accent-classes";
+import { projects } from "../../data/projectsData";
+import { ArrowRight, ExternalLink } from "lucide-react";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+
+const [featured, ...restProjects] = projects;
+---
+
+<section id="works" class="relative border-b border-primary/20">
+  {/* Avatar UI — フルサイズ表示 */}
+  <div class="py-24 relative border-b border-primary/20">
+    {
+      featured.image && (
+        <div class="absolute inset-0 z-0 opacity-30">
+          <video
+            data-lazy-src={featured.image}
+            poster="/images/avatar-ui-demo-poster.jpg"
+            autoplay
+            loop
+            muted
+            playsinline
+            class="w-full h-full object-cover"
+          />
+          <div class="absolute inset-0 bg-black/80" />
+        </div>
+      )
+    }
+
+    <div class="container relative z-10">
+      <div class="mb-16">
+        <h2 class="text-4xl md:text-5xl font-display text-white mb-4">
+          <span class="text-primary">01.</span> {t("home.projects.title")}
+        </h2>
+        <p class="font-mono text-primary/60 max-w-2xl">
+          {t("home.projects.subtitle")}
+        </p>
+      </div>
+
+      <div class="flex flex-col gap-16">
+        {
+          featured.image && (
+            <div class="w-full">
+              <div class="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
+                <video
+                  data-lazy-src={featured.image}
+                  poster="/images/avatar-ui-demo-poster.jpg"
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  class="w-full h-auto block"
+                />
+              </div>
+            </div>
+          )
+        }
+
+        <div class="space-y-8 max-w-3xl">
+          <div class="flex items-center gap-4">
+            <h3
+              class={`text-5xl font-display ${accentTextClass[featured.accentColor]}`}
+            >
+              {t(featured.titleKey)}
+            </h3>
+            {
+              featured.version && (
+                <span class="px-2 py-1 bg-primary/20 text-primary text-xs font-mono border border-primary/50">
+                  {featured.version}
+                </span>
+              )
+            }
+          </div>
+
+          <p class="font-mono text-gray-300 leading-relaxed text-lg">
+            {t(featured.descKey)}
+          </p>
+
+          <div class="flex flex-wrap gap-6">
+            {
+              featured.tags.map(tag => {
+                const IconComp = iconMap[tag.icon];
+                return (
+                  <div class="flex items-center gap-3 text-sm font-mono text-primary/80">
+                    {IconComp && <IconComp className="w-4 h-4" />}
+                    <span>{t(tag.labelKey)}</span>
+                  </div>
+                );
+              })
+            }
+          </div>
+
+          <div class="flex flex-wrap items-center gap-4 pt-4">
+            {
+              featured.buttons.map(btn => (
+                <a href={btn.href} target="_blank" rel="noopener noreferrer">
+                  {btn.variant === "primary" ? (
+                    <span
+                      class={buttonClass({
+                        className:
+                          "bg-primary/90 text-black hover:bg-primary border-none rounded-none font-mono h-12 px-6",
+                      })}
+                    >
+                      {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                    </span>
+                  ) : (
+                    <span
+                      class={buttonClass({
+                        variant: "outline",
+                        className:
+                          "border-primary text-primary hover:bg-primary/10 rounded-none font-mono h-12 px-6",
+                      })}
+                    >
+                      {t(btn.labelKey)} <ExternalLink className="ml-2 w-4 h-4" />
+                    </span>
+                  )}
+                </a>
+              ))
+            }
+            {
+              featured.badges?.map(badge => (
+                <a href={badge.href} target="_blank" rel="noopener noreferrer">
+                  <img
+                    src={badge.src}
+                    alt={badge.alt}
+                    class="h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+                  />
+                </a>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* 残りのプロジェクト — カード表示 */}
+  <div class="py-24">
+    <div class="container">
+      <div class="grid md:grid-cols-3 gap-6">
+        {
+          restProjects.map(project => (
+            <a
+              href={getLocalizedPath(locale, project.path)}
+              class={`group block neon-shimmer neon-shimmer-gray border bg-black p-6 relative overflow-hidden transition-all duration-300 ${accentCardClass[project.accentColor]}`}
+            >
+              <div class="absolute top-0 right-0 p-2 opacity-50 transition-opacity group-hover:opacity-80">
+                <ArrowRight
+                  className={`w-4 h-4 ${accentTextClass[project.accentColor]}`}
+                />
+              </div>
+
+              <div class="flex items-center gap-2 mb-4">
+                <span
+                  class={`text-xs font-mono px-2 py-0.5 border transition-colors ${accentBadgeClass[project.accentColor]}`}
+                >
+                  {t(project.categoryKey)}
+                </span>
+              </div>
+
+              <h3
+                class={`text-xl font-display ${accentTextClass[project.accentColor]} transition-opacity mb-4 opacity-90 group-hover:opacity-100`}
+              >
+                {t(project.titleKey)}
+              </h3>
+
+              <p class="font-mono text-sm text-gray-400 leading-relaxed mb-4">
+                {t(project.descKey)}
+              </p>
+
+              <div class="flex flex-wrap gap-3">
+                {project.tags.map(tag => {
+                  const IconComp = iconMap[tag.icon];
+                  return (
+                    <div class="flex items-center gap-1.5 text-xs font-mono text-gray-500 transition-colors group-hover:text-gray-300">
+                      {IconComp && (
+                        <IconComp
+                          className={`w-3 h-3 ${accentTextClass[project.accentColor]} opacity-70`}
+                        />
+                      )}
+                      <span>{t(tag.labelKey)}</span>
+                    </div>
+                  );
+                })}
+              </div>
+
+              <div
+                class={`absolute bottom-0 left-0 h-px ${accentLineClass[project.accentColor]} w-0 group-hover:w-full transition-all duration-500`}
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
