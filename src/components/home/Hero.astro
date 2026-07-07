@@ -1,0 +1,78 @@
+---
+// client/src/pages/Home.tsx Hero Section の移植
+import { useTranslations, type Locale } from "../../i18n";
+import { buttonClass } from "../../lib/button";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section
+  id="hero"
+  class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black"
+>
+  {/* Background Elements */}
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125"
+    >
+      <video
+        src="/images/avatar-ui-demo.mp4"
+        autoplay
+        loop
+        muted
+        playsinline
+        class="w-full h-full object-cover"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"
+      >
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="container relative z-20 flex flex-col items-center justify-center text-center px-4"
+  >
+    {/* Main Typography Logo */}
+    <div class="relative mb-12 flex flex-col items-center">
+      <h1
+        class="font-syne font-extrabold text-[15vw] md:text-[12rem] leading-none tracking-tighter select-none text-white"
+      >
+        SIQI
+      </h1>
+      <p
+        class="font-mono text-sm md:text-xl text-white/90 mix-blend-difference tracking-widest mt-8"
+      >
+        {t("home.hero.tagline")}
+      </p>
+    </div>
+
+    {/* Minimal Action */}
+    <div
+      class="mt-12 opacity-0 animate-fade-in"
+      style="animation-delay: 1s; animation-fill-mode: forwards;"
+    >
+      <a
+        href="#works"
+        class={buttonClass({
+          variant: "ghost",
+          className:
+            "text-white/70 hover:text-white hover:bg-white/10 font-mono text-sm tracking-widest uppercase transition-all duration-300",
+        })}
+      >
+        {t("home.hero.viewWorks")}
+      </a>
+    </div>
+  </div>
+
+  {/* Fade Gradient Overlay */}
+  <div
+    class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-black via-black/80 to-transparent pointer-events-none z-10"
+  >
+  </div>
+</section>

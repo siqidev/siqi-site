@@ -1,0 +1,44 @@
+---
+// client/src/pages/Home.tsx Blog Section の移植
+import { useTranslations, type Locale } from "../../i18n";
+import { buttonClass } from "../../lib/button";
+import BlogFeed from "../islands/BlogFeed";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section id="blog" class="py-24 relative border-b border-primary/20 bg-black">
+  <div class="container relative z-10">
+    <div class="mb-16 flex items-end justify-between">
+      <div>
+        <h2 class="text-4xl md:text-5xl font-display text-white mb-4">
+          <span class="text-primary">04.</span> {t("home.blog.title")}
+        </h2>
+        <p class="font-mono text-primary/60 max-w-2xl">
+          {t("home.blog.subtitle")}
+        </p>
+      </div>
+      <div class="hidden md:flex gap-4">
+        <button
+          class={buttonClass({
+            variant: "outline",
+            size: "sm",
+            className:
+              "font-mono text-xs border-primary/30 text-primary/60 hover:text-primary hover:border-primary",
+          })}
+        >
+          RSS_FEED.XML
+        </button>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <BlogFeed client:visible noPostText={t("home.blog.noPost")} />
+    </div>
+  </div>
+</section>

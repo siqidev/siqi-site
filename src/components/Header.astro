@@ -1,0 +1,277 @@
+---
+// client/src/components/Header.tsx の移植。
+// React Context を使わず、辞書 + Astro props で文言・ロケールを解決する。
+import { useTranslations, getLocalizedPath, type Locale } from "../i18n";
+
+export interface Props {
+  locale: Locale;
+  /** ロケールプレフィックスを含まない現在ページのパス（例: "/" "/avatarui"） */
+  path: string;
+  variant?: "home" | "page";
+}
+
+const { locale, path, variant = "page" } = Astro.props;
+const t = useTranslations(locale);
+const isHome = variant === "home" || path === "/";
+
+interface NavChild {
+  label: string;
+  href: string;
+}
+
+interface NavItem {
+  label: string;
+  href?: string;
+  scrollTo?: string;
+  children?: NavChild[];
+}
+
+const projectChildren: NavChild[] = [
+  { label: "AVATAR UI", href: getLocalizedPath(locale, "/avatarui") },
+  { label: "SPECTRA", href: getLocalizedPath(locale, "/spectra") },
+  { label: "NOVELS", href: getLocalizedPath(locale, "/novels") },
+  { label: "ROBLOX GAMES", href: getLocalizedPath(locale, "/roblox") },
+];
+
+const homePath = getLocalizedPath(locale, "/");
+
+const homeNavItems: NavItem[] = [
+  { label: "./HOME", scrollTo: "hero" },
+  { label: "./PROJECTS", children: projectChildren },
+  { label: "./COMMUNITY", scrollTo: "community" },
+  { label: "./PROFILE", scrollTo: "about" },
+  { label: "./LOGS", scrollTo: "blog" },
+  { label: "./CONTACT", scrollTo: "contact" },
+];
+
+const pageNavItems: NavItem[] = [
+  { label: "./HOME", href: homePath },
+  { label: "./PROJECTS", children: projectChildren },
+  { label: "./COMMUNITY", href: `${homePath}#community` },
+  { label: "./PROFILE", href: `${homePath}#about` },
+  { label: "./LOGS", href: `${homePath}#blog` },
+  { label: "./CONTACT", href: `${homePath}#contact` },
+];
+
+const navItems = isHome ? homeNavItems : pageNavItems;
+---
+
+<nav
+  class="fixed top-0 left-0 right-0 z-50 border-b border-primary/30 bg-black/80 backdrop-blur-md"
+>
+  <div class="container flex items-center justify-between h-16 px-4">
+    <a href={homePath} class="flex items-center gap-2">
+      <span class="font-display text-xl tracking-widest text-primary">
+        &gt;_SIQI
+      </span>
+    </a>
+
+    {/* Desktop Menu */}
+    <div class="hidden md:flex items-center gap-8 text-sm font-mono">
+      {
+        navItems.map(item =>
+          item.children ? (
+            <details class="relative group/nav">
+              <summary class="hover:text-neon-magenta transition-colors text-primary/80 flex items-center gap-1 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+                {item.label}
+                <svg
+                  class="w-3 h-3 transition-transform group-open/nav:rotate-180"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <div class="absolute top-full left-0 mt-2 min-w-[160px] bg-black/95 border border-primary/30 backdrop-blur-md">
+                {item.children.map(child => (
+                  <a
+                    href={child.href}
+                    class="block px-4 py-2 font-mono text-sm text-primary/80 hover:text-neon-magenta hover:bg-primary/10 transition-colors"
+                  >
+                    {child.label}
+                  </a>
+                ))}
+              </div>
+            </details>
+          ) : item.href ? (
+            <a
+              href={item.href}
+              class="hover:text-neon-magenta transition-colors text-primary/80"
+            >
+              {item.label}
+            </a>
+          ) : (
+            <a
+              href={`#${item.scrollTo}`}
+              class="hover:text-neon-magenta transition-colors text-primary/80"
+            >
+              {item.label}
+            </a>
+          )
+        )
+      }
+    </div>
+
+    {/* Mobile Menu Button */}
+    <button
+      id="header-mobile-toggle"
+      class="md:hidden text-primary hover:text-neon-magenta transition-colors"
+      aria-expanded="false"
+      aria-controls="header-mobile-menu"
+    >
+      <svg
+        id="header-mobile-icon-open"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <line x1="4" y1="18" x2="20" y2="18" />
+      </svg>
+      <svg
+        id="header-mobile-icon-close"
+        class="hidden"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <line x1="18" y1="6" x2="6" y2="18" />
+        <line x1="6" y1="6" x2="18" y2="18" />
+      </svg>
+    </button>
+
+    {/* Desktop Right Section */}
+    <div class="hidden md:flex items-center gap-2">
+      {/* Language Switch */}
+      <div class="flex border border-primary/50 font-mono text-xs">
+        <a
+          href={getLocalizedPath("en", path)}
+          class={`px-3 py-1.5 transition-all duration-200 ${
+            locale === "en"
+              ? "bg-primary text-black"
+              : "text-primary/70 hover:text-primary hover:bg-primary/10"
+          }`}
+        >
+          EN
+        </a>
+        <a
+          href={getLocalizedPath("ja", path)}
+          class={`px-3 py-1.5 transition-all duration-200 ${
+            locale === "ja"
+              ? "bg-primary text-black"
+              : "text-primary/70 hover:text-primary hover:bg-primary/10"
+          }`}
+        >
+          JA
+        </a>
+      </div>
+      {/* Status Button */}
+      <div
+        class="border border-primary text-primary font-mono text-xs px-3 py-1.5 hover:bg-primary hover:text-black transition-all duration-200"
+      >
+        {t("nav.status")}
+      </div>
+    </div>
+  </div>
+
+  {/* Mobile Menu Overlay */}
+  <div
+    id="header-mobile-menu"
+    class="hidden fixed inset-0 top-16 z-40 bg-black/95 backdrop-blur-xl border-t border-primary/20 md:hidden flex-col items-center justify-start pt-12 gap-8 h-[calc(100vh-4rem)] overflow-y-auto"
+  >
+    {
+      navItems.map(item =>
+        item.children ? (
+          <details class="relative group/nav-mobile">
+            <summary class="text-xl font-display text-primary hover:text-neon-magenta tracking-widest flex items-center gap-1 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              {item.label}
+              <svg
+                class="w-3 h-3 transition-transform group-open/nav-mobile:rotate-180"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </summary>
+            <div class="flex flex-col items-center gap-4 mt-4">
+              {item.children.map(child => (
+                <a
+                  href={child.href}
+                  class="text-lg font-mono text-primary/80 hover:text-neon-magenta"
+                >
+                  {child.label}
+                </a>
+              ))}
+            </div>
+          </details>
+        ) : item.href ? (
+          <a
+            href={item.href}
+            class="text-xl font-display text-primary hover:text-neon-magenta tracking-widest"
+          >
+            {item.label}
+          </a>
+        ) : (
+          <a
+            href={`#${item.scrollTo}`}
+            class="text-xl font-display text-primary hover:text-neon-magenta tracking-widest"
+          >
+            {item.label}
+          </a>
+        )
+      )
+    }
+
+    {/* Mobile Language Switch */}
+    <div class="flex border border-primary/50 font-mono text-sm mt-4">
+      <a
+        href={getLocalizedPath("en", path)}
+        class={`px-4 py-2 transition-all duration-200 ${
+          locale === "en"
+            ? "bg-primary text-black"
+            : "text-primary/70 hover:text-primary"
+        }`}
+      >
+        EN
+      </a>
+      <a
+        href={getLocalizedPath("ja", path)}
+        class={`px-4 py-2 transition-all duration-200 ${
+          locale === "ja"
+            ? "bg-primary text-black"
+            : "text-primary/70 hover:text-primary"
+        }`}
+      >
+        JA
+      </a>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // 最小のバニラJS: モバイルメニューの開閉のみ（React state の代替）
+  const toggle = document.getElementById("header-mobile-toggle");
+  const menu = document.getElementById("header-mobile-menu");
+  const iconOpen = document.getElementById("header-mobile-icon-open");
+  const iconClose = document.getElementById("header-mobile-icon-close");
+
+  toggle?.addEventListener("click", () => {
+    const isOpen = !menu?.classList.contains("hidden");
+    menu?.classList.toggle("hidden");
+    menu?.classList.toggle("flex");
+    iconOpen?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+    toggle?.setAttribute("aria-expanded", String(!isOpen));
+  });
+</script>

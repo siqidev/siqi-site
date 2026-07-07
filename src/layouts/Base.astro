@@ -1,0 +1,128 @@
+---
+import "../styles/global.css";
+import { locales, type Locale } from "../i18n";
+
+export interface Props {
+  locale: Locale;
+  /** ロケールプレフィックスを含まないページパス（例: "/" "/avatarui"）。trailing slash なし。 */
+  path: string;
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  locale,
+  path,
+  title = "SIQI - 式乃シト公式ウェブサイト",
+  description = "クリエイター兼個人開発者「式乃シト」の公式ポートフォリオ。Avatar UIなどのOSSプロジェクトや作品を紹介。",
+  ogImage = "/images/og-default.jpg",
+} = Astro.props;
+
+const siteUrl = "https://siqi.jp";
+
+function localizedPath(loc: Locale): string {
+  const normalized = path === "/" ? "" : path;
+  return `/${loc}${normalized}`;
+}
+
+const canonicalUrl = `${siteUrl}${localizedPath(locale)}`;
+const fullImage = ogImage.startsWith("http") ? ogImage : `${siteUrl}${ogImage}`;
+
+// JSON-LD for LLM Optimization
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "式乃シト",
+  alternateName: "SIQI",
+  url: siteUrl,
+  image: fullImage,
+  sameAs: ["https://github.com/sito-sikino", "https://x.com/Sikino_Sito"],
+  jobTitle: "Creator / Developer",
+  worksFor: {
+    "@type": "Organization",
+    name: "SIQI Label",
+  },
+  description,
+  knowsAbout: [
+    "Web Development",
+    "UI Design",
+    "Open Source Software",
+    "Avatar UI",
+  ],
+};
+
+// ビルド時に環境変数が両方揃っている場合のみ umami を注入する
+const analyticsEndpoint = process.env.VITE_ANALYTICS_ENDPOINT;
+const analyticsWebsiteId = process.env.VITE_ANALYTICS_WEBSITE_ID;
+const analyticsEnabled = Boolean(analyticsEndpoint && analyticsWebsiteId);
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+
+    {/* hreflang: en / ja / x-default（x-default は /en/... を指す） */}
+    {
+      locales.map(loc => (
+        <link
+          rel="alternate"
+          hreflang={loc}
+          href={`${siteUrl}${localizedPath(loc)}`}
+        />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={`${siteUrl}${localizedPath("en")}`}
+    />
+
+    {/* Open Graph / Facebook */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullImage} />
+
+    {/* Twitter */}
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalUrl} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={fullImage} />
+
+    {/* LLM Optimization: Structured Data */}
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400&family=Syne:wght@700;800&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/icon.png" />
+
+    {
+      analyticsEnabled && (
+        <script
+          is:inline
+          defer
+          src={`${analyticsEndpoint}/umami`}
+          data-website-id={analyticsWebsiteId}
+        />
+      )
+    }
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
