@@ -106,7 +106,7 @@ functions/
 - Lighthouse 比較（現行比で劣化なし）
 - Codex レビュー → 指摘修正
 - 完了条件: 上記全通過 ＋ ユーザーがプレビュー URL で実機検収（Functions の 302 含む）
-- ✅ 完了（2026-07-07・CC実施分）: 旧実装（client/・server/・vite.config.ts・tsconfig.client.json・components.json・shared/・tsconfig.node.json）削除／依存を55→18に剪定／build・check・astro preview curl 全通過／Home の英語ページが日本語デフォルトSEOに fallback するバグを発見・修正（home.seo.* 追加）。ルート`/`の302とCloudflare `_redirects`の301はastro previewでは検証不可のため未実施（CFプレビュー実機での確認が必要）。Lighthouse比較とCodexレビューは未実施（次のアクション）
+- 🔶 実装完了・外部検証待ち（2026-07-07）: 旧実装（client/・server/・vite.config.ts・tsconfig.client.json・components.json・shared/・tsconfig.node.json）削除／依存を55→18に剪定／build・check・astro preview curl 全通過／Home の英語ページが日本語デフォルトSEOに fallback するバグを発見・修正（home.seo.* 追加）／Codexレビュー（条件付き承認）指摘の Function HEAD 対応・Accept-Language 解析修正済み（単体10ケース合格）。**残り＝CFプレビュー実機での 302/301 確認・Lighthouse・ユーザー検収**（完了条件はこの3点の通過をもって満たす）
 
 ### Phase 4 — 切替（ユーザー検収後のみ）
 - dev → main マージ（単一マージコミット）＝本番反映
