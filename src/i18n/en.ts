@@ -14,9 +14,9 @@ export const en: Record<keyof typeof ja, string> = {
   // Home - Hero
   "home.hero.tagline": "> Building the future, pixel by pixel._",
   "home.hero.viewWorks": "[ View Works ]",
-  "home.seo.title": "SIQI - Official Website of Sito Shikino",
+  "home.seo.title": "SIQI - Official Website of Sito Sikino",
   "home.seo.description":
-    "Official portfolio of creator and independent developer Sito Shikino. Featuring OSS projects such as Avatar UI and creative works.",
+    "Official portfolio of creator and independent developer Sito Sikino. Featuring OSS projects such as Avatar UI and creative works.",
 
   // Home - Featured Project
   "home.projects.title": "PROJECTS",
@@ -78,6 +78,8 @@ export const en: Record<keyof typeof ja, string> = {
 
   // Home - Profile
   "home.profile.title": "PROFILE_DATA",
+  "home.profile.name": "Sito Sikino",
+  "home.profile.nameSub": "式乃シト",
   "home.profile.intro":
     "A creator working as an author and indie developer. Exploring the boundary between digital and analog, creating works that merge storytelling with functionality.",
   "home.profile.career": "Career Highlights:",

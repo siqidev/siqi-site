@@ -76,6 +76,8 @@ export const ja = {
 
   // Home - Profile
   "home.profile.title": "PROFILE_DATA",
+  "home.profile.name": "式乃シト",
+  "home.profile.nameSub": "Sito Sikino",
   "home.profile.intro":
     "作家兼個人開発者として活動するクリエイター。デジタルとアナログの境界線を探求し、物語性と機能性を融合させた作品を制作しています。",
   "home.profile.career": "主な経歴：",

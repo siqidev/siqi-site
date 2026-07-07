@@ -29,7 +29,7 @@ const t = useTranslations(locale);
           </div>
           <img
             src="/images/shikino-icon.png"
-            alt="Shikino Shito"
+            alt="Sito Sikino"
             class="w-full h-full rounded-full border-2 border-gray-500/50 relative z-10 shadow-[0_0_30px_rgba(150,150,150,0.18)] object-cover"
           />
         </div>
@@ -39,6 +39,16 @@ const t = useTranslations(locale);
         <h2 class="text-4xl md:text-5xl font-display text-white">
           <span class="text-primary">03.</span> {t("home.profile.title")}
         </h2>
+
+        {/* 名前（表記正本: Sito Sikino） */}
+        <div>
+          <p class="text-3xl md:text-4xl font-bold text-white tracking-wide">
+            {t("home.profile.name")}
+          </p>
+          <p class="font-mono text-sm text-primary/80 tracking-[0.3em] mt-2">
+            {t("home.profile.nameSub")}
+          </p>
+        </div>
 
         <div class="space-y-6 font-mono text-lg text-gray-300 leading-relaxed">
           <p>
