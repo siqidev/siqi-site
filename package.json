@@ -4,10 +4,14 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
+    "sync:avatar-ui-version": "node scripts/sync-avatar-ui-version.mjs",
+    "predev": "pnpm sync:avatar-ui-version",
     "dev": "vite --host",
+    "prebuild": "pnpm sync:avatar-ui-version",
     "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
     "start": "NODE_ENV=production node dist/index.js",
     "preview": "vite preview --host",
+    "precheck": "pnpm sync:avatar-ui-version",
     "check": "tsc --noEmit",
     "format": "prettier --write ."
   },

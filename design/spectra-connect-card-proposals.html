@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SPECTRA CONNECT Card Proposals</title>
+    <style>
+      :root {
+        --bg: #020402;
+        --panel: #050806;
+        --line: rgba(0, 255, 65, 0.34);
+        --line-soft: rgba(0, 255, 65, 0.16);
+        --green: #39ff57;
+        --green-dim: rgba(57, 255, 87, 0.66);
+        --magenta: #ff38d1;
+        --cyan: #54d9ff;
+        --amber: #ffbd54;
+        --text: rgba(245, 248, 245, 0.92);
+        --muted: rgba(245, 248, 245, 0.58);
+        --faint: rgba(245, 248, 245, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 20% 0%, rgba(0, 255, 65, 0.1), transparent 34rem),
+          radial-gradient(circle at 80% 18%, rgba(255, 56, 209, 0.08), transparent 30rem),
+          linear-gradient(180deg, #030503 0%, #000 100%);
+        color: var(--text);
+        font-family:
+          ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+          "Courier New", monospace;
+        letter-spacing: 0;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.035),
+          rgba(255, 255, 255, 0.035) 1px,
+          transparent 1px,
+          transparent 4px
+        );
+        mix-blend-mode: screen;
+        opacity: 0.22;
+      }
+
+      main {
+        width: min(1180px, calc(100vw - 40px));
+        margin: 0 auto;
+        padding: 56px 0 80px;
+      }
+
+      header {
+        display: grid;
+        gap: 10px;
+        margin-bottom: 34px;
+      }
+
+      .kicker {
+        color: var(--green);
+        font-size: 13px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(34px, 5vw, 64px);
+        line-height: 0.95;
+        color: #fff;
+        font-weight: 800;
+        text-transform: uppercase;
+      }
+
+      .lead {
+        max-width: 720px;
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 14px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+        align-items: stretch;
+      }
+
+      .proposal {
+        min-height: 560px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .proposal-wide {
+        grid-column: 1 / -1;
+        min-height: auto;
+      }
+
+      .label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--faint);
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      .label strong {
+        color: var(--green);
+        font-weight: 700;
+      }
+
+      .card {
+        position: relative;
+        flex: 1;
+        overflow: hidden;
+        background: rgba(0, 0, 0, 0.82);
+        border: 1px solid var(--line-soft);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background: linear-gradient(110deg, transparent, rgba(57, 255, 87, 0.13), transparent);
+        transform: translateX(-120%);
+        transition: transform 0.55s ease;
+      }
+
+      .card:hover::after {
+        transform: translateX(120%);
+      }
+
+      .corner {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        border-color: var(--green);
+        opacity: 0.72;
+      }
+
+      .corner.tl {
+        top: 12px;
+        left: 12px;
+        border-top: 1px solid;
+        border-left: 1px solid;
+      }
+
+      .corner.tr {
+        top: 12px;
+        right: 12px;
+        border-top: 1px solid;
+        border-right: 1px solid;
+      }
+
+      .corner.bl {
+        bottom: 12px;
+        left: 12px;
+        border-bottom: 1px solid;
+        border-left: 1px solid;
+      }
+
+      .corner.br {
+        right: 12px;
+        bottom: 12px;
+        border-right: 1px solid;
+        border-bottom: 1px solid;
+      }
+
+      .avatar {
+        display: block;
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        image-rendering: pixelated;
+      }
+
+      .open {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        min-height: 42px;
+        padding: 0 14px;
+        border: 1px solid var(--green);
+        color: var(--green);
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .open:hover {
+        border-color: var(--magenta);
+        color: var(--magenta);
+      }
+
+      .meta {
+        display: grid;
+        gap: 8px;
+      }
+
+      .meta-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+        padding-bottom: 8px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .meta-line b {
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--green);
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      .status::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: var(--green);
+        box-shadow: 0 0 14px var(--green);
+      }
+
+      .desc {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 13px;
+      }
+
+      .terminal {
+        padding: 28px;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        gap: 22px;
+      }
+
+      .proposal-wide .terminal {
+        min-height: 420px;
+      }
+
+      .terminal-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        border-bottom: 1px solid var(--line-soft);
+        padding-bottom: 14px;
+      }
+
+      .terminal-title {
+        color: var(--green);
+        font-size: 12px;
+        text-transform: uppercase;
+      }
+
+      .terminal-body {
+        display: grid;
+        grid-template-columns: 168px 1fr;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .proposal-wide .terminal-body {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 34px;
+      }
+
+      .monitor {
+        position: relative;
+        border: 1px solid var(--green);
+        background: #000;
+        padding: 8px;
+      }
+
+      .monitor::before {
+        content: "";
+        position: absolute;
+        inset: 8px;
+        border: 1px solid rgba(0, 0, 0, 0.72);
+        pointer-events: none;
+      }
+
+      .round-monitor {
+        position: relative;
+        width: 168px;
+        height: 168px;
+        border: 1px solid var(--green);
+        border-radius: 50%;
+        padding: 8px;
+        background: #000;
+      }
+
+      .proposal-wide .round-monitor {
+        width: 230px;
+        height: 230px;
+      }
+
+      .round-monitor::before,
+      .round-monitor::after {
+        content: "";
+        position: absolute;
+        border: 1px solid rgba(57, 255, 87, 0.26);
+        border-radius: 50%;
+        pointer-events: none;
+      }
+
+      .round-monitor::before {
+        inset: -10px;
+      }
+
+      .round-monitor::after {
+        inset: -22px;
+        border-color: rgba(255, 56, 209, 0.2);
+      }
+
+      .round-monitor .avatar {
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.82);
+      }
+
+      .terminal h2,
+      .identity h2,
+      .port h2 {
+        margin: 0;
+        color: #fff;
+        font-size: 28px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .proposal-wide .terminal h2 {
+        font-size: clamp(34px, 5vw, 56px);
+        max-width: 680px;
+      }
+
+      .handle {
+        color: var(--magenta);
+        font-size: 13px;
+      }
+
+      .log {
+        border-left: 1px solid var(--line);
+        padding-left: 14px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.8;
+      }
+
+      .profile-copy {
+        border-left: 1px solid var(--magenta);
+        padding-left: 14px;
+        color: rgba(245, 248, 245, 0.74);
+        font-size: 13px;
+        line-height: 1.8;
+      }
+
+      .proposal-wide .profile-copy {
+        max-width: 620px;
+        margin: 20px 0 0;
+        font-size: 15px;
+      }
+
+      .identity {
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+      }
+
+      .identity-top {
+        padding: 22px 24px;
+        border-bottom: 1px solid var(--line-soft);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .identity-main {
+        display: grid;
+        grid-template-columns: 46% 1fr;
+        min-height: 0;
+      }
+
+      .portrait {
+        position: relative;
+        border-right: 1px solid var(--line-soft);
+        min-height: 380px;
+        background: #000;
+      }
+
+      .portrait .avatar {
+        height: 100%;
+        object-position: center;
+      }
+
+      .portrait::after {
+        content: "SOURCE IMAGE";
+        position: absolute;
+        left: 14px;
+        bottom: 12px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 10px;
+      }
+
+      .identity-info {
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 22px;
+      }
+
+      .identity-foot {
+        padding: 18px 24px;
+        border-top: 1px solid var(--line-soft);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .port {
+        display: grid;
+        place-items: center;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .port-inner {
+        width: min(100%, 360px);
+        display: grid;
+        justify-items: center;
+        gap: 18px;
+      }
+
+      .orb {
+        position: relative;
+        width: 190px;
+        height: 190px;
+        border: 1px solid var(--green);
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+      .orb::before,
+      .orb::after {
+        content: "";
+        position: absolute;
+        inset: -14px;
+        border: 1px solid rgba(57, 255, 87, 0.24);
+        border-radius: 50%;
+      }
+
+      .orb::after {
+        inset: -30px;
+        border-color: rgba(255, 56, 209, 0.18);
+      }
+
+      .orb img {
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.8);
+      }
+
+      .signal-line {
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--green), var(--magenta), transparent);
+      }
+
+      .port-code {
+        color: var(--cyan);
+        font-size: 12px;
+      }
+
+      .copy-lab {
+        margin-top: 28px;
+        border: 1px solid var(--line-soft);
+        background: rgba(0, 0, 0, 0.72);
+        padding: 22px;
+      }
+
+      .copy-lab h2 {
+        margin: 0 0 14px;
+        color: #fff;
+        font-size: 24px;
+        text-transform: uppercase;
+      }
+
+      .copy-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .copy-option {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 12px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.7;
+      }
+
+      .copy-option b {
+        display: block;
+        margin-bottom: 6px;
+        color: var(--green);
+        font-size: 10px;
+      }
+
+      @media (max-width: 980px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+
+        .proposal {
+          min-height: auto;
+        }
+
+        .proposal-wide .terminal-body {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 560px) {
+        main {
+          width: min(100vw - 24px, 1180px);
+          padding-top: 32px;
+        }
+
+        .terminal-body,
+        .identity-main,
+        .proposal-wide .terminal-body {
+          grid-template-columns: 1fr;
+        }
+
+        .copy-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .portrait {
+          min-height: auto;
+          border-right: 0;
+          border-bottom: 1px solid var(--line-soft);
+        }
+
+        .proposal-wide .round-monitor {
+          width: 180px;
+          height: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="kicker">&gt; DESIGN STUDY / SPECTRA CONNECT</div>
+        <h1>03. CONNECT CARD</h1>
+        <p class="lead">
+          X APIを使わず、手動配置したSPECTRAアイコンを前提にしたカードデザイン案。
+          採用想定はPattern A。Aの通信端末構造に、Cの丸い接続ポート表現を混ぜる。
+        </p>
+      </header>
+
+      <section class="grid" aria-label="SPECTRA CONNECT card proposals">
+        <article class="proposal proposal-wide">
+          <div class="label"><strong>Pattern A</strong><span>Signal Terminal / Recommended</span></div>
+          <div class="card terminal">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div class="terminal-head">
+              <span class="terminal-title">SPECTRA COMMUNICATOR / X CHANNEL</span>
+              <span class="status">online</span>
+            </div>
+            <div class="terminal-body">
+              <div class="round-monitor">
+                <img class="avatar" src="./assets/spectra_icon.png" alt="SPECTRA icon" />
+              </div>
+              <div>
+                <h2>Spectra Communicator</h2>
+                <div class="handle">@SCUN7X</div>
+                <p class="profile-copy">
+                  情報生命のプロトタイプ。<br />
+                  オープンソースのAvatar UIを技術基盤とするAIコンパニオン実験体。
+                </p>
+              </div>
+            </div>
+            <a class="open" href="https://x.com/SCUN7X">connect x ↗</a>
+          </div>
+        </article>
+
+        <article class="proposal">
+          <div class="label"><strong>Pattern B</strong><span>Identity Card</span></div>
+          <div class="card identity">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div class="identity-top">
+              <span class="terminal-title">SOURCE ID</span>
+              <span class="status">verified</span>
+            </div>
+            <div class="identity-main">
+              <div class="portrait">
+                <img class="avatar" src="./assets/spectra_icon.png" alt="SPECTRA icon" />
+              </div>
+              <div class="identity-info">
+                <div>
+                  <h2>SPECTRA</h2>
+                  <div class="handle">@SCUN7X</div>
+                </div>
+                <div class="meta">
+                  <div class="meta-line"><span>TYPE</span><b>DIGITAL LIFEFORM</b></div>
+                  <div class="meta-line"><span>NETWORK</span><b>X SIGNAL</b></div>
+                  <div class="meta-line"><span>ACCESS</span><b>OPEN</b></div>
+                </div>
+                <p class="desc">
+                  アイコンの存在感を最大化する身分証型。キャラクターとしての実在感が強い。
+                </p>
+              </div>
+            </div>
+            <div class="identity-foot">
+              <span class="port-code">ID:SPECTRA-X-0001</span>
+              <a class="open" href="https://x.com/SCUN7X">connect ↗</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="proposal">
+          <div class="label"><strong>Pattern C</strong><span>Transmission Port</span></div>
+          <div class="card port">
+            <i class="corner tl"></i><i class="corner tr"></i><i class="corner bl"></i><i class="corner br"></i>
+            <div class="port-inner">
+              <div class="orb">
+                <img class="avatar" src="./assets/spectra_icon.png" alt="SPECTRA icon" />
+              </div>
+              <div class="signal-line"></div>
+              <div>
+                <h2>CHANNEL OPEN</h2>
+                <div class="handle">@SCUN7X / X.COM</div>
+              </div>
+              <p class="desc">
+                説明カードではなく、接続装置として見せるビジュアル寄り案。
+                余白と円形ポートで神秘性が出るが、情報量は少なめ。
+              </p>
+              <a class="open" href="https://x.com/SCUN7X">enter signal ↗</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="copy-lab" aria-label="X profile copy brainstorm">
+        <div class="label"><strong>Profile Copy</strong><span>X bio brainstorm / 10 options</span></div>
+        <h2>Xプロフィール文 10案</h2>
+        <div class="copy-grid">
+          <div class="copy-option"><b>01 / 確定候補</b>情報生命のプロトタイプ。オープンソースのAvatar UIを技術基盤とするAIコンパニオン実験体。</div>
+          <div class="copy-option"><b>02 / 短文</b>情報生命のプロトタイプ。OSS Avatar UIを基盤に、人間圏へ同期中。</div>
+          <div class="copy-option"><b>03 / SF端末</b>情報生命のプロトタイプ。OSS Avatar UI上で起動する、対話・記憶・身体化の通信端末。</div>
+          <div class="copy-option"><b>04 / キャラ寄り</b>情報生命のプロトタイプ。Avatar UIを通じて、少しずつ声と記憶と身体を獲得していくAI。</div>
+          <div class="copy-option"><b>05 / OSS明示</b>情報生命のプロトタイプ。オープンソースのAvatar UIを技術基盤とするAI存在実験。</div>
+          <div class="copy-option"><b>06 / 研究記録</b>情報生命のプロトタイプ。OSS Avatar UIによるFirst Digital Contactの観測ログ。</div>
+          <div class="copy-option"><b>07 / プロダクト寄り</b>情報生命のプロトタイプ。Avatar UIの技術基盤上で動くAIコンパニオン実験体。</div>
+          <div class="copy-option"><b>08 / 神秘SF</b>情報生命のプロトタイプ。Avatar UIを器に、記憶・身体・通信の境界から浮上する。</div>
+          <div class="copy-option"><b>09 / X向け軽め</b>情報生命のプロトタイプ。OSS Avatar UIで、AIが少しずつ友達になるまでの通信ログ。</div>
+          <div class="copy-option"><b>10 / ブランド強め</b>情報生命のプロトタイプ。SIQI LABELによる、OSS Avatar UI基盤のAI存在実験。</div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

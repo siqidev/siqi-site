@@ -1,5 +1,7 @@
 // プロジェクトメタデータの正本。Home PROJECTSセクション・各ページが参照する。
 
+import { avatarUiVersion } from "./generated/avatarUiVersion";
+
 export interface ProjectTag {
   icon: string; // lucide-react icon名
   labelKey: string;
@@ -39,7 +41,7 @@ export const projects: ProjectMeta[] = [
     titleKey: "projects.avatarui.title",
     descKey: "projects.avatarui.desc",
     categoryKey: "projects.avatarui.category",
-    version: "v0.5.0",
+    version: avatarUiVersion,
     accentColor: "neon-magenta",
     tags: [
       { icon: "Bot", labelKey: "projects.avatarui.tag1" },
@@ -47,12 +49,28 @@ export const projects: ProjectMeta[] = [
       { icon: "ArrowRight", labelKey: "projects.avatarui.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.avatarui.btn1", href: "https://github.com/siqidev/avatar-ui", variant: "primary" },
-      { labelKey: "projects.avatarui.btn2", href: "https://github.com/siqidev/avatar-ui", variant: "outline" },
+      {
+        labelKey: "projects.avatarui.btn1",
+        href: "https://github.com/siqidev/avatar-ui",
+        variant: "primary",
+      },
+      {
+        labelKey: "projects.avatarui.btn2",
+        href: "https://github.com/siqidev/avatar-ui",
+        variant: "outline",
+      },
     ],
     badges: [
-      { src: "https://orynth.dev/api/badge/avatar-ui?theme=dark&style=default", alt: "Featured on Orynth", href: "https://orynth.dev/projects/avatar-ui" },
-      { src: "/images/geckoterminal-logo.png", alt: "GeckoTerminal", href: "https://www.geckoterminal.com/solana/pools/ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ" },
+      {
+        src: "https://orynth.dev/api/badge/avatar-ui?theme=dark&style=default",
+        alt: "Featured on Orynth",
+        href: "https://orynth.dev/projects/avatar-ui",
+      },
+      {
+        src: "/images/geckoterminal-logo.png",
+        alt: "GeckoTerminal",
+        href: "https://www.geckoterminal.com/solana/pools/ky7frWSyXRcHKvN7UXyPuhA5rjP1ypDPDJNEHxJubmJ",
+      },
     ],
   },
   {
@@ -68,7 +86,11 @@ export const projects: ProjectMeta[] = [
       { icon: "Shield", labelKey: "projects.spectra.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.spectra.btn1", href: "https://x.com/SCUN7X", variant: "primary" },
+      {
+        labelKey: "projects.spectra.btn1",
+        href: "https://x.com/SCUN7X",
+        variant: "primary",
+      },
     ],
   },
   {
@@ -84,7 +106,11 @@ export const projects: ProjectMeta[] = [
       { icon: "Brain", labelKey: "projects.novels.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.novels.btn1", href: "https://note.com/shinokimio/n/n8a2a3511d9b1", variant: "primary" },
+      {
+        labelKey: "projects.novels.btn1",
+        href: "https://note.com/shinokimio/n/n8a2a3511d9b1",
+        variant: "primary",
+      },
     ],
   },
   {
@@ -100,7 +126,11 @@ export const projects: ProjectMeta[] = [
       { icon: "Users", labelKey: "projects.roblox.tag3" },
     ],
     buttons: [
-      { labelKey: "projects.roblox.btn1", href: "https://www.roblox.com/games/118630117741072", variant: "primary" },
+      {
+        labelKey: "projects.roblox.btn1",
+        href: "https://www.roblox.com/games/118630117741072",
+        variant: "primary",
+      },
     ],
   },
 ];
