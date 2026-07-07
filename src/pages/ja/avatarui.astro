@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+import AvatarUiPage from "../../components/pages/AvatarUiPage.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations("ja");
+---
+
+<Base
+  locale="ja"
+  path="/avatarui"
+  title={t("avatarui.seo.title")}
+  description={t("avatarui.seo.description")}
+>
+  <AvatarUiPage locale="ja" />
+</Base>

@@ -1,0 +1,69 @@
+---
+// client/src/pages/Roblox.tsx の移植。
+import Header from "../Header.astro";
+import { useTranslations, type Locale } from "../../i18n";
+import { buttonClass } from "../../lib/button";
+import { ExternalLink } from "lucide-react";
+
+export interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<div
+  class="min-h-screen bg-background text-foreground font-sans selection:bg-primary selection:text-black overflow-x-hidden"
+>
+  <div class="fixed inset-0 z-50 pointer-events-none">
+    <div class="scanline"></div>
+  </div>
+
+  <Header locale={locale} path="/roblox" variant="page" />
+
+  <main class="flex-1 relative z-10 pt-16">
+    <section class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden bg-black">
+      <div class="container relative z-20 flex flex-col items-center justify-center text-center px-4">
+        <h1
+          class="font-syne font-extrabold leading-none tracking-tighter text-white mb-8"
+          style="font-size: clamp(2.5rem, 10vw, 8rem);"
+        >
+          {t("roblox.hero.tagline")}
+        </h1>
+        <p class="font-mono text-sm text-primary/60 max-w-2xl mb-16">
+          {t("roblox.hero.description")}
+        </p>
+
+        {/* Steal from Elyth */}
+        <div class="max-w-2xl w-full border border-primary/30 bg-black p-8 text-left">
+          <div class="flex items-center gap-3 mb-4">
+            <h2 class="text-3xl font-display text-white">{t("roblox.sfe.title")}</h2>
+            <span class="px-2 py-0.5 text-[10px] font-mono border border-neon-magenta text-neon-magenta bg-neon-magenta/10">
+              {t("roblox.sfe.status")}
+            </span>
+          </div>
+          <p class="font-mono text-sm text-gray-400 leading-relaxed mb-6">
+            {t("roblox.sfe.desc")}
+          </p>
+          <a
+            href="https://www.roblox.com/games/118630117741072"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span
+              class={buttonClass({
+                variant: "outline",
+                className:
+                  "border-neon-magenta text-neon-magenta hover:bg-neon-magenta/10 rounded-none font-mono",
+              })}
+            >
+              {t("roblox.sfe.play")}
+              <ExternalLink className="ml-2 w-4 h-4" />
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>

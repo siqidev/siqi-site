@@ -1,0 +1,16 @@
+---
+import Base from "../../layouts/Base.astro";
+import SpectraPage from "../../components/pages/SpectraPage.astro";
+import { useTranslations } from "../../i18n";
+
+const t = useTranslations("en");
+---
+
+<Base
+  locale="en"
+  path="/spectra"
+  title={t("spectra.seo.title")}
+  description={t("spectra.seo.description")}
+>
+  <SpectraPage locale="en" />
+</Base>
