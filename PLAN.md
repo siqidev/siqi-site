@@ -106,7 +106,7 @@ functions/
 - Lighthouse 比較（現行比で劣化なし）
 - Codex レビュー → 指摘修正
 - 完了条件: 上記全通過 ＋ ユーザーがプレビュー URL で実機検収（Functions の 302 含む）
-- 🔶 実装完了・外部検証待ち（2026-07-07）: 旧実装（client/・server/・vite.config.ts・tsconfig.client.json・components.json・shared/・tsconfig.node.json）削除／依存を55→18に剪定／build・check・astro preview curl 全通過／Home の英語ページが日本語デフォルトSEOに fallback するバグを発見・修正（home.seo.* 追加）／Codexレビュー（条件付き承認）指摘の Function HEAD 対応・Accept-Language 解析修正済み（単体10ケース合格）。**残り＝CFプレビュー実機での 302/301 確認・Lighthouse・ユーザー検収**（完了条件はこの3点の通過をもって満たす）
+- 🔶 実装完了・外部検証待ち（2026-07-07）: 旧実装（client/・server/・vite.config.ts・tsconfig.client.json・components.json・shared/・tsconfig.node.json）削除／依存を55→18に剪定／build・check・astro preview curl 全通過／Home の英語ページが日本語デフォルトSEOに fallback するバグを発見・修正（home.seo.* 追加）／Codexレビュー（条件付き承認）指摘の Function HEAD 対応・Accept-Language 解析修正済み（単体10ケース合格）。CFプレビュー実機検証済み（2026-07-07）: 302振り分け（ja/en/同点/HEAD）・旧URL301・404・全10ページSEO値・JS無し本文 全通過。Lighthouse: 旧本番 perf59/LCP5.9s → 新 perf69/LCP4.4s（動画2MBがLCP化した問題を poster 付与で解消。プレビューのSEO低値は CF が previews に付ける x-robots-tag: noindex によるアーティファクト）。**残り＝ユーザー実機検収のみ**
 
 ### Phase 4 — 切替（ユーザー検収後のみ）
 - dev → main マージ（単一マージコミット）＝本番反映
