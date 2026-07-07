@@ -29,7 +29,7 @@ const [featured, ...restProjects] = projects;
       featured.image && (
         <div class="absolute inset-0 z-0 opacity-30">
           <video
-            src={featured.image}
+            data-lazy-src={featured.image}
             autoplay
             loop
             muted
@@ -57,7 +57,7 @@ const [featured, ...restProjects] = projects;
             <div class="w-full">
               <div class="relative w-full rounded-xl overflow-hidden border border-primary/20 shadow-[0_0_50px_rgba(0,255,65,0.15)] bg-black/50">
                 <video
-                  src={featured.image}
+                  data-lazy-src={featured.image}
                   autoplay
                   loop
                   muted

@@ -20,8 +20,9 @@ const t = useTranslations(locale);
     <div
       class="absolute inset-0 w-full h-full opacity-50 mix-blend-screen grayscale contrast-125"
     >
+      {/* src はページ読込完了後にスクリプトで注入する（LCP対象から外す。旧SPAと同じ挙動） */}
       <video
-        src="/images/avatar-ui-demo.mp4"
+        data-lazy-src="/images/avatar-ui-demo.mp4"
         autoplay
         loop
         muted

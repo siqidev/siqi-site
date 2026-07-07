@@ -37,3 +37,23 @@ const { locale } = Astro.props;
     <Contact locale={locale} />
   </main>
 </div>
+
+<script>
+  // 背景動画の遅延マウント: 初期HTMLに src を持たせると2MBの動画がLCP判定対象になるため、
+  // ページ読込完了後に data-lazy-src から注入する（旧SPAのJS描画後マウントと同じ挙動）
+  const mountLazyVideos = () => {
+    document.querySelectorAll<HTMLVideoElement>("video[data-lazy-src]").forEach(video => {
+      const src = video.dataset.lazySrc;
+      if (!src) return;
+      video.src = src;
+      // 背景演出のためブラウザの自動再生ブロックは無視してよい
+      video.play().catch(() => undefined);
+    });
+  };
+
+  if (document.readyState === "complete") {
+    mountLazyVideos();
+  } else {
+    window.addEventListener("load", mountLazyVideos, { once: true });
+  }
+</script>
