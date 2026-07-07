@@ -14,6 +14,9 @@ export const en: Record<keyof typeof ja, string> = {
   // Home - Hero
   "home.hero.tagline": "> Building the future, pixel by pixel._",
   "home.hero.viewWorks": "[ View Works ]",
+  "home.seo.title": "SIQI - Official Website of Sito Shikino",
+  "home.seo.description":
+    "Official portfolio of creator and independent developer Sito Shikino. Featuring OSS projects such as Avatar UI and creative works.",
 
   // Home - Featured Project
   "home.projects.title": "PROJECTS",

@@ -85,11 +85,13 @@ functions/
 - fonts / global css / Base レイアウト（SEO head 含む）/ Header / i18n 辞書抽出
 - Home（en/ja）移植、ルート振り分け Function、`_redirects` 行列
 - 完了条件: ビルド成功、`/en` `/ja` の Home が現デザインで表示、curl で本文・OGP 取得可
+- ✅ 完了（2026-07-07・Phase 3 検証で再確認: build/check 通過、`/en` `/ja` 200・本文/OGP 静的取得可）
 
 ### Phase 2 — 全ページ移植
 - AvatarUI / Spectra / Roblox / Novels / 404 を現デザインのまま移植（×2 言語）
 - 島の移植: RSS（client:visible）・阿頼耶識 3D（client:visible / client:only）
 - 完了条件: 全ページ×2 言語が現行サイトと同内容・同見た目
+- ✅ 完了（2026-07-07・Phase 3 検証で再確認: 全10ページ 200、各ページ固有文言を静的取得）
 
 ### Phase 3 — 検証・清掃
 - `astro check` / ビルド / curl 検査:
@@ -104,6 +106,7 @@ functions/
 - Lighthouse 比較（現行比で劣化なし）
 - Codex レビュー → 指摘修正
 - 完了条件: 上記全通過 ＋ ユーザーがプレビュー URL で実機検収（Functions の 302 含む）
+- ✅ 完了（2026-07-07・CC実施分）: 旧実装（client/・server/・vite.config.ts・tsconfig.client.json・components.json・shared/・tsconfig.node.json）削除／依存を55→18に剪定／build・check・astro preview curl 全通過／Home の英語ページが日本語デフォルトSEOに fallback するバグを発見・修正（home.seo.* 追加）。ルート`/`の302とCloudflare `_redirects`の301はastro previewでは検証不可のため未実施（CFプレビュー実機での確認が必要）。Lighthouse比較とCodexレビューは未実施（次のアクション）
 
 ### Phase 4 — 切替（ユーザー検収後のみ）
 - dev → main マージ（単一マージコミット）＝本番反映

@@ -12,6 +12,9 @@ export const ja = {
   // Home - Hero
   "home.hero.tagline": "> Building the future, pixel by pixel._",
   "home.hero.viewWorks": "[ View Works ]",
+  "home.seo.title": "SIQI - 式乃シト公式ウェブサイト",
+  "home.seo.description":
+    "クリエイター兼個人開発者「式乃シト」の公式ポートフォリオ。Avatar UIなどのOSSプロジェクトや作品を紹介。",
 
   // Home - Featured Project
   "home.projects.title": "PROJECTS",
