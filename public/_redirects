@@ -6,3 +6,6 @@
 /roblox/    /en/roblox     301
 /novels     /en/novels     301
 /novels/    /en/novels     301
+
+# 旧sitemap URL（GSC登録済み）を新sitemapへ
+/sitemap.xml  /sitemap-index.xml  301
