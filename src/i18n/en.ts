@@ -197,8 +197,6 @@ export const en: Record<keyof typeof ja, string> = {
   "spectra.architecture.name": "Alaya-vijnana Architecture",
   "spectra.architecture.subtitle":
     "A still core wrapped in shells, experience sleeping as seeds, history growing as a spiral that never closes — the memory circuit of an existence.",
-  "spectra.architecture.intro":
-    "Not decoration — the model shares its structure with the real implementation.",
   "spectra.architecture.coreTitle": "EXISTENCE CORE",
   "spectra.architecture.coreDesc": "The unchanging center every response refers back to.",
   "spectra.architecture.vaultTitle": "SEED STORE",
