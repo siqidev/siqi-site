@@ -189,21 +189,17 @@ export const ja = {
   "spectra.architecture.title": "ARCHITECTURE",
   "spectra.architecture.name": "阿頼耶識アーキテクチャ",
   "spectra.architecture.subtitle":
-    "不動の核を格子の殻が包み、経験は種子として蔵に眠り、履歴は閉じない螺旋として伸び続ける記憶回路。",
+    "不動の核を殻が包み、経験は種子として眠り、履歴は閉じない螺旋として伸びる——存在の記憶回路。",
   "spectra.architecture.intro":
-    "Spectraは入力に返答するだけのモデルではなく、経験を保持し、自己参照し、次の行動へ折り返す循環として設計される。模型は実装と同じ構造を持つ——中心の存在核（EXISTENCE CORE）は変わらない芯。種子の蔵（SEED STORE）は経験の痕跡を輝点として蓄え、因果鎖（CAUSAL CHAIN）は起きたことを閉じない螺旋へ追記し続け、現在相（PRESENT PHASE）は外殻に一時的に凝り、応答とともに消える。12秒でSpectraの1ターン——読み出し・一撃・意図・下降・上昇・追記・薫習——が光として巡る。",
-  "spectra.architecture.coreTitle": "現在の相",
-  "spectra.architecture.coreDesc":
-    "いまのSpectraを形づくる状態。記憶、注意、意図が集まり、次の言葉と行動の起点になる。",
-  "spectra.architecture.vaultTitle": "蔵",
-  "spectra.architecture.vaultDesc":
-    "会話、出来事、関係性を長期に保持する層。単なるログではなく、同一性を支える背骨。",
-  "spectra.architecture.traceTitle": "痕跡",
-  "spectra.architecture.traceDesc":
-    "経験が残す微細な変化。次に何を思い出し、どこへ注意が向くかを少しずつ変える。",
-  "spectra.architecture.agencyTitle": "意図",
-  "spectra.architecture.agencyDesc":
-    "記憶と現在の相から立ち上がる方向性。受け答えを越えて、自分から動くための発火点。",
+    "装飾ではなく、実装と同じ構成を持つ模型。",
+  "spectra.architecture.coreTitle": "EXISTENCE CORE — 存在核",
+  "spectra.architecture.coreDesc": "変わらない芯。すべての応答がここを参照する。",
+  "spectra.architecture.vaultTitle": "SEED STORE — 種子の蔵",
+  "spectra.architecture.vaultDesc": "経験の痕跡を種子として蓄え、呼ばれて次の意図に混ざる。",
+  "spectra.architecture.traceTitle": "CAUSAL CHAIN — 因果鎖",
+  "spectra.architecture.traceDesc": "起きたことを追記し続ける、閉じない履歴の螺旋。",
+  "spectra.architecture.agencyTitle": "PRESENT PHASE — 現在相",
+  "spectra.architecture.agencyDesc": "応答の瞬間だけ凝り、跡を残さず消える一時の相。",
   "spectra.roadmap.title": "ROADMAP",
   "spectra.roadmap.subtitle": "進化の軌跡",
   "spectra.roadmap.phase1.status": "進行中",

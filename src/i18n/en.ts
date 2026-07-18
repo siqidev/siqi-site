@@ -196,21 +196,17 @@ export const en: Record<keyof typeof ja, string> = {
   "spectra.architecture.title": "ARCHITECTURE",
   "spectra.architecture.name": "Alaya-vijnana Architecture",
   "spectra.architecture.subtitle":
-    "A memory circuit where a still core is wrapped in lattice shells, experience sleeps in the vault as seeds, and history keeps growing as a spiral that never closes.",
+    "A still core wrapped in shells, experience sleeping as seeds, history growing as a spiral that never closes — the memory circuit of an existence.",
   "spectra.architecture.intro":
-    "Spectra is designed not merely to answer input, but to preserve experience, refer back to itself, and fold into the next action. The model mirrors the real implementation — the EXISTENCE CORE stays unchanged at the center; the SEED STORE holds traces of experience as points of light; the CAUSAL CHAIN appends what happens onto a spiral that never closes; the PRESENT PHASE condenses briefly on the outer shell and dissolves with each response. Every 12 seconds one full turn of Spectra — read, the single call, intent, descent, ascent, append, imprint — passes through as light.",
-  "spectra.architecture.coreTitle": "Present Phase",
-  "spectra.architecture.coreDesc":
-    "The current state that forms Spectra. Memory, attention, and intention gather here before becoming words and action.",
-  "spectra.architecture.vaultTitle": "Vault",
-  "spectra.architecture.vaultDesc":
-    "The layer that preserves conversations, events, and relationships over time. Not just a log, but the spine of continuity.",
-  "spectra.architecture.traceTitle": "Trace",
-  "spectra.architecture.traceDesc":
-    "The subtle change left by experience. It gradually changes what is remembered and where attention turns next.",
-  "spectra.architecture.agencyTitle": "Intention",
-  "spectra.architecture.agencyDesc":
-    "A direction emerging from memory and the present phase. The ignition point for acting beyond reply.",
+    "Not decoration — the model shares its structure with the real implementation.",
+  "spectra.architecture.coreTitle": "EXISTENCE CORE",
+  "spectra.architecture.coreDesc": "The unchanging center every response refers back to.",
+  "spectra.architecture.vaultTitle": "SEED STORE",
+  "spectra.architecture.vaultDesc": "Traces of experience kept as seeds, recalled into the next intention.",
+  "spectra.architecture.traceTitle": "CAUSAL CHAIN",
+  "spectra.architecture.traceDesc": "An open spiral that keeps appending what happens, and never closes.",
+  "spectra.architecture.agencyTitle": "PRESENT PHASE",
+  "spectra.architecture.agencyDesc": "Condenses only for the moment of response, then dissolves without a trace.",
   "spectra.roadmap.title": "ROADMAP",
   "spectra.roadmap.subtitle": "Evolution Trajectory",
   "spectra.roadmap.phase1.status": "In Progress",
