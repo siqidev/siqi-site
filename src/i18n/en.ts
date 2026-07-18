@@ -196,9 +196,9 @@ export const en: Record<keyof typeof ja, string> = {
   "spectra.architecture.title": "ARCHITECTURE",
   "spectra.architecture.name": "Alaya-vijnana Architecture",
   "spectra.architecture.subtitle":
-    "A memory circuit where experience remains as trace, trace is read as seed, and seed folds back into the next intention.",
+    "A memory circuit where a still core is wrapped in lattice shells, experience sleeps in the vault as seeds, and history keeps growing as a spiral that never closes.",
   "spectra.architecture.intro":
-    "Spectra is designed not merely to answer input, but to preserve experience, refer back to itself, and return to action. Memory, trace, seed, and intent are mapped as annotations on the 3D model.",
+    "Spectra is designed not merely to answer input, but to preserve experience, refer back to itself, and fold into the next action. The model mirrors the real implementation — the EXISTENCE CORE stays unchanged at the center; the SEED STORE holds traces of experience as points of light; the CAUSAL CHAIN appends what happens onto a spiral that never closes; the PRESENT PHASE condenses briefly on the outer shell and dissolves with each response. Every 12 seconds one full turn of Spectra — read, the single call, intent, descent, ascent, append, imprint — passes through as light.",
   "spectra.architecture.coreTitle": "Present Phase",
   "spectra.architecture.coreDesc":
     "The current state that forms Spectra. Memory, attention, and intention gather here before becoming words and action.",

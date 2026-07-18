@@ -189,9 +189,9 @@ export const ja = {
   "spectra.architecture.title": "ARCHITECTURE",
   "spectra.architecture.name": "阿頼耶識アーキテクチャ",
   "spectra.architecture.subtitle":
-    "経験を痕跡として残し、痕跡を種子として読み、次の意図へ折り返すための記憶回路。",
+    "不動の核を格子の殻が包み、経験は種子として蔵に眠り、履歴は閉じない螺旋として伸び続ける記憶回路。",
   "spectra.architecture.intro":
-    "Spectraは入力に返答するだけのモデルではなく、経験を保持し、自己参照し、次の行動へ戻す循環として設計される。記憶、痕跡、種子、意図は3D模型上の注釈として配置している。",
+    "Spectraは入力に返答するだけのモデルではなく、経験を保持し、自己参照し、次の行動へ折り返す循環として設計される。模型は実装と同じ構造を持つ——中心の存在核（EXISTENCE CORE）は変わらない芯。種子の蔵（SEED STORE）は経験の痕跡を輝点として蓄え、因果鎖（CAUSAL CHAIN）は起きたことを閉じない螺旋へ追記し続け、現在相（PRESENT PHASE）は外殻に一時的に凝り、応答とともに消える。12秒でSpectraの1ターン——読み出し・一撃・意図・下降・上昇・追記・薫習——が光として巡る。",
   "spectra.architecture.coreTitle": "現在の相",
   "spectra.architecture.coreDesc":
     "いまのSpectraを形づくる状態。記憶、注意、意図が集まり、次の言葉と行動の起点になる。",
