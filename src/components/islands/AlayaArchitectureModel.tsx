@@ -375,23 +375,11 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
     paintHist(0, -1);
     const histTip = histPts[histN - 2];
 
-    // 光脈の道（上昇・薫習だけ一時的に灯る＝常設配線なし）
-    const mkPath = (color: number): THREE.Line => {
-        const line = new THREE.Line(
-            new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]),
-            new THREE.LineBasicMaterial({
-                color,
-                transparent: true,
-                opacity: 0,
-                blending: THREE.AdditiveBlending,
-                depthWrite: false,
-            }),
-        );
-        group.add(line);
-        return line;
+    // 上昇・薫習は自由直線を使わず、実在する格子の稜線上を渡る光（波・光点）だけで表現する
+    const slerpDir = (a: THREE.Vector3, b: THREE.Vector3, k: number): THREE.Vector3 => {
+        const v = a.clone().lerp(b, k);
+        return v.lengthSq() < 1e-6 ? b.clone() : v.normalize();
     };
-    const returnPath = mkPath(COL.white);
-    const imprintPath = mkPath(COL.amber);
 
     // HUDラベル（引き出し線＋英語名称・画面オーバーレイ）
     const svgNS = "http://www.w3.org/2000/svg";
@@ -520,13 +508,31 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
         const asm = ease(P(t, 0.2, 0.3)) * (1 - ease(P(t, 0.82, 0.94)));
         const oneCall = breath(P(t, 0.3, 0.36));
         const down = P(t, 0.42, 0.58);
-        paintShell(seedShell, { waves: seedWaves, breathAmt: oneCall * 0.3 });
-        paintShell(midShell, { breathAmt: breath(P(t, 0.24, 0.32)) * 0.3 + oneCall * 0.3 });
+        // 上昇: 外殻の稜線上を光点が渡り（別方位→履歴先端の真上）、内側の層が順に呼応する
+        const up = P(t, 0.56, 0.72);
+        const tipDir = histTip.clone().normalize();
+        const returnDir = l.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), -2.4).normalize();
+        const ascentDir = slerpDir(returnDir, tipDir, ease(up));
+        const outerWaves: ShellWave[] = [];
+        if (down > 0 && down < 1) {
+            outerWaves.push({ dir: l, radius: ease(down) * 2.9, width: 0.35, amt: 0.85 * (1 - down * 0.5) });
+        }
+        if (up > 0 && up < 1) {
+            outerWaves.push({ dir: ascentDir, radius: 0, width: 0.36, amt: 1.7 * breath(up) });
+        }
+        // 薫習: 種子殻の稜線上で琥珀の光輪が新種子の位置へ収束する
+        const im = P(t, 0.78, 0.94);
+        const freshDir = freshSeed.position.clone().normalize().applyEuler(seedShell.rotation);
+        const imprintWaves: ShellWave[] =
+            im > 0 && im < 1 ? [{ dir: freshDir, radius: (1 - ease(im)) * 1.5, width: 0.38, amt: 0.8 * breath(im) }] : [];
+        paintShell(seedShell, { waves: seedWaves.concat(imprintWaves), breathAmt: oneCall * 0.3 });
+        paintShell(midShell, {
+            breathAmt: breath(P(t, 0.24, 0.32)) * 0.3 + oneCall * 0.3,
+            locusDir: tipDir,
+            locusAmt: 0.9 * breath(P(t, 0.62, 0.74)),
+        });
         paintShell(outerShell, {
-            waves:
-                down > 0 && down < 1
-                    ? [{ dir: l, radius: ease(down) * 2.9, width: 0.35, amt: 0.85 * (1 - down * 0.5) }]
-                    : [],
+            waves: outerWaves,
             locusDir: l,
             locusAmt: 1.4 * asm,
             breathAmt: oneCall * 0.4 + (t < 0.08 ? breath(P(t, 0, 0.08)) * 0.25 : 0),
@@ -548,29 +554,11 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
         echoLine.position.copy(f0.center.clone().normalize().multiplyScalar(ease(down) * 0.65));
         (echoLine.material as THREE.LineBasicMaterial).opacity = down > 0 && down < 1 ? 0.5 * (1 - ease(down)) : 0;
 
-        // 上昇=別方位の稜から入り層間を通って履歴の最新頂点へ
-        const up = P(t, 0.56, 0.72);
-        const returnDir = l.clone().applyAxisAngle(new THREE.Vector3(0, 1, 0), -2.4).normalize();
-        const entry = returnDir.clone().multiplyScalar(2.28);
-        const midP = entry
-            .clone()
-            .lerp(histTip, 0.5)
-            .normalize()
-            .multiplyScalar((2.28 + histTip.length()) / 2);
-        const upHead = up < 0.5 ? entry.clone().lerp(midP, ease(up * 2)) : midP.clone().lerp(histTip, ease((up - 0.5) * 2));
-        returnPath.geometry.setFromPoints([entry, upHead.clone().lerp(entry, 0.4), upHead]);
-        (returnPath.material as THREE.LineBasicMaterial).opacity = up > 0 && up < 1 ? 0.7 * breath(up) : 0;
-
         // 追記=次の一稜を光が走り青灰へ冷える
         const append = P(t, 0.7, 0.8);
         paintHist(ease(append), append > 0 && append < 1 ? 0.97 + append * 0.03 : -1);
 
-        // 薫習=琥珀の光が別の細道を遅れて種子層へ／再編=3周期毎idle
-        const im = P(t, 0.78, 0.94);
-        const dest = freshSeed.getWorldPosition(new THREE.Vector3());
-        const imHead = histTip.clone().lerp(dest, ease(im));
-        imprintPath.geometry.setFromPoints([histTip, imHead.clone().lerp(histTip, 0.4), imHead]);
-        (imprintPath.material as THREE.LineBasicMaterial).opacity = im > 0 && im < 1 ? 0.45 * breath(im) : 0;
+        // 薫習の定着（光輪はpaintShell側）／再編=3周期毎idle
         (freshSeed.material as THREE.SpriteMaterial).opacity =
             0.8 * ease(P(t, 0.86, 0.97)) * (1 - ease(P(t, 0.99, 1)));
         const cons = cycle % 3 === 2 ? breath(P(t, 0.94, 1)) : 0;
