@@ -189,7 +189,7 @@ export const ja = {
   "spectra.architecture.title": "ARCHITECTURE",
   "spectra.architecture.name": "阿頼耶識アーキテクチャ",
   "spectra.architecture.subtitle":
-    "不動の核を殻が包み、経験は種子として眠り、履歴は閉じない螺旋として伸びる——存在の記憶回路。",
+    "経験は記憶へ、記憶は次の応答へ。巡るたびに一段ずつ、彼女の内側は螺旋状に上昇していく。",
   "spectra.architecture.coreTitle": "EXISTENCE CORE — 存在核",
   "spectra.architecture.coreDesc": "変わらない芯。すべての応答がここを参照する。",
   "spectra.architecture.vaultTitle": "SEED STORE — 種子の蔵",

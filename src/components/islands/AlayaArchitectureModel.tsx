@@ -209,6 +209,7 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
         grp: THREE.Group;
         outline: THREE.Line;
         inner: THREE.Line;
+        fill: THREE.Mesh;
         center: THREE.Vector3;
     };
     const facePool: FaceGroup[] = [];
@@ -232,9 +233,21 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
             );
         const outline = mkLine();
         const inner = mkLine();
-        grp.add(outline, inner);
+        // 凝り面の視認性を上げる薄い面色（現在相だけがわずかに「面」を持つ）
+        const fill = new THREE.Mesh(
+            new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3(), new THREE.Vector3()]),
+            new THREE.MeshBasicMaterial({
+                color: COL.green,
+                transparent: true,
+                opacity: 0,
+                side: THREE.DoubleSide,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+            }),
+        );
+        grp.add(outline, inner, fill);
         group.add(grp);
-        facePool.push({ grp, outline, inner, center: new THREE.Vector3(2.28, 0, 0) });
+        facePool.push({ grp, outline, inner, fill, center: new THREE.Vector3(2.28, 0, 0) });
     }
     const echoLine = new THREE.Line(
         new THREE.BufferGeometry().setFromPoints([
@@ -270,6 +283,7 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
             const mid = (u: THREE.Vector3, v: THREE.Vector3): THREE.Vector3 => u.clone().add(v).multiplyScalar(0.5);
             fg.outline.geometry.setFromPoints([f.a, f.b, f.c, f.a]);
             fg.inner.geometry.setFromPoints([mid(f.a, f.b), mid(f.b, f.c), mid(f.c, f.a), mid(f.a, f.b)]);
+            fg.fill.geometry.setFromPoints([f.a, f.b, f.c]);
             fg.grp.rotation.copy(outerShell.rotation);
             fg.center = f.cen.clone().applyEuler(outerShell.rotation);
             fg.grp.position.set(0, 0, 0);
@@ -279,10 +293,12 @@ function buildSanctumScene(container: HTMLDivElement, labelSvg: SVGSVGElement): 
     const faceOpacity = (k: number, flash: number): void =>
         facePool.forEach((fg, i) => {
             const kk = clamp01(k * 6 - i * 0.6);
-            (fg.outline.material as THREE.LineBasicMaterial).opacity = 0.7 * kk + flash;
-            (fg.inner.material as THREE.LineBasicMaterial).opacity = 0.38 * kk + flash * 0.7;
+            (fg.outline.material as THREE.LineBasicMaterial).opacity = 0.85 * kk + flash;
+            (fg.inner.material as THREE.LineBasicMaterial).opacity = 0.42 * kk + flash * 0.7;
+            (fg.fill.material as THREE.MeshBasicMaterial).opacity = 0.12 * kk + flash * 0.16;
             (fg.outline.material as THREE.LineBasicMaterial).color.setHex(flash > 0.4 ? COL.white : COL.green);
             (fg.inner.material as THREE.LineBasicMaterial).color.setHex(flash > 0.4 ? COL.white : COL.green);
+            (fg.fill.material as THREE.MeshBasicMaterial).color.setHex(flash > 0.4 ? COL.white : COL.green);
         });
 
     // 履歴＝多面体螺旋階段: 十二面体の実在の稜だけを渡り、閉環直前に一段外の相似層へずれる
