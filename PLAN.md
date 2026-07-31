@@ -131,3 +131,9 @@ functions/
 - 緑デザイン刷新（TERMINAL / MATRIX / BLUEPRINT 系）を新土台上で実装
 - 小説本文のサイト内掲載（content collection 追加）
 - Spectra ライブデータの島
+- **蛍光体グロー＋タイプライター演出の採否判断（2026-08-01 時点で作業ツリーに実装あり・未コミット）**
+  - 内容: `.text-glow`（多層の硬いCRTグロー・`currentColor` 追従なのでどのアクセント色にも乗る）／`.text-glow-bloom`（単層のやわらかい滲み・宣言的な一文専用）／`.typewriter-line`（CSSのwidthアニメのみ＝JS不要・本文は常時DOMにあるのでクローラーとno-JSでも読める）
+  - 由来: PHOSPHOR ドラフト（グロー）と WIREFRAME ドラフト（世界宣言テキストの滲み）
+  - 適用範囲: global.css ＋ Header / Hero / Profile / Projects / Blog / Community / Contact / AvatarUiPage / SpectraPage
+  - 決めること: 採用してコミットするか破棄するか。採用するならブランドの署名箇所（ロゴ・セクション番号・宣言文）に限る方針を守れているかの確認
+  - 注意: ARCHITECTURE 節の阿頼耶識アーキ3D模型（`0b66476` までで完了）とは別作業
